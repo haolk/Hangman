@@ -1,0 +1,5 @@
+* no storyboard - full programmatically
+* mvvm
+
+
+prebacio sam view u posebne klase, dali sada imam memory leak?
