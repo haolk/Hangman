@@ -10,9 +10,9 @@ import UIKit
 
 class GameViewController: UIViewController, GameViewDelegate {
 
-    fileprivate var gameViewModel: GameViewModelProtocol
+    private var gameViewModel: GameViewModelProtocol
     
-    fileprivate var tappedLetterButtons = [UIButton]()
+    private var tappedLetterButtons = [UIButton]()
     
     private lazy var gameView: GameView = {
         let gameView = GameView()
@@ -46,52 +46,69 @@ class GameViewController: UIViewController, GameViewDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    func letterButtonTapped(_ letterButton: UIButton) {
-        guard let tappedLetter = letterButton.titleLabel?.text else { return }
-        appendInTappedButtons(letterButton)
-        let letterStatus = gameViewModel.letterButtonTapped(tappedLetter)
-        letterButton.backgroundColor = letterStatus ? UIColor.green : UIColor.red
+    func checkIsTappedLetterInLookingWord(_ letterButton: UIButton) {
+        disableAndAppendButtonInTappedLetterButtons(letterButton)
+        checkLetterStatusAndChangeItsColor(letterButton)
         gameViewModel.checkIsGameFinished()
     }
     
     // MARK: - PRIVATE METHODS
     
-    fileprivate func fillUI() {
-        
-        gameView.hintLabel.text = gameViewModel.hint
+    private func fillUI() {
         
         //BINDS:
+        
+        gameViewModel.isUseShowHint.bindAndFire { [unowned self] (useShowHint: Bool) in
+            if useShowHint {
+                self.gameView.hintLabel.text = self.gameViewModel.hint
+            }
+        }
+        
         gameViewModel.score.bindAndFire { [unowned self] in self.gameView.scoreLabel.text = $0 }
         gameViewModel.image.bindAndFire { [unowned self] in self.gameView.imageView.image = UIImage(named: $0) }
         gameViewModel.answere.bindAndFire({ [unowned self] in self.gameView.answerTextfield.text = $0 })
         
-        gameViewModel.isFinished.bindAndFire { [weak self] in
-            if $0 {
-                let alertTitle = self?.gameViewModel.alertTitle
-                let alertMessage = self?.gameViewModel.alertMessage
-                let ac = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "New Game", style: .default, handler: { [weak self] _ in
-                    self?.gameViewModel.newWord()
-                    self?.fillUI()
-                    self?.restoreLetterButtons()
-                }))
-                self?.present(ac, animated: true, completion: nil)
+        gameViewModel.isFinished.bindAndFire { [weak self] (gameIsFinished: Bool) in
+            if gameIsFinished {
+                self?.createAlertController(actionHandler: { [weak self] (UIAlertAction) -> Void in
+                    self?.startNewGame()
+                })
             }
         }
-
+        
     }
     
-    fileprivate func appendInTappedButtons(_ letterButton: UIButton) {
+    private func createAlertController(actionHandler: ((UIAlertAction) -> Void)?) -> Void {
+        let alertTitle = gameViewModel.alertTitle
+        let alertMessage = gameViewModel.alertMessage
+        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "New Game", style: .default, handler: actionHandler))
+        present(alertController, animated: true)
+    }
+    
+    private func startNewGame() {
+        gameViewModel.newWord()
+        fillUI()
+        enableAndRestoreTappedLetterButtons()
+    }
+    
+    private func disableAndAppendButtonInTappedLetterButtons(_ letterButton: UIButton) {
         letterButton.isUserInteractionEnabled = false
         tappedLetterButtons.append(letterButton)
     }
     
-    fileprivate func restoreLetterButtons() {
+    private func enableAndRestoreTappedLetterButtons() {
         for letterButton in tappedLetterButtons {
             letterButton.isUserInteractionEnabled = true
             letterButton.backgroundColor = .white
         }
         tappedLetterButtons.removeAll()
+    }
+    
+    private func checkLetterStatusAndChangeItsColor(_ letterButton: UIButton) {
+        guard let tappedLetter = letterButton.titleLabel?.text else { return }
+        let letterStatus = gameViewModel.isCorrectLetterTapped(tappedLetter)
+        letterButton.backgroundColor = letterStatus ? UIColor.green : UIColor.red
     }
 
 }

@@ -8,24 +8,18 @@
 
 import Foundation
 
-class StartViewModel: StartViewModelProtocol {
-    
-    // MARK: - StartViewModel Protocol
+struct StartViewModel: StartViewModelProtocol {
     
     let wordsRepository: WordsRepository
     
+    // MARK: - PROTOCOL METHODS
+    
     func startGame() -> Game {
-        let word = wordsRepository.getRandomWord()
-        print(word.en.word)
+        let wordDetails = wordsRepository.getRandomWord()
+        print(wordDetails.word)
         
-        let game = Game(answere: word.en.word.uppercased(), hint: word.en.hint)
+        let game = Game(answere: wordDetails.word.uppercased(), hint: wordDetails.hint)
         return game
-    }
-    
-    // MARK: - INIT
-    
-    init(_ wordsRepository: WordsRepository) {
-        self.wordsRepository = wordsRepository
     }
     
 }

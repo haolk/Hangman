@@ -22,6 +22,7 @@ class Game {
     var answere: String
     var hint: String
     
+    var isUseShowHint: Bool = false
     var isFinished: Bool = false
     
     init(score: Int = 0, answere: String, hint: String) {

@@ -10,19 +10,19 @@ import UIKit
 
 protocol GameViewDelegate: class {
     func backToStartView()
-    func letterButtonTapped(_ letterButton: UIButton)
+    func checkIsTappedLetterInLookingWord(_ letterButton: UIButton)
 }
 
 class GameView: UIView {
-    fileprivate var backButton: UIButton!
+    private var backButton: UIButton!
     var scoreLabel: UILabel!
     var imageView: UIImageView!
     var answerTextfield: UITextField!
     var hintLabel: UILabel!
-    fileprivate var stackView1: UIStackView!
-    fileprivate var stackView2: UIStackView!
-    fileprivate var stackView3: UIStackView!
-    fileprivate var stackView4: UIStackView!
+    private var stackView1: UIStackView!
+    private var stackView2: UIStackView!
+    private var stackView3: UIStackView!
+    private var stackView4: UIStackView!
     
     weak var delegate: GameViewDelegate?
     
@@ -42,7 +42,7 @@ class GameView: UIView {
         setConstraintsForElements()
     }
     
-    fileprivate func addElementsOnView() {
+    private func addElementsOnView() {
         backButton = UIButton()
         let backIconConfig = UIImage.SymbolConfiguration(pointSize: 26)
         let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
@@ -121,7 +121,7 @@ class GameView: UIView {
         addLettersRow(startPosition: 19, numberOfLettersInRow: 7, stackView: stackView4)
     }
      
-    fileprivate func addLettersRow(startPosition: Int, numberOfLettersInRow: Int, stackView: UIStackView) {
+    private func addLettersRow(startPosition: Int, numberOfLettersInRow: Int, stackView: UIStackView) {
         for letter in 0..<numberOfLettersInRow {
             let letterButton = UIButton(type: .custom)
             letterButton.frame = CGRect(x: 0, y: 0, width: 45, height: 40)
@@ -134,12 +134,12 @@ class GameView: UIView {
             letterButton.setTitleColor(Constants.BLUE, for: .normal)
             letterButton.contentHorizontalAlignment = .center
             letterButton.contentVerticalAlignment = .center
-            letterButton.addTarget(self, action: #selector(letterButtonTapped(_:)), for: .touchUpInside)
+            letterButton.addTarget(self, action: #selector(checkIsTappedLetterInLookingWord(_:)), for: .touchUpInside)
             stackView.addArrangedSubview(letterButton)
          }
      }
      
-    fileprivate func setConstraintsForElements() {
+    private func setConstraintsForElements() {
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
             backButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
@@ -180,12 +180,12 @@ class GameView: UIView {
     
     // MARK: - BUTTON ACTION METHODS
     
-    @objc fileprivate func backToStartView() {
+    @objc private func backToStartView() {
         delegate?.backToStartView()
     }
     
-    @objc fileprivate func letterButtonTapped(_ letterButton: UIButton) {
-        delegate?.letterButtonTapped(letterButton)
+    @objc private func checkIsTappedLetterInLookingWord(_ letterButton: UIButton) {
+        delegate?.checkIsTappedLetterInLookingWord(letterButton)
     }
     
 }

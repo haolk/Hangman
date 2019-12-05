@@ -10,7 +10,7 @@ import UIKit
 
 class StartViewController: UIViewController, StartViewDelegate {
     
-    fileprivate var startViewModel: StartViewModelProtocol
+    private var startViewModel: StartViewModelProtocol
     
     private lazy var startView: StartView = {
         let startView = StartView()
@@ -48,8 +48,8 @@ class StartViewController: UIViewController, StartViewDelegate {
     }
     
     func settingsButtonTapped() {
-        print("settingsButtonTapped")
-        let settingsVC = SettingsViewController()
+        let settingsViewModel = SettingsViewModel(wordsRepository: startViewModel.wordsRepository)
+        let settingsVC = SettingsViewController(viewModel: settingsViewModel)
         navigationController?.pushViewController(settingsVC, animated: true)
     }
     

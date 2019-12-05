@@ -28,7 +28,7 @@ class SettingsCell: UITableViewCell {
     lazy var switchControl: UISwitch = {
         let switchControl = UISwitch()
         switchControl.translatesAutoresizingMaskIntoConstraints = false
-//        switchControl.isOn = defaults.useShowHint()
+        switchControl.isOn = GlobalSettings.useShowHint
         switchControl.onTintColor = Constants.BLUE
         switchControl.addTarget(self, action: #selector(handleSwitchAction), for: .valueChanged)
         return switchControl
@@ -55,10 +55,8 @@ class SettingsCell: UITableViewCell {
     
     @objc func handleSwitchAction(sender: UISwitch) {
         guard let settingsOption = settingsOption else { return }
-        print(settingsOption)
-        
         if settingsOption == .showHint {
-            //sender.isOn ? defaults.setUseShowHint(value: true) : defaults.setUseShowHint(value: false)
+            GlobalSettings.useShowHint = sender.isOn ? true : false
         }
     }
     

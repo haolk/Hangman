@@ -2,4 +2,12 @@
 * mvvm
 
 
-prebacio sam view u posebne klase, dali sada imam memory leak?
+- memory leak
+- pitat ga sta kaze na ono sto mi je Sami sa slack rekao u MVVM i kak ne bih trebao imati GameViewController i Dynamic
+- imena klasa
+- dizajn
+- jel mi struktura foldera dobra, i jel bi trebao rasporediti po stranicama u igri a ne po funkcijama mvvm
+- ime Dynamic ili ValueChangeListener
+- jel bi ju mogao staviti na AppStore
+- jel mogu jos kako improvat code
+- Constants i GlobalSettings u koji folder?

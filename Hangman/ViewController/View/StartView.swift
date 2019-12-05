@@ -15,10 +15,10 @@ protocol StartViewDelegate: class {
 }
 
 class StartView: UIView {
-    fileprivate var titleLabel: UILabel!
-    fileprivate var playButton: UIButton!
-    fileprivate var settingsButton: UIButton!
-    fileprivate var bestScoreButton: UIButton!
+    private var titleLabel: UILabel!
+    private var playButton: UIButton!
+    private var settingsButton: UIButton!
+    private var bestScoreButton: UIButton!
     
     weak var delegate: StartViewDelegate?
     
@@ -38,7 +38,7 @@ class StartView: UIView {
         setConstraintsForElements()
     }
     
-    fileprivate func addElementsOnView() {
+    private func addElementsOnView() {
         titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = "HANGMAN"
@@ -84,7 +84,7 @@ class StartView: UIView {
         addSubview(bestScoreButton)
     }
     
-    fileprivate func setConstraintsForElements() {
+    private func setConstraintsForElements() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: layoutMarginsGuide.centerXAnchor),
@@ -106,15 +106,15 @@ class StartView: UIView {
     
     // MARK: - BUTTON ACTION METHODS
     
-    @objc fileprivate func playButtonTapped() {
+    @objc private func playButtonTapped() {
         delegate?.playButtonTapped()
     }
     
-    @objc fileprivate func settingsButtonTapped() {
+    @objc private func settingsButtonTapped() {
         delegate?.settingsButtonTapped()
     }
     
-    @objc fileprivate func bestScoreButtonTapped() {
+    @objc private func bestScoreButtonTapped() {
         delegate?.bestScoreButtonTapped()
     }
     

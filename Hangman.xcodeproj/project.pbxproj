@@ -21,8 +21,9 @@
 		EE56191F238C375D00B10EEF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE56191E238C375D00B10EEF /* SettingsViewController.swift */; };
 		EE561921238C37E100B10EEF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE561920238C37E100B10EEF /* SettingsView.swift */; };
 		EE561924238C3A7400B10EEF /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE561923238C3A7400B10EEF /* SettingsCell.swift */; };
-		EE561927238C3B5B00B10EEF /* SettingsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE561926238C3B5B00B10EEF /* SettingsOptions.swift */; };
 		EE561929238C415500B10EEF /* UserInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE561928238C415500B10EEF /* UserInfoHeader.swift */; };
+		EE5941CF239979ED0029AD83 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5941CE239979ED0029AD83 /* SettingsSection.swift */; };
+		EE5941D1239980750029AD83 /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5941D0239980750029AD83 /* GlobalSettings.swift */; };
 		EE699222236F0719007329DB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE699221236F0719007329DB /* StartViewController.swift */; };
 		EE6E66DB236EF2F200856AE3 /* Hangman-4.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66CB236EF2F200856AE3 /* Hangman-4.png */; };
 		EE6E66DC236EF2F200856AE3 /* Hangman-5.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66CC236EF2F200856AE3 /* Hangman-5.png */; };
@@ -33,6 +34,13 @@
 		EE6E66E3236EF2F200856AE3 /* Hangman-1.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66D3236EF2F200856AE3 /* Hangman-1.png */; };
 		EE6E66E4236EF2F200856AE3 /* Hangman-0.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66D4236EF2F200856AE3 /* Hangman-0.png */; };
 		EE6E66E6236EF2F200856AE3 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66D6236EF2F200856AE3 /* words.json */; };
+		EE771A6B239259490052C489 /* SettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A6A239259490052C489 /* SettingsViewModelProtocol.swift */; };
+		EE771A6D2392595E0052C489 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A6C2392595E0052C489 /* SettingsViewModel.swift */; };
+		EE771A6F239261400052C489 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A6E239261400052C489 /* OptionsViewController.swift */; };
+		EE771A712392617E0052C489 /* OptionsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A702392617E0052C489 /* OptionsViewModelProtocol.swift */; };
+		EE771A73239261970052C489 /* OptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A72239261970052C489 /* OptionsViewModel.swift */; };
+		EE771A752392739B0052C489 /* OptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A742392739B0052C489 /* OptionsCell.swift */; };
+		EE771A77239274A70052C489 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A76239274A70052C489 /* OptionsView.swift */; };
 		EE8FCC2C2376C6900081F967 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8FCC2B2376C6900081F967 /* Game.swift */; };
 		EE8FCC2E2376CAB70081F967 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8FCC2D2376CAB70081F967 /* GameViewModel.swift */; };
 		EE8FCC312376CF880081F967 /* StartViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8FCC302376CF880081F967 /* StartViewModelProtocol.swift */; };
@@ -58,8 +66,9 @@
 		EE56191E238C375D00B10EEF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EE561920238C37E100B10EEF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EE561923238C3A7400B10EEF /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
-		EE561926238C3B5B00B10EEF /* SettingsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptions.swift; sourceTree = "<group>"; };
 		EE561928238C415500B10EEF /* UserInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeader.swift; sourceTree = "<group>"; };
+		EE5941CE239979ED0029AD83 /* SettingsSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		EE5941D0239980750029AD83 /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
 		EE699221236F0719007329DB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		EE6E66CB236EF2F200856AE3 /* Hangman-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-4.png"; sourceTree = "<group>"; };
 		EE6E66CC236EF2F200856AE3 /* Hangman-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-5.png"; sourceTree = "<group>"; };
@@ -70,6 +79,13 @@
 		EE6E66D3236EF2F200856AE3 /* Hangman-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-1.png"; sourceTree = "<group>"; };
 		EE6E66D4236EF2F200856AE3 /* Hangman-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-0.png"; sourceTree = "<group>"; };
 		EE6E66D6236EF2F200856AE3 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		EE771A6A239259490052C489 /* SettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelProtocol.swift; sourceTree = "<group>"; };
+		EE771A6C2392595E0052C489 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		EE771A6E239261400052C489 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		EE771A702392617E0052C489 /* OptionsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewModelProtocol.swift; sourceTree = "<group>"; };
+		EE771A72239261970052C489 /* OptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewModel.swift; sourceTree = "<group>"; };
+		EE771A742392739B0052C489 /* OptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsCell.swift; sourceTree = "<group>"; };
+		EE771A76239274A70052C489 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		EE8FCC2B2376C6900081F967 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		EE8FCC2D2376CAB70081F967 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		EE8FCC302376CF880081F967 /* StartViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -112,6 +128,7 @@
 				EE1F81FA236C40A500DD1A05 /* AppDelegate.swift */,
 				EE1F81FC236C40A500DD1A05 /* SceneDelegate.swift */,
 				EE96E203236DC14100B547A5 /* Constants.swift */,
+				EE5941D0239980750029AD83 /* GlobalSettings.swift */,
 				EE42E3312371FBCB00911A91 /* ViewModel */,
 				EE42E3302371FBC600911A91 /* Model */,
 				EE42E32F2371FBB900911A91 /* ViewController */,
@@ -130,6 +147,7 @@
 				EE21096E2380004A008A4FAE /* StartView.swift */,
 				EE210970238003C7008A4FAE /* GameView.swift */,
 				EE561920238C37E100B10EEF /* SettingsView.swift */,
+				EE771A76239274A70052C489 /* OptionsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,6 +160,7 @@
 				EE699221236F0719007329DB /* StartViewController.swift */,
 				EE1F81FE236C40A500DD1A05 /* GameViewController.swift */,
 				EE56191E238C375D00B10EEF /* SettingsViewController.swift */,
+				EE771A6E239261400052C489 /* OptionsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -149,9 +168,9 @@
 		EE42E3302371FBC600911A91 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EE561925238C3B3700B10EEF /* Sections */,
-				EE8FCC2B2376C6900081F967 /* Game.swift */,
+				EE5941CE239979ED0029AD83 /* SettingsSection.swift */,
 				EE42E32D2371FAA200911A91 /* Word.swift */,
+				EE8FCC2B2376C6900081F967 /* Game.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +183,10 @@
 				EE8FCC322376CF910081F967 /* StartViewModel.swift */,
 				EE42E3322371FC3900911A91 /* GameViewModelProtocol.swift */,
 				EE8FCC2D2376CAB70081F967 /* GameViewModel.swift */,
+				EE771A6A239259490052C489 /* SettingsViewModelProtocol.swift */,
+				EE771A6C2392595E0052C489 /* SettingsViewModel.swift */,
+				EE771A702392617E0052C489 /* OptionsViewModelProtocol.swift */,
+				EE771A72239261970052C489 /* OptionsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -173,16 +196,9 @@
 			children = (
 				EE561928238C415500B10EEF /* UserInfoHeader.swift */,
 				EE561923238C3A7400B10EEF /* SettingsCell.swift */,
+				EE771A742392739B0052C489 /* OptionsCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		EE561925238C3B3700B10EEF /* Sections */ = {
-			isa = PBXGroup;
-			children = (
-				EE561926238C3B5B00B10EEF /* SettingsOptions.swift */,
-			);
-			path = Sections;
 			sourceTree = "<group>";
 		};
 		EE6E66C5236EF2F200856AE3 /* Resources */ = {
@@ -298,23 +314,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE8FCC2E2376CAB70081F967 /* GameViewModel.swift in Sources */,
+				EE771A6D2392595E0052C489 /* SettingsViewModel.swift in Sources */,
 				EE8FCC312376CF880081F967 /* StartViewModelProtocol.swift in Sources */,
+				EE771A77239274A70052C489 /* OptionsView.swift in Sources */,
 				EE561924238C3A7400B10EEF /* SettingsCell.swift in Sources */,
 				EE699222236F0719007329DB /* StartViewController.swift in Sources */,
 				EEE28652237C90AB00CE61B7 /* WordsRepository.swift in Sources */,
 				EE1F81FF236C40A500DD1A05 /* GameViewController.swift in Sources */,
+				EE5941CF239979ED0029AD83 /* SettingsSection.swift in Sources */,
+				EE771A752392739B0052C489 /* OptionsCell.swift in Sources */,
 				EE561921238C37E100B10EEF /* SettingsView.swift in Sources */,
+				EE771A6F239261400052C489 /* OptionsViewController.swift in Sources */,
 				EE21096F2380004A008A4FAE /* StartView.swift in Sources */,
+				EE771A6B239259490052C489 /* SettingsViewModelProtocol.swift in Sources */,
 				EE5106E12382FAFC00357B37 /* Dynamic.swift in Sources */,
 				EE56191F238C375D00B10EEF /* SettingsViewController.swift in Sources */,
 				EE210971238003C7008A4FAE /* GameView.swift in Sources */,
 				EE1F81FB236C40A500DD1A05 /* AppDelegate.swift in Sources */,
 				EE1F81FD236C40A500DD1A05 /* SceneDelegate.swift in Sources */,
 				EE96E204236DC14100B547A5 /* Constants.swift in Sources */,
+				EE771A712392617E0052C489 /* OptionsViewModelProtocol.swift in Sources */,
+				EE771A73239261970052C489 /* OptionsViewModel.swift in Sources */,
 				EE8FCC332376CF910081F967 /* StartViewModel.swift in Sources */,
 				EE42E32E2371FAA200911A91 /* Word.swift in Sources */,
-				EE561927238C3B5B00B10EEF /* SettingsOptions.swift in Sources */,
 				EE42E3332371FC3900911A91 /* GameViewModelProtocol.swift in Sources */,
+				EE5941D1239980750029AD83 /* GlobalSettings.swift in Sources */,
 				EE8FCC2C2376C6900081F967 /* Game.swift in Sources */,
 				EE561929238C415500B10EEF /* UserInfoHeader.swift in Sources */,
 			);

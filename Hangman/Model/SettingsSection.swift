@@ -1,5 +1,5 @@
 //
-//  SettingsOptions.swift
+//  SettingsSection.swift
 //  Hangman
 //
 //  Created by Hrvoje Vuković on 25/11/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SettingsProtocol: CustomStringConvertible {
+protocol SettingsSectionProtocol: CustomStringConvertible {
     var containsSwitch: Bool { get }
     var isDisclosureIndicator: Bool { get }
 }
@@ -35,7 +35,7 @@ enum SettingsTitle: Int, CaseIterable {
     }
 }
 
-enum SettingsOptions: Int, CaseIterable, SettingsProtocol {
+enum SettingsOptions: Int, CaseIterable, SettingsSectionProtocol {
     case wordLanguage
     case showHint
     case listOfAllWords

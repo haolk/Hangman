@@ -19,18 +19,31 @@ class GameViewModel: GameViewModelProtocol {
     var answere: Dynamic<String>
     var hint: String
     var isFinished: Dynamic<Bool>
+    var isUseShowHint: Dynamic<Bool>
     
     var alertTitle: String = ""
     var alertMessage: String = ""
     
-    func letterButtonTapped(_ letterButton: String) -> Bool {
+    init(_ wordsRepository: WordsRepository, _ game: Game) {
+        self.wordsRepository = wordsRepository
+        self.game = game
+        self.score = Dynamic(GameViewModel.scoreFormatted(for: game))
+        self.image = Dynamic(GameViewModel.imageFormatter(for: game))
+        self.answere =  Dynamic(GameViewModel.answereFormatted(for: game))
+        self.hint = game.hint
+        self.isFinished = Dynamic(game.isFinished)
+        self.isUseShowHint = Dynamic(GameViewModel.checkIsUseShowHint())
+    }
+    
+    // MARK: - PROTOCOL METHODS
+    
+    func isCorrectLetterTapped(_ letterButton: String) -> Bool {
         if(game.answere.contains(letterButton)) {
             correctLetterTapped(letterButton)
             return true
-        } else {
-            wrongLetterTapped()
-            return false
         }
+        wrongLetterTapped()
+        return false
     }
     
     func newWord() {
@@ -48,37 +61,17 @@ class GameViewModel: GameViewModelProtocol {
         }
     }
     
-    // MARK: INIT
+    // MARK: - PRIVATE METHODS
     
-    init(_ wordsRepository: WordsRepository, _ game: Game) {
-        self.wordsRepository = wordsRepository
-        self.game = game
-        self.score = Dynamic(GameViewModel.scoreFormatted(for: game))
-        self.image = Dynamic(GameViewModel.imageFormatter(for: game))
-        self.answere =  Dynamic(GameViewModel.answereFormatted(for: game))
-        self.hint = game.hint
-        self.isFinished = Dynamic(game.isFinished)
-    }
-    
-    // MARK: - PRIVATE
-    
-    fileprivate func refreshGame() -> Game {
-        let word = wordsRepository.getRandomWord()
-        print(word.en.word)
+    private func refreshGame() -> Game {
+        let wordDetails = wordsRepository.getRandomWord()
+        print(wordDetails.word)
         
-        let game = Game(score: self.game.score, answere: word.en.word.uppercased(), hint: word.en.hint)
+        let game = Game(score: self.game.score, answere: wordDetails.word.uppercased(), hint: wordDetails.hint)
         return game
     }
     
-    fileprivate func updateScore(as amount: ScoreAmount) -> String {
-        return GameViewModel.scoreFormatted(amount, for: game)
-    }
-    
-    fileprivate func updateImage() -> String {
-        return GameViewModel.imageFormatter(1, for: game)
-    }
-    
-    fileprivate func correctLetterTapped(_ tappedLetter: String/*, _ letterButton: UIButton*/) {
+    private func correctLetterTapped(_ tappedLetter: String) {
         for (index, char) in game.answere.enumerated() where String(char) == tappedLetter {
             let myIndex = index * 2 //multiply with 2 because the space between letters - each space increase index of letter multiplied by 2
             
@@ -91,7 +84,7 @@ class GameViewModel: GameViewModelProtocol {
         checkWholeWord()
     }
     
-    fileprivate func wrongLetterTapped(){
+    private func wrongLetterTapped(){
         image.value = updateImage()
         score.value = updateScore(as: .wrongLetter)
         if game.isFinished {
@@ -99,37 +92,51 @@ class GameViewModel: GameViewModelProtocol {
         }
     }
     
-    fileprivate func checkWholeWord() {
+    private func checkWholeWord() {
         let answeredWord = answere.value.replacingOccurrences(of: " ", with: "")
         if game.answere == answeredWord {
             gameWin()
         }
     }
     
-    fileprivate func gameWin() {
+    private func gameWin() {
         game.isFinished = true
         score.value = updateScore(as: .wholeWord)
         alertTitle = "Nice job!"
         alertMessage = "You found the correct word."
     }
     
-    fileprivate func gameLost() {
+    private func gameLost() {
         score.value = updateScore(as: .gameOver)
-        alertTitle = "Game Over!"
+        alertTitle = "\(Constants.GameOver)! \nHidden word: \(game.answere)!"
         alertMessage = "Better luck next time"
+    }
+    
+    private func updateScore(as amount: ScoreAmount) -> String {
+        return GameViewModel.scoreFormatted(amount, for: game)
+    }
+    
+    private func updateImage() -> String {
+        return GameViewModel.imageFormatter(1, for: game)
+    }
+    
+    // MARK: - STATIC METHODS
+    
+    private static func checkIsUseShowHint() -> Bool {
+        return GlobalSettings.useShowHint
     }
     
     // MARK: - STRING UTILS
     
-    fileprivate static func scoreFormatted(_ amount: ScoreAmount = .startAmount, for game: Game) -> String {
+    private static func scoreFormatted(_ amount: ScoreAmount = .startAmount, for game: Game) -> String {
         return "Score: \(game.updateScore(for: amount.rawValue))"
     }
     
-    fileprivate static func imageFormatter(_ amount: Int = 0, for game: Game) -> String {
+    private static func imageFormatter(_ amount: Int = 0, for game: Game) -> String {
         return "Hangman-\(game.updateImage(for: amount))"
     }
     
-    fileprivate static func answereFormatted(for game: Game) -> String {
+    private static func answereFormatted(for game: Game) -> String {
         return String.init(repeating: "_ ", count: game.answere.count).trimmingCharacters(in: .whitespaces)
     }
     

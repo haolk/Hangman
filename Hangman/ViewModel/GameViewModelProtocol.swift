@@ -14,12 +14,13 @@ protocol GameViewModelProtocol {
     var image: Dynamic<String> { get }
     var answere: Dynamic<String> { get }
     var hint: String { get }
+    var isUseShowHint: Dynamic<Bool> { get }
     var isFinished: Dynamic<Bool> { get }
     
     var alertTitle: String { get }
     var alertMessage: String { get }
     
-    func letterButtonTapped(_ letterButton: String) -> Bool
+    func isCorrectLetterTapped(_ letterButton: String) -> Bool
     func newWord()
     func checkIsGameFinished()
 }

@@ -1,25 +1,24 @@
 //
-//  SettingsView.swift
+//  OptionsView.swift
 //  Hangman
 //
-//  Created by Hrvoje Vuković on 25/11/2019.
+//  Created by Hrvoje Vuković on 30/11/2019.
 //  Copyright © 2019 Hrvoje Vuković. All rights reserved.
 //
 
 import UIKit
 
-protocol SettingsDelegate: class {
+protocol OptionsDelegate: class {
     func backToStartView()
 }
 
-class SettingsView: UIView {
+class OptionsView: UIView {
     private var backButton: UIButton!
     private var titleLabel: UILabel!
-    private var userInfoHeader: UserInfoHeader!
     
-    var settingsTableView: UITableView!
+    var optionsTableView: UITableView!
     
-    weak var delegate: SettingsDelegate?
+    weak var delegate: OptionsDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -49,23 +48,18 @@ class SettingsView: UIView {
         titleLabel.textAlignment = .center
         //titleLabel.layer.borderColor = UIColor.black.cgColor
         //titleLabel.layer.borderWidth = 2
-        titleLabel.text = "Settings"
+        titleLabel.text = "Options"
         addSubview(titleLabel)
         
-        settingsTableView = UITableView(frame: frame, style: .grouped)
-        settingsTableView.translatesAutoresizingMaskIntoConstraints = false
-        settingsTableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.reuseIdentifier)
-        //settingsTableView.delegate = self
-        //settingsTableView.dataSource = self
-        //settingsTableView.allowsSelection = true
-        //settingsTableView.allowsMultipleSelection = false
-        settingsTableView.rowHeight = 50
-        settingsTableView.sectionFooterHeight = 0
-
-        let frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 100)
-        userInfoHeader = UserInfoHeader(frame: frame)
-        settingsTableView.tableHeaderView = userInfoHeader
-        addSubview(settingsTableView)
+        optionsTableView = UITableView(frame: frame, style: .grouped)
+        optionsTableView.translatesAutoresizingMaskIntoConstraints = false
+        optionsTableView.register(OptionsCell.self, forCellReuseIdentifier: OptionsCell.reuseIdentifier)
+        //optionsTableView.rowHeight = 50
+        //optionsTableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: CGFloat.leastNormalMagnitude)))
+        optionsTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 10))
+        optionsTableView.tableHeaderView?.backgroundColor = .white
+        //optionsTableView.sectionFooterHeight = 0
+        addSubview(optionsTableView)
         
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
@@ -73,10 +67,10 @@ class SettingsView: UIView {
             titleLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
             titleLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 50),
             titleLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -50),
-            settingsTableView.leftAnchor.constraint(equalTo: leftAnchor),
-            settingsTableView.topAnchor.constraint(equalTo: backButton.bottomAnchor),
-            settingsTableView.rightAnchor.constraint(equalTo: rightAnchor),
-            settingsTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            optionsTableView.leftAnchor.constraint(equalTo: leftAnchor),
+            optionsTableView.topAnchor.constraint(equalTo: backButton.bottomAnchor),
+            optionsTableView.rightAnchor.constraint(equalTo: rightAnchor),
+            optionsTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
@@ -85,5 +79,4 @@ class SettingsView: UIView {
     @objc private func backToStartView() {
         delegate?.backToStartView()
     }
-    
 }

@@ -8,14 +8,26 @@
 
 import Foundation
 
-public struct Word: Codable {
-    var hr: Details
-    var en: Details
+struct Word: Codable {
+    var hr: WordDetails
+    var en: WordDetails
 }
 
-public struct Details: Codable {
+struct WordDetails: Codable {
     var word: String
     var hint: String
+}
+
+enum WordLanguages: Int, CaseIterable {
+    case croatian
+    case english
+    
+    var description: String {
+        switch self {
+        case .croatian: return "Croatian"
+        case .english: return "English"
+        }
+    }
 }
 
 extension Word: Equatable {
