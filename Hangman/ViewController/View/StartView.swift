@@ -11,14 +11,12 @@ import UIKit
 protocol StartViewDelegate: class {
     func playButtonTapped()
     func settingsButtonTapped()
-    func bestScoreButtonTapped()
 }
 
 class StartView: UIView {
     private var titleLabel: UILabel!
     private var playButton: UIButton!
     private var settingsButton: UIButton!
-    private var bestScoreButton: UIButton!
     
     weak var delegate: StartViewDelegate?
     
@@ -61,7 +59,6 @@ class StartView: UIView {
         settingsButton = UIButton()
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         let settingsIconConfig = UIImage.SymbolConfiguration(pointSize: 40)
-        //let settingsIconConfig = UIImage.SymbolConfiguration(scale: .large)
         let settingsIcon = UIImage(systemName: "gear", withConfiguration: settingsIconConfig)
         settingsButton.setImage(settingsIcon, for: .normal)
         settingsButton.layer.borderWidth = 1
@@ -69,19 +66,6 @@ class StartView: UIView {
         settingsButton.layer.borderColor = Constants.BLUE.cgColor
         settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
         addSubview(settingsButton)
-        
-        bestScoreButton = UIButton()
-        bestScoreButton.translatesAutoresizingMaskIntoConstraints = false
-        let bestScoreIconConfig = UIImage.SymbolConfiguration(pointSize: 45)
-        //let bestScoreIconConfig = UIImage.SymbolConfiguration(scale: .large)
-        let bestScoreIcon = UIImage(systemName: "list.number", withConfiguration: bestScoreIconConfig)
-        bestScoreButton.setImage(bestScoreIcon, for: .normal)
-        bestScoreButton.layer.borderWidth = 1
-        bestScoreButton.layer.cornerRadius = 5
-        bestScoreButton.layer.borderColor = Constants.BLUE.cgColor
-        bestScoreButton.addTarget(self, action: #selector(bestScoreButtonTapped), for: .touchUpInside)
-        bestScoreButton.isEnabled = false
-        addSubview(bestScoreButton)
     }
     
     private func setConstraintsForElements() {
@@ -91,16 +75,11 @@ class StartView: UIView {
             
             playButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 100),
             playButton.centerXAnchor.constraint(equalTo: layoutMarginsGuide.centerXAnchor),
+            playButton.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, multiplier: 0.4),
             
             settingsButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 10),
-            settingsButton.heightAnchor.constraint(equalToConstant: 50),
-            settingsButton.leadingAnchor.constraint(equalTo: playButton.leadingAnchor),
-            settingsButton.widthAnchor.constraint(equalTo: playButton.widthAnchor, multiplier: 0.4),
-            
-            bestScoreButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 10),
-            bestScoreButton.heightAnchor.constraint(equalToConstant: 50),
-            bestScoreButton.trailingAnchor.constraint(equalTo: playButton.trailingAnchor),
-            bestScoreButton.widthAnchor.constraint(equalTo: playButton.widthAnchor, multiplier: 0.4)
+            settingsButton.centerXAnchor.constraint(equalTo: layoutMarginsGuide.centerXAnchor),
+            settingsButton.widthAnchor.constraint(equalTo: playButton.widthAnchor)
         ])
     }
     
@@ -112,10 +91,6 @@ class StartView: UIView {
     
     @objc private func settingsButtonTapped() {
         delegate?.settingsButtonTapped()
-    }
-    
-    @objc private func bestScoreButtonTapped() {
-        delegate?.bestScoreButtonTapped()
     }
     
 }

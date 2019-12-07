@@ -11,6 +11,7 @@ import Foundation
 protocol GameViewModelProtocol {
     var game: Game { get }
     var score: Dynamic<String> { get }
+    var bestScore: Dynamic<String> { get }
     var image: Dynamic<String> { get }
     var answere: Dynamic<String> { get }
     var hint: String { get }
@@ -23,4 +24,5 @@ protocol GameViewModelProtocol {
     func isCorrectLetterTapped(_ letterButton: String) -> Bool
     func newWord()
     func checkIsGameFinished()
+    func checkWeHaveNewBestScore()
 }

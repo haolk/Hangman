@@ -53,8 +53,4 @@ class StartViewController: UIViewController, StartViewDelegate {
         navigationController?.pushViewController(settingsVC, animated: true)
     }
     
-    func bestScoreButtonTapped() {
-        print("bestScoreButtonTapped")
-    }
-    
 }

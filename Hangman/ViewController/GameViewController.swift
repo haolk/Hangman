@@ -64,9 +64,22 @@ class GameViewController: UIViewController, GameViewDelegate {
             }
         }
         
-        gameViewModel.score.bindAndFire { [unowned self] in self.gameView.scoreLabel.text = $0 }
-        gameViewModel.image.bindAndFire { [unowned self] in self.gameView.imageView.image = UIImage(named: $0) }
-        gameViewModel.answere.bindAndFire({ [unowned self] in self.gameView.answerTextfield.text = $0 })
+        gameViewModel.score.bindAndFire { [unowned self] (score: String) in
+            self.gameView.scoreLabel.text = score
+            self.gameViewModel.checkWeHaveNewBestScore()
+        }
+
+        gameViewModel.bestScore.bindAndFire { [unowned self] (bestScore: String) in
+            self.gameView.bestScoreLabel.text = bestScore
+        }
+        
+        gameViewModel.image.bindAndFire { [unowned self] (image: String) in
+            self.gameView.imageView.image = UIImage(named: image)
+        }
+        
+        gameViewModel.answere.bindAndFire { [unowned self] (answere: String) in
+            self.gameView.answerTextfield.text = answere
+        }
         
         gameViewModel.isFinished.bindAndFire { [weak self] (gameIsFinished: Bool) in
             if gameIsFinished {
@@ -92,17 +105,17 @@ class GameViewController: UIViewController, GameViewDelegate {
         enableAndRestoreTappedLetterButtons()
     }
     
-    private func disableAndAppendButtonInTappedLetterButtons(_ letterButton: UIButton) {
-        letterButton.isUserInteractionEnabled = false
-        tappedLetterButtons.append(letterButton)
-    }
-    
     private func enableAndRestoreTappedLetterButtons() {
         for letterButton in tappedLetterButtons {
             letterButton.isUserInteractionEnabled = true
             letterButton.backgroundColor = .white
         }
         tappedLetterButtons.removeAll()
+    }
+    
+    private func disableAndAppendButtonInTappedLetterButtons(_ letterButton: UIButton) {
+        letterButton.isUserInteractionEnabled = false
+        tappedLetterButtons.append(letterButton)
     }
     
     private func checkLetterStatusAndChangeItsColor(_ letterButton: UIButton) {

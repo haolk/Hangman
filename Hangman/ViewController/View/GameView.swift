@@ -15,6 +15,7 @@ protocol GameViewDelegate: class {
 
 class GameView: UIView {
     private var backButton: UIButton!
+    var bestScoreLabel: UILabel!
     var scoreLabel: UILabel!
     var imageView: UIImageView!
     var answerTextfield: UITextField!
@@ -51,6 +52,13 @@ class GameView: UIView {
         backButton.tintColor = Constants.BLUE
         backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
         addSubview(backButton)
+        
+        bestScoreLabel = UILabel()
+        bestScoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        bestScoreLabel.font = UIFont.init(name: "Marker Felt", size: 26)
+        bestScoreLabel.textColor = Constants.BLUE
+        bestScoreLabel.textAlignment = .right
+        addSubview(bestScoreLabel)
         
         scoreLabel = UILabel()
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -144,7 +152,10 @@ class GameView: UIView {
             backButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
             backButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             
-            scoreLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
+            bestScoreLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
+            bestScoreLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            
+            scoreLabel.topAnchor.constraint(equalTo: bestScoreLabel.bottomAnchor, constant: 10),
             scoreLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             
             imageView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 15),

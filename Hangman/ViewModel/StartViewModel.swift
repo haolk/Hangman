@@ -17,8 +17,9 @@ struct StartViewModel: StartViewModelProtocol {
     func startGame() -> Game {
         let wordDetails = wordsRepository.getRandomWord()
         print(wordDetails.word)
+        let bestScore = GlobalSettings.bestScore
         
-        let game = Game(answere: wordDetails.word.uppercased(), hint: wordDetails.hint)
+        let game = Game(bestScore: bestScore, answere: wordDetails.word.uppercased(), hint: wordDetails.hint)
         return game
     }
     

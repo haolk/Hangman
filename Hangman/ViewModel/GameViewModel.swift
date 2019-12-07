@@ -15,6 +15,7 @@ class GameViewModel: GameViewModelProtocol {
     
     var game: Game
     var score: Dynamic<String>
+    var bestScore: Dynamic<String>
     var image: Dynamic<String>
     var answere: Dynamic<String>
     var hint: String
@@ -28,6 +29,7 @@ class GameViewModel: GameViewModelProtocol {
         self.wordsRepository = wordsRepository
         self.game = game
         self.score = Dynamic(GameViewModel.scoreFormatted(for: game))
+        self.bestScore = Dynamic(GameViewModel.bestScoreFormatted(for: game))
         self.image = Dynamic(GameViewModel.imageFormatter(for: game))
         self.answere =  Dynamic(GameViewModel.answereFormatted(for: game))
         self.hint = game.hint
@@ -56,8 +58,21 @@ class GameViewModel: GameViewModelProtocol {
     }
     
     func checkIsGameFinished() {
-        if(game.isFinished) {
+        if game.isFinished {
             self.isFinished.value = true
+        }
+    }
+
+    func checkWeHaveNewBestScore() {
+        if game.weHaveNewBestScore {
+            //save new best score in user defaults
+            GlobalSettings.bestScore = game.bestScore
+            
+            //update best score label
+            bestScore.value = GameViewModel.bestScoreFormatted(for: game)
+            
+            //to prevent updating best score label every time ie. update only if we have new best score
+            game.weHaveNewBestScore = false
         }
     }
     
@@ -67,7 +82,7 @@ class GameViewModel: GameViewModelProtocol {
         let wordDetails = wordsRepository.getRandomWord()
         print(wordDetails.word)
         
-        let game = Game(score: self.game.score, answere: wordDetails.word.uppercased(), hint: wordDetails.hint)
+        let game = Game(score: self.game.score, bestScore: self.game.bestScore, answere: wordDetails.word.uppercased(), hint: wordDetails.hint)
         return game
     }
     
@@ -120,7 +135,7 @@ class GameViewModel: GameViewModelProtocol {
         return GameViewModel.imageFormatter(1, for: game)
     }
     
-    // MARK: - STATIC METHODS
+    // MARK: - PRIVATE STATIC METHODS
     
     private static func checkIsUseShowHint() -> Bool {
         return GlobalSettings.useShowHint
@@ -130,6 +145,10 @@ class GameViewModel: GameViewModelProtocol {
     
     private static func scoreFormatted(_ amount: ScoreAmount = .startAmount, for game: Game) -> String {
         return "Score: \(game.updateScore(for: amount.rawValue))"
+    }
+    
+    private static func bestScoreFormatted(for game: Game) -> String {
+        return "Best: \(game.bestScore)"
     }
     
     private static func imageFormatter(_ amount: Int = 0, for game: Game) -> String {

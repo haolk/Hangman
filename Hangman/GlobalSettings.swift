@@ -14,6 +14,9 @@ enum GlobalSettings {
     
     @Persist(key: "wordLanguage", defaultValue: WordLanguages.english.description)
     static var wordLanguage: String
+    
+    @Persist(key: "bestScore", defaultValue: 0)
+    static var bestScore: Int
 }
 
 
