@@ -54,28 +54,23 @@ extension OptionsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: OptionsCell.reuseIdentifier, for: indexPath) as? OptionsCell {
-            
-            let cellType = optionsViewModel.getType()
-            let cellDataText = optionsViewModel.getDataText(at: indexPath.row)
-            
-            switch cellType {
-            case .wordLanguage:
-                cell.labelLeft.text = cellDataText
-                cell.accessoryType = GlobalSettings.wordLanguage == cellDataText ? .checkmark : .none
-            case .listOfAllWords:
-                let cellDataSplited = cellDataText.split(separator: "-")
-                cell.labelLeft.text = String(cellDataSplited[0]).lowercased()
-                cell.labelRight.text = String(cellDataSplited[1]).lowercased()
-            default:
-                cell.labelLeft.text = "ERROR"
-            }
-            
-            return cell
-
-        } else {
-            fatalError("Unknown identifier")
+        let cell = tableView.dequeueReusableCell(withIdentifier: OptionsCell.reuseIdentifier, for: indexPath) as! OptionsCell
+        let cellType = optionsViewModel.getType()
+        let cellDataText = optionsViewModel.getDataText(at: indexPath.row)
+        
+        switch cellType {
+        case .wordLanguage:
+            cell.labelLeft.text = cellDataText
+            cell.accessoryType = GlobalSettings.wordLanguage == cellDataText ? .checkmark : .none
+        case .listOfAllWords:
+            let cellDataSplited = cellDataText.split(separator: "-")
+            cell.labelLeft.text = String(cellDataSplited[0]).lowercased()
+            cell.labelRight.text = String(cellDataSplited[1]).lowercased()
+        default:
+            cell.labelLeft.text = "ERROR"
         }
+        
+        return cell
     }
     
 }

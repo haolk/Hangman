@@ -74,13 +74,10 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.reuseIdentifier, for: indexPath) as? SettingsCell {
-            let option = settingsViewModel.getOptionForSection(at: indexPath)
-            cell.settingsOption = option
-            return cell
-        } else {
-            fatalError("Unknown identifier")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.reuseIdentifier, for: indexPath) as! SettingsCell
+        let option = settingsViewModel.getOptionForSection(at: indexPath)
+        cell.settingsOption = option
+        return cell
     }
     
 }
