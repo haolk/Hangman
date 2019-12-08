@@ -55,8 +55,6 @@ class SettingsView: UIView {
         settingsTableView = UITableView(frame: frame, style: .grouped)
         settingsTableView.translatesAutoresizingMaskIntoConstraints = false
         settingsTableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.reuseIdentifier)
-        //settingsTableView.delegate = self
-        //settingsTableView.dataSource = self
         //settingsTableView.allowsSelection = true
         //settingsTableView.allowsMultipleSelection = false
         settingsTableView.rowHeight = 50

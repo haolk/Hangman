@@ -11,8 +11,6 @@ import Foundation
 class GameViewModel: GameViewModelProtocol {
     let wordsRepository: WordsRepository
     
-    // MARK: GameViewModel protocol
-    
     var game: Game
     var score: Dynamic<String>
     var bestScore: Dynamic<String>
