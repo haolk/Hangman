@@ -84,7 +84,10 @@ class GameViewController: UIViewController, GameViewDelegate {
         gameViewModel.isFinished.bindAndFire { [weak self] (gameIsFinished: Bool) in
             if gameIsFinished {
                 self?.createAlertController(actionHandler: { [weak self] (UIAlertAction) -> Void in
-                    self?.startNewGame()
+                    //start new game
+                    self?.gameViewModel.newWord()
+                    self?.fillUI()
+                    self?.enableAndRestoreTappedLetterButtons()
                 })
             }
         }
@@ -97,12 +100,6 @@ class GameViewController: UIViewController, GameViewDelegate {
         let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "New Game", style: .default, handler: actionHandler))
         present(alertController, animated: true)
-    }
-    
-    private func startNewGame() {
-        gameViewModel.newWord()
-        fillUI()
-        enableAndRestoreTappedLetterButtons()
     }
     
     private func enableAndRestoreTappedLetterButtons() {
