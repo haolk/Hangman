@@ -25,14 +25,6 @@
 		EE5941CF239979ED0029AD83 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5941CE239979ED0029AD83 /* SettingsSection.swift */; };
 		EE5941D1239980750029AD83 /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5941D0239980750029AD83 /* GlobalSettings.swift */; };
 		EE699222236F0719007329DB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE699221236F0719007329DB /* StartViewController.swift */; };
-		EE6E66DB236EF2F200856AE3 /* Hangman-4.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66CB236EF2F200856AE3 /* Hangman-4.png */; };
-		EE6E66DC236EF2F200856AE3 /* Hangman-5.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66CC236EF2F200856AE3 /* Hangman-5.png */; };
-		EE6E66DD236EF2F200856AE3 /* Hangman-7.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66CD236EF2F200856AE3 /* Hangman-7.png */; };
-		EE6E66DF236EF2F200856AE3 /* Hangman-6.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66CF236EF2F200856AE3 /* Hangman-6.png */; };
-		EE6E66E0236EF2F200856AE3 /* Hangman-2.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66D0236EF2F200856AE3 /* Hangman-2.png */; };
-		EE6E66E2236EF2F200856AE3 /* Hangman-3.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66D2236EF2F200856AE3 /* Hangman-3.png */; };
-		EE6E66E3236EF2F200856AE3 /* Hangman-1.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66D3236EF2F200856AE3 /* Hangman-1.png */; };
-		EE6E66E4236EF2F200856AE3 /* Hangman-0.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66D4236EF2F200856AE3 /* Hangman-0.png */; };
 		EE6E66E6236EF2F200856AE3 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66D6236EF2F200856AE3 /* words.json */; };
 		EE771A6B239259490052C489 /* SettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A6A239259490052C489 /* SettingsViewModelProtocol.swift */; };
 		EE771A6D2392595E0052C489 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A6C2392595E0052C489 /* SettingsViewModel.swift */; };
@@ -70,14 +62,6 @@
 		EE5941CE239979ED0029AD83 /* SettingsSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		EE5941D0239980750029AD83 /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
 		EE699221236F0719007329DB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		EE6E66CB236EF2F200856AE3 /* Hangman-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-4.png"; sourceTree = "<group>"; };
-		EE6E66CC236EF2F200856AE3 /* Hangman-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-5.png"; sourceTree = "<group>"; };
-		EE6E66CD236EF2F200856AE3 /* Hangman-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-7.png"; sourceTree = "<group>"; };
-		EE6E66CF236EF2F200856AE3 /* Hangman-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-6.png"; sourceTree = "<group>"; };
-		EE6E66D0236EF2F200856AE3 /* Hangman-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-2.png"; sourceTree = "<group>"; };
-		EE6E66D2236EF2F200856AE3 /* Hangman-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-3.png"; sourceTree = "<group>"; };
-		EE6E66D3236EF2F200856AE3 /* Hangman-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-1.png"; sourceTree = "<group>"; };
-		EE6E66D4236EF2F200856AE3 /* Hangman-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hangman-0.png"; sourceTree = "<group>"; };
 		EE6E66D6236EF2F200856AE3 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 		EE771A6A239259490052C489 /* SettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelProtocol.swift; sourceTree = "<group>"; };
 		EE771A6C2392595E0052C489 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -204,25 +188,9 @@
 		EE6E66C5236EF2F200856AE3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EE6E66C6236EF2F200856AE3 /* images */,
 				EE6E66D6236EF2F200856AE3 /* words.json */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		EE6E66C6236EF2F200856AE3 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				EE6E66D4236EF2F200856AE3 /* Hangman-0.png */,
-				EE6E66D3236EF2F200856AE3 /* Hangman-1.png */,
-				EE6E66D0236EF2F200856AE3 /* Hangman-2.png */,
-				EE6E66D2236EF2F200856AE3 /* Hangman-3.png */,
-				EE6E66CB236EF2F200856AE3 /* Hangman-4.png */,
-				EE6E66CC236EF2F200856AE3 /* Hangman-5.png */,
-				EE6E66CF236EF2F200856AE3 /* Hangman-6.png */,
-				EE6E66CD236EF2F200856AE3 /* Hangman-7.png */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 		EE8FCC2F2376CF520081F967 /* Services */ = {
@@ -292,16 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1F8207236C40AC00DD1A05 /* LaunchScreen.storyboard in Resources */,
-				EE6E66E2236EF2F200856AE3 /* Hangman-3.png in Resources */,
-				EE6E66DC236EF2F200856AE3 /* Hangman-5.png in Resources */,
 				EE1F8204236C40AC00DD1A05 /* Assets.xcassets in Resources */,
-				EE6E66DD236EF2F200856AE3 /* Hangman-7.png in Resources */,
-				EE6E66DF236EF2F200856AE3 /* Hangman-6.png in Resources */,
-				EE6E66DB236EF2F200856AE3 /* Hangman-4.png in Resources */,
-				EE6E66E3236EF2F200856AE3 /* Hangman-1.png in Resources */,
 				EE6E66E6236EF2F200856AE3 /* words.json in Resources */,
-				EE6E66E0236EF2F200856AE3 /* Hangman-2.png in Resources */,
-				EE6E66E4236EF2F200856AE3 /* Hangman-0.png in Resources */,
 				EE1F820F236C40ED00DD1A05 /* notes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
