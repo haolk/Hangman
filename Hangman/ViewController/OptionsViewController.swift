@@ -10,6 +10,8 @@ import UIKit
 
 class OptionsViewController: UIViewController, OptionsDelegate {
     
+    // MARK: - PROPERTIES
+    
     private var optionsViewModel: OptionsViewModelProtocol
     
     private lazy var optionsView: OptionsView = {

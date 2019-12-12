@@ -10,6 +10,8 @@ import UIKit
 
 class StartViewController: UIViewController, StartViewDelegate {
     
+    // MARK: - PROPERTIES
+    
     private var startViewModel: StartViewModelProtocol
     
     private lazy var startView: StartView = {
@@ -38,7 +40,7 @@ class StartViewController: UIViewController, StartViewDelegate {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    // MARK: - BUTTON ACTION METHODS
+    // MARK: - SELECTORS METHODS
     
     func playButtonTapped() {
         let game = startViewModel.startGame()

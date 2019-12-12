@@ -33,12 +33,28 @@ class OptionsCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not benn implemnted")
+    }
+    
+    // MARK: - PRIVATE METHODS
+    
+    private func setupView() {
         selectionStyle = .none
         
+        addElementsOnView()
+        setConstraintsForElements()
+    }
+    
+    private func addElementsOnView() {
         addSubview(labelLeft)
         addSubview(labelRight)
-        
+    }
+    
+    private func setConstraintsForElements() {
         NSLayoutConstraint.activate([
             labelLeft.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 5),
             labelLeft.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, multiplier: 0.4, constant: -10),
@@ -47,10 +63,6 @@ class OptionsCell: UITableViewCell {
             labelRight.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, multiplier: 0.6, constant: -10),
             labelRight.centerYAnchor.constraint(equalTo: layoutMarginsGuide.centerYAnchor)
         ])
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not benn implemnted")
     }
     
 }

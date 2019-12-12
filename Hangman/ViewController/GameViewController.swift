@@ -10,6 +10,8 @@ import UIKit
 
 class GameViewController: UIViewController, GameViewDelegate {
 
+    // MARK: - PROPERTIES
+
     private var gameViewModel: GameViewModelProtocol
     
     private var tappedLetterButtons = [UIButton]()
@@ -40,7 +42,7 @@ class GameViewController: UIViewController, GameViewDelegate {
         fillUI()
     }
     
-    // MARK: - BUTTON ACTION METHODS
+    // MARK: - SELECTORS METHODS
     
     func backToStartView() {
         navigationController?.popViewController(animated: true)
@@ -105,7 +107,7 @@ class GameViewController: UIViewController, GameViewDelegate {
     private func enableAndRestoreTappedLetterButtons() {
         for letterButton in tappedLetterButtons {
             letterButton.isUserInteractionEnabled = true
-            letterButton.backgroundColor = .white
+            letterButton.backgroundColor = Constants.BACKGROUND_COLOR
         }
         tappedLetterButtons.removeAll()
     }

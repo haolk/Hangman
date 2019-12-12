@@ -9,9 +9,7 @@
 import UIKit
 
 class SettingsCell: UITableViewCell {
-    static let reuseIdentifier = "InfoCell"
-    
-    let defaults = UserDefaults.standard
+    static let reuseIdentifier = "SettingsCell"
     
     // MARK: - PROPERTIES
     
@@ -43,20 +41,32 @@ class SettingsCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        addSubview(switchControl)
-        
-        NSLayoutConstraint.activate([
-            switchControl.centerYAnchor.constraint(equalTo: centerYAnchor),
-            switchControl.rightAnchor.constraint(equalTo: rightAnchor, constant: -12)
-        ])
+        setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not benn implemnted")
     }
     
-    // MARK: - SELECTORS
+    // MARK: - PRIVATE METHODS
+    
+    private func setupView() {
+        addElementsOnView()
+        setConstraintsForElements()
+    }
+    
+    private func addElementsOnView() {
+        addSubview(switchControl)
+    }
+    
+    private func setConstraintsForElements() {
+        NSLayoutConstraint.activate([
+            switchControl.centerYAnchor.constraint(equalTo: centerYAnchor),
+            switchControl.rightAnchor.constraint(equalTo: rightAnchor, constant: -12)
+        ])
+    }
+    
+    // MARK: - SELECTORS METHODS
     
     @objc func handleSwitchAction(sender: UISwitch) {
         guard let settingsOption = settingsOption else { return }

@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController, SettingsDelegate {
 
+    // MARK: - PROPERTIES
+
     private var settingsViewModel: SettingsViewModelProtocol
     
     private lazy var settingsView: SettingsView = {
@@ -92,7 +94,7 @@ extension SettingsViewController: UITableViewDelegate {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.text = settingsViewModel.getSectionTitle(section)
         title.font = UIFont.boldSystemFont(ofSize: 15)
-        title.textColor = .white
+        title.textColor = Constants.BACKGROUND_COLOR
         view.addSubview(title)
         
         NSLayoutConstraint.activate([
@@ -119,7 +121,7 @@ extension SettingsViewController: UITableViewDelegate {
         case .listOfAllWords:
             openListOfAllWordsVC()
         default:
-            print(option)
+            break
         }
     }
     

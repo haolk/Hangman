@@ -9,7 +9,10 @@
 import Foundation
 
 class GameViewModel: GameViewModelProtocol {
-    let wordsRepository: WordsRepository
+
+    // MARK: - PROPERTIES
+    
+    private let wordsRepository: WordsRepository
     
     var game: Game
     var score: Dynamic<String>
@@ -22,6 +25,8 @@ class GameViewModel: GameViewModelProtocol {
     
     var alertTitle: String = ""
     var alertMessage: String = ""
+    
+    // MARK: - INIT
     
     init(_ wordsRepository: WordsRepository, _ game: Game) {
         self.wordsRepository = wordsRepository
@@ -37,13 +42,9 @@ class GameViewModel: GameViewModelProtocol {
     
     // MARK: - PROTOCOL METHODS
     
-    func isCorrectLetterTapped(_ letterButton: String) -> Bool {
-        if(game.answere.contains(letterButton)) {
-            correctLetterTapped(letterButton)
-            return true
-        }
-        wrongLetterTapped()
-        return false
+    func isCorrectLetterTapped(_ tappedLetter: String) -> Bool {
+        let isTappedLetterInGameAnswere = game.answere.contains(tappedLetter)
+        return isTappedLetterInGameAnswere ? correctLetterTapped(tappedLetter) : wrongLetterTapped()
     }
     
     func newWord() {
@@ -84,7 +85,7 @@ class GameViewModel: GameViewModelProtocol {
         return game
     }
     
-    private func correctLetterTapped(_ tappedLetter: String) {
+    private func correctLetterTapped(_ tappedLetter: String) -> Bool {
         for (index, char) in game.answere.enumerated() where String(char) == tappedLetter {
             let myIndex = index * 2 //multiply with 2 because the space between letters - each space increase index of letter multiplied by 2
             
@@ -95,14 +96,16 @@ class GameViewModel: GameViewModelProtocol {
             score.value = updateScore(as: .rightLetter)
         }
         checkWholeWord()
+        return true
     }
     
-    private func wrongLetterTapped(){
+    private func wrongLetterTapped() -> Bool {
         image.value = updateImage()
         score.value = updateScore(as: .wrongLetter)
         if game.isFinished {
             gameLost()
         }
+        return false
     }
     
     private func checkWholeWord() {
