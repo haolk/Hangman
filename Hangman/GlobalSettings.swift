@@ -17,6 +17,9 @@ enum GlobalSettings {
     
     @Persist(key: "bestScore", defaultValue: 0)
     static var bestScore: Int
+    
+    @Persist(key: "darkMode", defaultValue: false)
+    static var darkMode: Bool
 }
 
 

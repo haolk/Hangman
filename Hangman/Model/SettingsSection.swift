@@ -14,13 +14,14 @@ protocol SettingsSectionProtocol: CustomStringConvertible {
 }
 
 struct SettingsSection {
-  var title: SettingsTitle
-  var options: [SettingsOptions]
- 
-  init(title: SettingsTitle, options: [SettingsOptions]) {
-    self.title = title
-    self.options = options
-  }
+    var title: SettingsTitle
+    var options: [SettingsOptions]
+    
+    init(title: SettingsTitle, options: [SettingsOptions]) {
+        self.title = title
+        self.options = options
+    }
+    
 }
 
 enum SettingsTitle: Int, CaseIterable {
@@ -38,13 +39,15 @@ enum SettingsTitle: Int, CaseIterable {
 enum SettingsOptions: Int, CaseIterable, SettingsSectionProtocol {
     case wordLanguage
     case showHint
+    case darkMode
     case listOfAllWords
     
      var description: String {
         switch self {
         case .wordLanguage: return "Word Language"
         case .showHint: return "Show Hint"
-        case .listOfAllWords: return "List Words"
+        case .darkMode: return "Dark Mode"
+        case .listOfAllWords: return "List of Words"
         }
     }
     
@@ -52,6 +55,7 @@ enum SettingsOptions: Int, CaseIterable, SettingsSectionProtocol {
         switch self {
         case .wordLanguage: return false
         case .showHint: return true
+        case .darkMode: return true
         case .listOfAllWords: return false
         }
     }
@@ -60,6 +64,7 @@ enum SettingsOptions: Int, CaseIterable, SettingsSectionProtocol {
         switch self {
         case .wordLanguage: return true
         case .showHint: return false
+        case .darkMode: return false
         case .listOfAllWords: return true
         }
     }

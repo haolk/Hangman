@@ -13,12 +13,17 @@ protocol OptionsDelegate: class {
 }
 
 class OptionsView: UIView {
+    
+    // MARK: - PROPERTIES
+    
     private var backButton: UIButton!
     private var titleLabel: UILabel!
     
     var optionsTableView: UITableView!
     
     weak var delegate: OptionsDelegate?
+    
+    // MARK: - INIT
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,10 +33,25 @@ class OptionsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
-        backgroundColor = .white
     }
     
+    // MARK: - PRIVATE METHODS
+    
     private func setup() {
+        ThemeManager.addDarkModeObserver(to: self, selector: #selector(enableDarkMode))
+        
+        setupView()
+    }
+    
+    private func setupView() {
+        backgroundColor = Constants.BACKGROUND_COLOR
+        
+        enableDarkMode()
+        addElementsOnView()
+        setConstraintsForElements()
+    }
+
+    private func addElementsOnView() {
         backButton = UIButton()
         let backIconConfig = UIImage.SymbolConfiguration(pointSize: 26)
         let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
@@ -57,14 +77,16 @@ class OptionsView: UIView {
         //optionsTableView.rowHeight = 50
         //optionsTableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: CGFloat.leastNormalMagnitude)))
         optionsTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 10))
-        optionsTableView.tableHeaderView?.backgroundColor = .white
+        optionsTableView.tableHeaderView?.backgroundColor = Constants.BACKGROUND_COLOR
         //optionsTableView.sectionFooterHeight = 0
         addSubview(optionsTableView)
+    }
         
+    private func setConstraintsForElements() {
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
+            backButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5),
             backButton.leadingAnchor .constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 10),
-            titleLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
+            titleLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 50),
             titleLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -50),
             optionsTableView.leftAnchor.constraint(equalTo: leftAnchor),
@@ -74,9 +96,14 @@ class OptionsView: UIView {
         ])
     }
     
-    // MARK: - BUTTON ACTION METHODS
+    // MARK: - SELECTORS METHODS
     
     @objc private func backToStartView() {
         delegate?.backToStartView()
     }
+    
+    @objc private func enableDarkMode() {
+        overrideUserInterfaceStyle = GlobalSettings.darkMode ? .dark : .light
+    }
+    
 }

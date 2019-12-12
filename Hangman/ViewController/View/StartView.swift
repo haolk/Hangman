@@ -14,11 +14,16 @@ protocol StartViewDelegate: class {
 }
 
 class StartView: UIView {
+    
+    // MARK: - PROPERTIES
+
     private var titleLabel: UILabel!
     private var playButton: UIButton!
     private var settingsButton: UIButton!
     
     weak var delegate: StartViewDelegate?
+    
+    // MARK: - INIT
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -30,8 +35,18 @@ class StartView: UIView {
         setup()
     }
     
+    // MARK: - PRIVATE METHODS
+    
     private func setup() {
+        ThemeManager.addDarkModeObserver(to: self, selector: #selector(enableDarkMode))
+        
+        setupView()
+    }
+    
+    private func setupView() {
         backgroundColor = Constants.BACKGROUND_COLOR
+        
+        enableDarkMode()
         addElementsOnView()
         setConstraintsForElements()
     }
@@ -83,7 +98,7 @@ class StartView: UIView {
         ])
     }
     
-    // MARK: - BUTTON ACTION METHODS
+    // MARK: - SELECTORS METHODS
     
     @objc private func playButtonTapped() {
         delegate?.playButtonTapped()
@@ -91,6 +106,10 @@ class StartView: UIView {
     
     @objc private func settingsButtonTapped() {
         delegate?.settingsButtonTapped()
+    }
+    
+    @objc private func enableDarkMode() {
+        overrideUserInterfaceStyle = GlobalSettings.darkMode ? .dark : .light
     }
     
 }

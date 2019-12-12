@@ -24,6 +24,7 @@
 		EE561929238C415500B10EEF /* UserInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE561928238C415500B10EEF /* UserInfoHeader.swift */; };
 		EE5941CF239979ED0029AD83 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5941CE239979ED0029AD83 /* SettingsSection.swift */; };
 		EE5941D1239980750029AD83 /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5941D0239980750029AD83 /* GlobalSettings.swift */; };
+		EE668D56239ED1C9001E287C /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE668D55239ED1C9001E287C /* ThemeManager.swift */; };
 		EE699222236F0719007329DB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE699221236F0719007329DB /* StartViewController.swift */; };
 		EE6E66E6236EF2F200856AE3 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = EE6E66D6236EF2F200856AE3 /* words.json */; };
 		EE771A6B239259490052C489 /* SettingsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A6A239259490052C489 /* SettingsViewModelProtocol.swift */; };
@@ -61,6 +62,7 @@
 		EE561928238C415500B10EEF /* UserInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeader.swift; sourceTree = "<group>"; };
 		EE5941CE239979ED0029AD83 /* SettingsSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		EE5941D0239980750029AD83 /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
+		EE668D55239ED1C9001E287C /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		EE699221236F0719007329DB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		EE6E66D6236EF2F200856AE3 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 		EE771A6A239259490052C489 /* SettingsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				EE1F81FC236C40A500DD1A05 /* SceneDelegate.swift */,
 				EE96E203236DC14100B547A5 /* Constants.swift */,
 				EE5941D0239980750029AD83 /* GlobalSettings.swift */,
+				EE668D55239ED1C9001E287C /* ThemeManager.swift */,
 				EE42E3312371FBCB00911A91 /* ViewModel */,
 				EE42E3302371FBC600911A91 /* Model */,
 				EE42E32F2371FBB900911A91 /* ViewController */,
@@ -295,6 +298,7 @@
 				EE96E204236DC14100B547A5 /* Constants.swift in Sources */,
 				EE771A712392617E0052C489 /* OptionsViewModelProtocol.swift in Sources */,
 				EE771A73239261970052C489 /* OptionsViewModel.swift in Sources */,
+				EE668D56239ED1C9001E287C /* ThemeManager.swift in Sources */,
 				EE8FCC332376CF910081F967 /* StartViewModel.swift in Sources */,
 				EE42E32E2371FAA200911A91 /* Word.swift in Sources */,
 				EE42E3332371FC3900911A91 /* GameViewModelProtocol.swift in Sources */,

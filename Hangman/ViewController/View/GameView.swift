@@ -14,6 +14,9 @@ protocol GameViewDelegate: class {
 }
 
 class GameView: UIView {
+
+    // MARK: - PROPERTIES
+    
     private var backButton: UIButton!
     var bestScoreLabel: UILabel!
     var scoreLabel: UILabel!
@@ -27,6 +30,8 @@ class GameView: UIView {
     
     weak var delegate: GameViewDelegate?
     
+    // MARK: - INIT
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
@@ -37,8 +42,18 @@ class GameView: UIView {
         setup()
     }
     
+    // MARK: - PRIVATE METHODS
+
     private func setup() {
+        ThemeManager.addDarkModeObserver(to: self, selector: #selector(enableDarkMode))
+        
+        setupView()
+    }
+    
+    private func setupView() {
         backgroundColor = Constants.BACKGROUND_COLOR
+        
+        enableDarkMode()
         addElementsOnView()
         setConstraintsForElements()
     }
@@ -149,10 +164,10 @@ class GameView: UIView {
      
     private func setConstraintsForElements() {
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
+            backButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5),
             backButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             
-            bestScoreLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 10),
+            bestScoreLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5),
             bestScoreLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             
             scoreLabel.topAnchor.constraint(equalTo: bestScoreLabel.bottomAnchor, constant: 10),
@@ -189,7 +204,7 @@ class GameView: UIView {
         ])
     }
     
-    // MARK: - BUTTON ACTION METHODS
+    // MARK: - SELECTORS METHODS
     
     @objc private func backToStartView() {
         delegate?.backToStartView()
@@ -197,6 +212,10 @@ class GameView: UIView {
     
     @objc private func checkIsTappedLetterInLookingWord(_ letterButton: UIButton) {
         delegate?.checkIsTappedLetterInLookingWord(letterButton)
+    }
+    
+    @objc private func enableDarkMode() {
+        overrideUserInterfaceStyle = GlobalSettings.darkMode ? .dark : .light
     }
     
 }

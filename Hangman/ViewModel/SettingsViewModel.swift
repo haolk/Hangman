@@ -33,7 +33,7 @@ struct SettingsViewModel: SettingsViewModelProtocol {
     
     private func getSections() -> [SettingsSection] {
         let sections: [SettingsSection] = [
-            SettingsSection(title: .general, options: [SettingsOptions.wordLanguage, SettingsOptions.showHint]),
+            SettingsSection(title: .general, options: [SettingsOptions.wordLanguage, SettingsOptions.showHint, SettingsOptions.darkMode]),
             SettingsSection(title: .misc, options: [SettingsOptions.listOfAllWords])
         ]
         return sections

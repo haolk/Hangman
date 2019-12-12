@@ -13,7 +13,7 @@ enum Constants {
     
     static let BLUE = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
     
-    static let BACKGROUND_COLOR = UIColor.white
+    static let BACKGROUND_COLOR = UIColor.systemBackground
     
     static let FONT = "Marker Felt"
     

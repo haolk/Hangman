@@ -22,13 +22,18 @@ class SettingsCell: UITableViewCell {
             switchControl.isHidden = !settingsOption.containsSwitch
             accessoryType = settingsOption.isDisclosureIndicator ? .disclosureIndicator : .none
             selectionStyle = settingsOption.isDisclosureIndicator ? .default : .none
+            
+            if settingsOption == .showHint {
+                switchControl.isOn = GlobalSettings.useShowHint
+            } else if settingsOption == .darkMode {
+                switchControl.isOn = GlobalSettings.darkMode
+            }
         }
     }
     
     lazy var switchControl: UISwitch = {
         let switchControl = UISwitch()
         switchControl.translatesAutoresizingMaskIntoConstraints = false
-        switchControl.isOn = GlobalSettings.useShowHint
         switchControl.onTintColor = Constants.BLUE
         switchControl.addTarget(self, action: #selector(handleSwitchAction), for: .valueChanged)
         return switchControl
@@ -57,6 +62,8 @@ class SettingsCell: UITableViewCell {
         guard let settingsOption = settingsOption else { return }
         if settingsOption == .showHint {
             GlobalSettings.useShowHint = sender.isOn ? true : false
+        } else if settingsOption == .darkMode {
+            sender.isOn ? ThemeManager.enableDarkMode() : ThemeManager.disableDarkMode()
         }
     }
     
