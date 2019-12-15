@@ -54,7 +54,7 @@ class StartView: UIView {
     private func addElementsOnView() {
         titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "HANGMAN"
+        titleLabel.text = NSLocalizedString("HANGMAN", comment: "")
         titleLabel.textColor = Constants.BLUE
         titleLabel.font = UIFont.init(name: Constants.FONT, size: 55)
         titleLabel.textAlignment = .center

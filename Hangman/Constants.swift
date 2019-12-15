@@ -18,8 +18,5 @@ enum Constants {
     static let FONT = "Marker Felt"
     
     static let HEIGHT_FOR_HEADER_IN_SECTION = CGFloat(40)
-    
-    #warning("localization")
-    static var GameOver: String { get { "game over".localizedCapitalized } }
 }
 

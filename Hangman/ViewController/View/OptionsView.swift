@@ -68,7 +68,7 @@ class OptionsView: UIView {
         titleLabel.textAlignment = .center
         //titleLabel.layer.borderColor = UIColor.black.cgColor
         //titleLabel.layer.borderWidth = 2
-        titleLabel.text = "Options"
+        titleLabel.text = NSLocalizedString("OPTIONS", comment: "")
         addSubview(titleLabel)
         
         optionsTableView = UITableView(frame: frame, style: .grouped)

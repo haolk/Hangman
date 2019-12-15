@@ -118,14 +118,14 @@ class GameViewModel: GameViewModelProtocol {
     private func gameWin() {
         game.isFinished = true
         score.value = updateScore(as: .wholeWord)
-        alertTitle = "Nice job!"
-        alertMessage = "You found the correct word."
+        alertTitle = NSLocalizedString("NICE_JOB", comment: "")
+        alertMessage = NSLocalizedString("YOU_FOUND_THE_CORRECT_WORD", comment: "")
     }
     
     private func gameLost() {
         score.value = updateScore(as: .gameOver)
-        alertTitle = "\(Constants.GameOver)! \nHidden word: \(game.answere)!"
-        alertMessage = "Better luck next time"
+        alertTitle = "\(NSLocalizedString("GAME_OVER", comment: "")) \n\(NSLocalizedString("HIDDEN_WORD", comment: "")) \(game.answere)"
+        alertMessage = NSLocalizedString("BETTER_LUCK_NEXT_TIME", comment: "")
     }
     
     private func updateScore(as amount: ScoreAmount) -> String {
@@ -145,11 +145,11 @@ class GameViewModel: GameViewModelProtocol {
     // MARK: - STRING UTILS
     
     private static func scoreFormatted(_ amount: ScoreAmount = .startAmount, for game: Game) -> String {
-        return "Score: \(game.updateScore(for: amount.rawValue))"
+        return "\(NSLocalizedString("SCORE", comment: "")) \(game.updateScore(for: amount.rawValue))"
     }
     
     private static func bestScoreFormatted(for game: Game) -> String {
-        return "Best: \(game.bestScore)"
+        return "\(NSLocalizedString("BEST", comment: "")) \(game.bestScore)"
     }
     
     private static func imageFormatter(_ amount: Int = 0, for game: Game) -> String {

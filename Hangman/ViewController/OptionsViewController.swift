@@ -62,14 +62,14 @@ extension OptionsViewController: UITableViewDataSource {
         
         switch cellType {
         case .wordLanguage:
-            cell.labelLeft.text = cellDataText
+            cell.labelLeft.text = NSLocalizedString(cellDataText.uppercased(), comment: "")
             cell.accessoryType = GlobalSettings.wordLanguage == cellDataText ? .checkmark : .none
         case .listOfAllWords:
             let cellDataSplited = cellDataText.split(separator: "-")
             cell.labelLeft.text = String(cellDataSplited[0]).lowercased()
             cell.labelRight.text = String(cellDataSplited[1]).lowercased()
         default:
-            cell.labelLeft.text = "ERROR"
+            cell.labelLeft.text = NSLocalizedString("ERROR", comment: "")
         }
         
         return cell

@@ -29,9 +29,9 @@ struct OptionsViewModel: OptionsViewModelProtocol {
     func setNewWordLanguage(at row: Int) -> Bool {
         if type == .wordLanguage {
             let selectedWordLanguage = getData()[row]
-            let activeWordLangugage = GlobalSettings.wordLanguage
+            let activeWordLanguage = GlobalSettings.wordLanguage
             
-            if selectedWordLanguage != activeWordLangugage {
+            if selectedWordLanguage != activeWordLanguage {
                 GlobalSettings.wordLanguage = selectedWordLanguage
                 return true
             }

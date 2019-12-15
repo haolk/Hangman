@@ -69,7 +69,7 @@ class SettingsView: UIView {
         titleLabel.textAlignment = .center
         //titleLabel.layer.borderColor = UIColor.black.cgColor
         //titleLabel.layer.borderWidth = 2
-        titleLabel.text = "Settings"
+        titleLabel.text = NSLocalizedString("SETTINGS", comment: "")
         addSubview(titleLabel)
         
         settingsTableView = UITableView(frame: frame, style: .grouped)
