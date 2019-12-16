@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Hangman
+
+  Created by Hrvoje Vuković on 16/12/2019.
+  Copyright © 2019 Hrvoje Vuković. All rights reserved.
+*/
+"GAME_OVER" = "Game Over!";
+"NICE_JOB" = "Nice job!";
+"YOU_FOUND_THE_CORRECT_WORD" = "You found the correct word!";
+"HIDDEN_WORD" = "Hidden word:";
+"BETTER_LUCK_NEXT_TIME" = "Better luck next time...";
+"SCORE" = "Score:";
+"BEST" = "Best:";
+"HANGMAN" = "HANGMAN";
+"GENERAL" = "GENERAL";
+"MISC" = "MISC";
+"WORD_LANGUAGE" = "Word Language";
+"SHOW_HINT" = "Show Hint";
+"DARK_MODE" = "Dark Mode";
+"LIST_OF_WORDS" = "List of Words";
+"CROATIAN" = "Croatian";
+"ENGLISH" = "English";
+"SETTINGS" = "Settings";
+"OPTIONS" = "Options";
+"NEW_GAME" = "NEW GAME";
+"ERROR" = "Error";

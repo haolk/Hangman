@@ -2,7 +2,7 @@
   Localizable.strings
   Hangman
 
-  Created by Hrvoje Vuković on 15/12/2019.
+  Created by Hrvoje Vuković on 16/12/2019.
   Copyright © 2019 Hrvoje Vuković. All rights reserved.
 */
 "GAME_OVER" = "Igra završena!";
