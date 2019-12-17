@@ -16,12 +16,6 @@ protocol SettingsSectionProtocol: CustomStringConvertible {
 struct SettingsSection {
     var title: SettingsTitle
     var options: [SettingsOptions]
-    
-    init(title: SettingsTitle, options: [SettingsOptions]) {
-        self.title = title
-        self.options = options
-    }
-    
 }
 
 enum SettingsTitle: Int, CaseIterable {
