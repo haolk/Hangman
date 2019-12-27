@@ -55,7 +55,7 @@ class UserInfoHeader: UIView {
         let profileImageDimension: CGFloat = 60
         profileImageView.layer.cornerRadius = profileImageDimension / 2
         
-        backgroundColor = Constants.BACKGROUND_COLOR
+        backgroundColor = Constants.backgroundColor
         
         addElementsOnView()
         setConstraintsForElements(profileImageDimension)

@@ -9,14 +9,14 @@
 import UIKit
 
 enum Constants {
-    static let LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    static let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     
-    static let BLUE = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+    static let mainColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
     
-    static let BACKGROUND_COLOR = UIColor.systemBackground
+    static let backgroundColor = UIColor.systemBackground
     
-    static let FONT = "Marker Felt"
+    static let font = "Marker Felt"
     
-    static let HEIGHT_FOR_HEADER_IN_SECTION = CGFloat(40)
+    static let heightForHeaderInSection = CGFloat(40)
 }
 

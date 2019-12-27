@@ -51,7 +51,7 @@ class GameView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = Constants.BACKGROUND_COLOR
+        backgroundColor = Constants.backgroundColor
         
         enableDarkMode()
         addElementsOnView()
@@ -64,21 +64,21 @@ class GameView: UIView {
         let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
         backButton.setImage(backIcon, for: .normal)
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.tintColor = Constants.BLUE
+        backButton.tintColor = Constants.mainColor
         backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
         addSubview(backButton)
         
         bestScoreLabel = UILabel()
         bestScoreLabel.translatesAutoresizingMaskIntoConstraints = false
         bestScoreLabel.font = UIFont.init(name: "Marker Felt", size: 26)
-        bestScoreLabel.textColor = Constants.BLUE
+        bestScoreLabel.textColor = Constants.mainColor
         bestScoreLabel.textAlignment = .right
         addSubview(bestScoreLabel)
         
         scoreLabel = UILabel()
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.font = UIFont.init(name: "Marker Felt", size: 26)
-        scoreLabel.textColor = Constants.BLUE
+        scoreLabel.textColor = Constants.mainColor
         scoreLabel.textAlignment = .right
         //scoreLabel.layer.borderColor = UIColor.black.cgColor
         //scoreLabel.layer.borderWidth = 2
@@ -153,8 +153,8 @@ class GameView: UIView {
             letterButton.layer.borderWidth = 1.0
             letterButton.clipsToBounds = true
             letterButton.titleLabel?.font = UIFont.init(name: "Marker Felt", size: 30)
-            letterButton.setTitle(Constants.LETTERS[startPosition + letter], for: .normal)
-            letterButton.setTitleColor(Constants.BLUE, for: .normal)
+            letterButton.setTitle(Constants.letters[startPosition + letter], for: .normal)
+            letterButton.setTitleColor(Constants.mainColor, for: .normal)
             letterButton.contentHorizontalAlignment = .center
             letterButton.contentVerticalAlignment = .center
             letterButton.addTarget(self, action: #selector(checkIsTappedLetterInLookingWord(_:)), for: .touchUpInside)

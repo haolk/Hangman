@@ -44,7 +44,7 @@ class StartView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = Constants.BACKGROUND_COLOR
+        backgroundColor = Constants.backgroundColor
         
         enableDarkMode()
         addElementsOnView()
@@ -55,8 +55,8 @@ class StartView: UIView {
         titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = NSLocalizedString("HANGMAN", comment: "")
-        titleLabel.textColor = Constants.BLUE
-        titleLabel.font = UIFont.init(name: Constants.FONT, size: 55)
+        titleLabel.textColor = Constants.mainColor
+        titleLabel.font = UIFont.init(name: Constants.font, size: 55)
         titleLabel.textAlignment = .center
         addSubview(titleLabel)
         
@@ -67,7 +67,7 @@ class StartView: UIView {
         playButton.setImage(playIcon, for: .normal)
         playButton.layer.borderWidth = 1
         playButton.layer.cornerRadius = 5
-        playButton.layer.borderColor = Constants.BLUE.cgColor
+        playButton.layer.borderColor = Constants.mainColor.cgColor
         playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
         addSubview(playButton)
         
@@ -78,7 +78,7 @@ class StartView: UIView {
         settingsButton.setImage(settingsIcon, for: .normal)
         settingsButton.layer.borderWidth = 1
         settingsButton.layer.cornerRadius = 5
-        settingsButton.layer.borderColor = Constants.BLUE.cgColor
+        settingsButton.layer.borderColor = Constants.mainColor.cgColor
         settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
         addSubview(settingsButton)
     }

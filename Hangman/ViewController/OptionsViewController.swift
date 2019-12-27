@@ -80,7 +80,7 @@ extension OptionsViewController: UITableViewDataSource {
 extension OptionsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Constants.HEIGHT_FOR_HEADER_IN_SECTION
+        return Constants.heightForHeaderInSection
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

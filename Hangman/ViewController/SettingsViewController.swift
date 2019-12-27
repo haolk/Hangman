@@ -88,13 +88,13 @@ extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = Constants.BLUE
+        view.backgroundColor = Constants.mainColor
         
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.text = settingsViewModel.getSectionTitle(section)
         title.font = UIFont.boldSystemFont(ofSize: 15)
-        title.textColor = Constants.BACKGROUND_COLOR
+        title.textColor = Constants.backgroundColor
         view.addSubview(title)
         
         NSLayoutConstraint.activate([
@@ -106,7 +106,7 @@ extension SettingsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Constants.HEIGHT_FOR_HEADER_IN_SECTION
+        return Constants.heightForHeaderInSection
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

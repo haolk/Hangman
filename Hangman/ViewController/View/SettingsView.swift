@@ -45,7 +45,7 @@ class SettingsView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = Constants.BACKGROUND_COLOR
+        backgroundColor = Constants.backgroundColor
 
         enableDarkMode()
         addElementsOnView()
@@ -58,14 +58,14 @@ class SettingsView: UIView {
         let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
         backButton.setImage(backIcon, for: .normal)
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.tintColor = Constants.BLUE
+        backButton.tintColor = Constants.mainColor
         backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
         addSubview(backButton)
         
         titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.init(name: "Marker Felt", size: 26)
-        titleLabel.textColor = Constants.BLUE
+        titleLabel.textColor = Constants.mainColor
         titleLabel.textAlignment = .center
         //titleLabel.layer.borderColor = UIColor.black.cgColor
         //titleLabel.layer.borderWidth = 2

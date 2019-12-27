@@ -32,7 +32,7 @@ class SettingsCell: UITableViewCell {
     lazy var switchControl: UISwitch = {
         let switchControl = UISwitch()
         switchControl.translatesAutoresizingMaskIntoConstraints = false
-        switchControl.onTintColor = Constants.BLUE
+        switchControl.onTintColor = Constants.mainColor
         switchControl.addTarget(self, action: #selector(handleSwitchAction), for: .valueChanged)
         return switchControl
     }()
