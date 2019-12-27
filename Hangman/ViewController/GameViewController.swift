@@ -83,7 +83,7 @@ class GameViewController: UIViewController, GameViewDelegate {
             self.gameView.answerTextfield.text = answere
         }
         
-        gameViewModel.isFinished.bindAndFire { [weak self] (gameIsFinished: Bool) in
+        gameViewModel.isFinished.bind { [weak self] (gameIsFinished: Bool) in
             if gameIsFinished {
                 self?.createAlertController(actionHandler: { [weak self] (UIAlertAction) -> Void in
                     //start new game
