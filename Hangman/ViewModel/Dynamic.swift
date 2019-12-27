@@ -10,7 +10,7 @@ import Foundation
 
 class Dynamic<T> {
     typealias Listener = (T) -> ()
-    var listener: Listener?
+    private var listener: Listener?
     
     func bind(_ listener: Listener?) {
         self.listener = listener
