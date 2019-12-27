@@ -23,9 +23,10 @@ class WordsRepository {
             return WordDetails(word: "", hint: "")
         }
         
-        randomWordDetails = activeWordsAndHints.randomElement()
-        checkWordValidation()
-        return randomWordDetails!
+        randomWordDetails = activeWordsAndHints.filter { $0 != lastRandomWordDetails }.randomElement()
+        lastRandomWordDetails = randomWordDetails
+        
+        return randomWordDetails ?? WordDetails(word: "", hint: "")
     }
     
     func getActiveWordsAndHints() -> [WordDetails]? {
@@ -59,11 +60,4 @@ class WordsRepository {
         }
     }
     
-    private func checkWordValidation() { //to prevent repetition of the same word twice in a row
-        if randomWordDetails?.word == lastRandomWordDetails?.word {
-            _ = getRandomWord()
-        } else {
-            lastRandomWordDetails = randomWordDetails
-        }
-    }
 }

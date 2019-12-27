@@ -30,9 +30,9 @@ enum WordLanguages: Int, CaseIterable {
     }
 }
 
-extension Word: Equatable {
+extension WordDetails: Equatable {
     
-    public static func == (lhs: Word, rhs: Word) -> Bool {
-        return lhs.en.word == rhs.en.word || lhs.hr.word == rhs.hr.word
+    public static func == (lhs: WordDetails, rhs: WordDetails) -> Bool {
+        return lhs.word == rhs.word && lhs.hint == rhs.hint
     }
 }
