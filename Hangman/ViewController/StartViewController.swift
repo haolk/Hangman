@@ -45,14 +45,14 @@ class StartViewController: UIViewController, StartViewDelegate {
     func playButtonTapped() {
         let game = startViewModel.startGame()
         let gameViewModel = GameViewModel(startViewModel.wordsRepository, game)
-        let gameVC = GameViewController(viewModel: gameViewModel)
-        navigationController?.pushViewController(gameVC, animated: true)
+        let gameViewController = GameViewController(viewModel: gameViewModel)
+        navigationController?.pushViewController(gameViewController, animated: true)
     }
     
     func settingsButtonTapped() {
         let settingsViewModel = SettingsViewModel(wordsRepository: startViewModel.wordsRepository)
-        let settingsVC = SettingsViewController(viewModel: settingsViewModel)
-        navigationController?.pushViewController(settingsVC, animated: true)
+        let settingsViewController = SettingsViewController(viewModel: settingsViewModel)
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
 }
