@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol StartViewDelegate: class {
+protocol StartViewDelegate: AnyObject {
     func playButtonTapped()
     func settingsButtonTapped()
 }

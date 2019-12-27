@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol GameViewDelegate: class {
+protocol GameViewDelegate: AnyObject {
     func backToStartView()
     func checkIsTappedLetterInLookingWord(_ letterButton: UIButton)
 }
