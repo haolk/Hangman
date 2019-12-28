@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController, GameViewDelegate {
+class GameViewController: UIViewController {
 
     // MARK: - PROPERTIES
 
@@ -40,18 +40,6 @@ class GameViewController: UIViewController, GameViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         fillUI()
-    }
-    
-    // MARK: - SELECTORS METHODS
-    
-    func backToStartView() {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    func checkIsTappedLetterInLookingWord(_ letterButton: UIButton) {
-        disableAndAppendButtonInTappedLetterButtons(letterButton)
-        checkLetterStatusAndChangeItsColor(letterButton)
-        gameViewModel.checkIsGameFinished()
     }
     
     // MARK: - PRIVATE METHODS
@@ -124,4 +112,20 @@ class GameViewController: UIViewController, GameViewDelegate {
         letterButton.backgroundColor = letterStatus ? UIColor.green : UIColor.red
     }
 
+}
+
+// MARK: - VIEW DELEGATE METHODS
+
+extension GameViewController: GameViewDelegate {
+    
+    func backToStartView() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func checkIsTappedLetterInLookingWord(_ letterButton: UIButton) {
+        disableAndAppendButtonInTappedLetterButtons(letterButton)
+        checkLetterStatusAndChangeItsColor(letterButton)
+        gameViewModel.checkIsGameFinished()
+    }
+    
 }

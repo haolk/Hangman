@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, SettingsDelegate {
+class SettingsViewController: UIViewController {
 
     // MARK: - PROPERTIES
 
@@ -43,12 +43,6 @@ class SettingsViewController: UIViewController, SettingsDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
        settingsView.settingsTableView.reloadData()
-    }
-    
-    // MARK: - TABLE ROW ACTION METHODS
-    
-    func backToStartView() {
-        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - PRIVATE METHODS
@@ -123,6 +117,16 @@ extension SettingsViewController: UITableViewDelegate {
         default:
             break
         }
+    }
+    
+}
+
+// MARK: - VIEW DELEGATE METHODS
+
+extension SettingsViewController: SettingsViewDelegate {
+    
+    func backToStartView() {
+        navigationController?.popViewController(animated: true)
     }
     
 }

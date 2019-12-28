@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OptionsDelegate: AnyObject {
+protocol OptionsViewDelegate: AnyObject {
     func backToStartView()
 }
 
@@ -21,7 +21,7 @@ class OptionsView: UIView {
     
     var optionsTableView: UITableView!
     
-    weak var delegate: OptionsDelegate?
+    weak var delegate: OptionsViewDelegate?
     
     // MARK: - INIT
     

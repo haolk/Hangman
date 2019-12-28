@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SettingsDelegate: AnyObject {
+protocol SettingsViewDelegate: AnyObject {
     func backToStartView()
 }
 
@@ -22,7 +22,7 @@ class SettingsView: UIView {
     
     var settingsTableView: UITableView!
     
-    weak var delegate: SettingsDelegate?
+    weak var delegate: SettingsViewDelegate?
     
     // MARK: - INIT
     

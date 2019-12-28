@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OptionsViewController: UIViewController, OptionsDelegate {
+class OptionsViewController: UIViewController {
     
     // MARK: - PROPERTIES
     
@@ -41,12 +41,6 @@ class OptionsViewController: UIViewController, OptionsDelegate {
         super.viewDidLoad()
     }
 
-    // MARK: - TABLE ROW ACTION METHODS
-    
-    func backToStartView() {
-        navigationController?.popViewController(animated: true)
-    }
-    
 }
 
 extension OptionsViewController: UITableViewDataSource {
@@ -88,6 +82,16 @@ extension OptionsViewController: UITableViewDelegate {
             optionsView.optionsTableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
             optionsView.optionsTableView.reloadData()
         }
+    }
+    
+}
+
+// MARK: - VIEW DELEGATE METHODS
+
+extension OptionsViewController: OptionsViewDelegate {
+    
+    func backToStartView() {
+        navigationController?.popViewController(animated: true)
     }
     
 }

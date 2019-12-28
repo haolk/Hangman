@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StartViewController: UIViewController, StartViewDelegate {
+class StartViewController: UIViewController {
     
     // MARK: - PROPERTIES
     
@@ -40,8 +40,12 @@ class StartViewController: UIViewController, StartViewDelegate {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    // MARK: - SELECTORS METHODS
-    
+}
+
+// MARK: - VIEW DELEGATE METHODS
+
+extension StartViewController: StartViewDelegate {
+
     func playButtonTapped() {
         let game = startViewModel.startGame()
         let gameViewModel = GameViewModel(startViewModel.wordsRepository, game)
