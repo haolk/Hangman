@@ -84,7 +84,7 @@ class OptionsView: UIView {
     private func setConstraintsForElements() {
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5),
-            backButton.leadingAnchor .constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 10),
+            backButton.leadingAnchor .constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             titleLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 50),
             titleLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -50),
