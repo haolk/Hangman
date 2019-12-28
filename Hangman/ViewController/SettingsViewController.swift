@@ -63,6 +63,8 @@ class SettingsViewController: UIViewController {
     
 }
 
+// MARK: - TABLE VIEW DATA SOURCE
+
 extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,6 +79,8 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
 }
+
+// MARK: - TABLE VIEW DELEGATE
 
 extension SettingsViewController: UITableViewDelegate {
     

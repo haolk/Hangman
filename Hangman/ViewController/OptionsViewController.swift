@@ -43,6 +43,8 @@ class OptionsViewController: UIViewController {
 
 }
 
+// MARK: - TABLE VIEW DATA SOURCE
+
 extension OptionsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,6 +74,8 @@ extension OptionsViewController: UITableViewDataSource {
     }
     
 }
+
+// MARK: - TABLE VIEW DELEGATE
 
 extension OptionsViewController: UITableViewDelegate {
     
