@@ -17,7 +17,7 @@ class OptionsView: UIView {
     // MARK: - PROPERTIES
     
     private var backButton: UIButton!
-    private var titleLabel: UILabel!
+    var titleLabel: UILabel!
     
     var optionsTableView: UITableView!
     
@@ -68,7 +68,6 @@ class OptionsView: UIView {
         titleLabel.textAlignment = .center
         //titleLabel.layer.borderColor = UIColor.black.cgColor
         //titleLabel.layer.borderWidth = 2
-        titleLabel.text = NSLocalizedString("OPTIONS", comment: "")
         addSubview(titleLabel)
         
         optionsTableView = UITableView(frame: frame, style: .grouped)

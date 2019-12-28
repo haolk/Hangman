@@ -22,6 +22,6 @@
 "CROATIAN" = "Hrvatski";
 "ENGLISH" = "Engleski";
 "SETTINGS" = "Postavke";
-"OPTIONS" = "Opcije";
+"SELECT_WORD_LANGUAGE" = "Odaberite jezik riječi";
 "NEW_GAME" = "NOVA IGRA";
 "ERROR" = "Pogreška";
