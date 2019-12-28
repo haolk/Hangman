@@ -14,21 +14,101 @@ protocol GameViewDelegate: AnyObject {
 }
 
 class GameView: UIView {
+    
+    weak var delegate: GameViewDelegate?
 
     // MARK: - PROPERTIES
     
-    private var backButton: UIButton!
-    var bestScoreLabel: UILabel!
-    var scoreLabel: UILabel!
-    var imageView: UIImageView!
-    var answerTextfield: UITextField!
-    var hintLabel: UILabel!
-    private var stackView1: UIStackView!
-    private var stackView2: UIStackView!
-    private var stackView3: UIStackView!
-    private var stackView4: UIStackView!
+    private let backButton: UIButton = {
+        let backButton = UIButton()
+        let backIconConfig = UIImage.SymbolConfiguration(pointSize: 26)
+        let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
+        backButton.setImage(backIcon, for: .normal)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.tintColor = Constants.mainColor
+        backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
+        return backButton
+    }()
     
-    weak var delegate: GameViewDelegate?
+    let bestScoreLabel: UILabel = {
+        let bestScoreLabel = UILabel()
+        bestScoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        bestScoreLabel.font = UIFont.init(name: "Marker Felt", size: 26)
+        bestScoreLabel.textColor = Constants.mainColor
+        bestScoreLabel.textAlignment = .right
+        return bestScoreLabel
+    }()
+    
+    let scoreLabel: UILabel = {
+        let scoreLabel = UILabel()
+        scoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        scoreLabel.font = UIFont.init(name: "Marker Felt", size: 26)
+        scoreLabel.textColor = Constants.mainColor
+        scoreLabel.textAlignment = .right
+        return scoreLabel
+    }()
+    
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.setContentHuggingPriority(UILayoutPriority(rawValue: 1), for: .vertical)
+        return imageView
+    }()
+    
+    let answerTextfield: UITextField = {
+        let answerTextfield = UITextField()
+        answerTextfield.translatesAutoresizingMaskIntoConstraints = false
+        answerTextfield.font = UIFont.init(name: "Marker Felt", size: 26)
+        answerTextfield.textAlignment = .center
+        answerTextfield.isUserInteractionEnabled = false
+        //answerTextfield.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
+        return answerTextfield
+    }()
+    
+    let hintLabel: UILabel = {
+        let hintLabel = UILabel()
+        hintLabel.translatesAutoresizingMaskIntoConstraints = false
+        hintLabel.font = UIFont.init(name: "Marker Felt", size: 16)
+        hintLabel.textAlignment = .center
+        return hintLabel
+    }()
+    
+    private let stackView1: UIStackView = {
+        let stackView1 = UIStackView()
+        stackView1.translatesAutoresizingMaskIntoConstraints = false
+        stackView1.distribution = .fillEqually
+        stackView1.axis = .horizontal
+        stackView1.spacing = 8
+        return stackView1
+    }()
+    
+    private let stackView2: UIStackView = {
+        let stackView2 = UIStackView()
+        stackView2.translatesAutoresizingMaskIntoConstraints = false
+        stackView2.distribution = .fillEqually
+        stackView2.axis = .horizontal
+        stackView2.spacing = 4
+        return stackView2
+    }()
+    
+    private let stackView3: UIStackView = {
+        let stackView3 = UIStackView()
+        stackView3.translatesAutoresizingMaskIntoConstraints = false
+        stackView3.distribution = .fillEqually
+        stackView3.axis = .horizontal
+        stackView3.spacing = 8
+        return stackView3
+    }()
+    
+    private let stackView4: UIStackView = {
+        let stackView4 = UIStackView()
+        stackView4.translatesAutoresizingMaskIntoConstraints = false
+        stackView4.distribution = .fillEqually
+        stackView4.axis = .horizontal
+        stackView4.spacing = 4
+        return stackView4
+    }()
     
     // MARK: - INIT
     
@@ -59,83 +139,15 @@ class GameView: UIView {
     }
     
     private func addElementsOnView() {
-        backButton = UIButton()
-        let backIconConfig = UIImage.SymbolConfiguration(pointSize: 26)
-        let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
-        backButton.setImage(backIcon, for: .normal)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.tintColor = Constants.mainColor
-        backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
         addSubview(backButton)
-        
-        bestScoreLabel = UILabel()
-        bestScoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        bestScoreLabel.font = UIFont.init(name: "Marker Felt", size: 26)
-        bestScoreLabel.textColor = Constants.mainColor
-        bestScoreLabel.textAlignment = .right
         addSubview(bestScoreLabel)
-        
-        scoreLabel = UILabel()
-        scoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        scoreLabel.font = UIFont.init(name: "Marker Felt", size: 26)
-        scoreLabel.textColor = Constants.mainColor
-        scoreLabel.textAlignment = .right
-        //scoreLabel.layer.borderColor = UIColor.black.cgColor
-        //scoreLabel.layer.borderWidth = 2
         addSubview(scoreLabel)
-        
-        imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.setContentHuggingPriority(UILayoutPriority(rawValue: 1), for: .vertical)
-        //imageView.layer.borderColor = UIColor.black.cgColor
-        //imageView.layer.borderWidth = 2
         addSubview(imageView)
-        
-        answerTextfield = UITextField()
-        answerTextfield.translatesAutoresizingMaskIntoConstraints = false
-        answerTextfield.font = UIFont.init(name: "Marker Felt", size: 26)
-        answerTextfield.textAlignment = .center
-        answerTextfield.isUserInteractionEnabled = false
-        //answerTextfield.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
-        //answerTextfield.layer.borderColor = UIColor.black.cgColor
-        //answerTextfield.layer.borderWidth = 2
         addSubview(answerTextfield)
-        
-        hintLabel = UILabel()
-        hintLabel.translatesAutoresizingMaskIntoConstraints = false
-        hintLabel.font = UIFont.init(name: "Marker Felt", size: 16)
-        hintLabel.textAlignment = .center
-        //hintLabel.layer.borderColor = UIColor.black.cgColor
-        //hintLabel.layer.borderWidth = 2
         addSubview(hintLabel)
-        
-        stackView1 = UIStackView()
-        stackView1.translatesAutoresizingMaskIntoConstraints = false
-        stackView1.distribution = .fillEqually
-        stackView1.axis = .horizontal
-        stackView1.spacing = 8
         addSubview(stackView1)
-        
-        stackView2 = UIStackView()
-        stackView2.translatesAutoresizingMaskIntoConstraints = false
-        stackView2.distribution = .fillEqually
-        stackView2.axis = .horizontal
-        stackView2.spacing = 4
         addSubview(stackView2)
-        
-        stackView3 = UIStackView()
-        stackView3.translatesAutoresizingMaskIntoConstraints = false
-        stackView3.distribution = .fillEqually
-        stackView3.axis = .horizontal
-        stackView3.spacing = 8
         addSubview(stackView3)
-        
-        stackView4 = UIStackView()
-        stackView4.translatesAutoresizingMaskIntoConstraints = false
-        stackView4.distribution = .fillEqually
-        stackView4.axis = .horizontal
-        stackView4.spacing = 4
         addSubview(stackView4)
         
         addLettersRow(startPosition: 0, numberOfLettersInRow: 6, stackView: stackView1)

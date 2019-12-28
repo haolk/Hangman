@@ -14,14 +14,31 @@ protocol OptionsViewDelegate: AnyObject {
 
 class OptionsView: UIView {
     
+    weak var delegate: OptionsViewDelegate?
+    
     // MARK: - PROPERTIES
     
-    private var backButton: UIButton!
-    var titleLabel: UILabel!
+    private let backButton: UIButton = {
+        let backButton = UIButton()
+        let backIconConfig = UIImage.SymbolConfiguration(pointSize: 26)
+        let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
+        backButton.setImage(backIcon, for: .normal)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.tintColor = Constants.mainColor
+        backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
+        return backButton
+    }()
     
-    var optionsTableView: UITableView!
+    let titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont.init(name: "Marker Felt", size: 26)
+        titleLabel.textColor = Constants.mainColor
+        titleLabel.textAlignment = .center
+        return titleLabel
+    }()
     
-    weak var delegate: OptionsViewDelegate?
+    var optionsTableView = UITableView()
     
     // MARK: - INIT
     
@@ -52,29 +69,13 @@ class OptionsView: UIView {
     }
 
     private func addElementsOnView() {
-        backButton = UIButton()
-        let backIconConfig = UIImage.SymbolConfiguration(pointSize: 26)
-        let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
-        backButton.setImage(backIcon, for: .normal)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.tintColor = Constants.mainColor
-        backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
         addSubview(backButton)
-        
-        titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.init(name: "Marker Felt", size: 26)
-        titleLabel.textColor = Constants.mainColor
-        titleLabel.textAlignment = .center
-        //titleLabel.layer.borderColor = UIColor.black.cgColor
-        //titleLabel.layer.borderWidth = 2
         addSubview(titleLabel)
         
         optionsTableView = UITableView(frame: frame, style: .grouped)
         optionsTableView.translatesAutoresizingMaskIntoConstraints = false
         optionsTableView.register(OptionsCell.self, forCellReuseIdentifier: OptionsCell.reuseIdentifier)
         //optionsTableView.rowHeight = 50
-        //optionsTableView.tableHeaderView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: CGFloat.leastNormalMagnitude)))
         optionsTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 10))
         optionsTableView.tableHeaderView?.backgroundColor = Constants.backgroundColor
         //optionsTableView.sectionFooterHeight = 0

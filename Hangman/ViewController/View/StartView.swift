@@ -15,13 +15,45 @@ protocol StartViewDelegate: AnyObject {
 
 class StartView: UIView {
     
+    weak var delegate: StartViewDelegate?
+    
     // MARK: - PROPERTIES
 
-    private var titleLabel: UILabel!
-    private var playButton: UIButton!
-    private var settingsButton: UIButton!
+    private let titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.text = NSLocalizedString("HANGMAN", comment: "")
+        titleLabel.textColor = Constants.mainColor
+        titleLabel.font = UIFont.init(name: Constants.font, size: 55)
+        titleLabel.textAlignment = .center
+        return titleLabel
+    }()
+
+    private let playButton: UIButton = {
+        let playButton = UIButton()
+        playButton.translatesAutoresizingMaskIntoConstraints = false
+        let playIconConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .black)
+        let playIcon = UIImage(systemName: "play.fill", withConfiguration: playIconConfig)
+        playButton.setImage(playIcon, for: .normal)
+        playButton.layer.borderWidth = 1
+        playButton.layer.cornerRadius = 5
+        playButton.layer.borderColor = Constants.mainColor.cgColor
+        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        return playButton
+    }()
     
-    weak var delegate: StartViewDelegate?
+    private let settingsButton: UIButton = {
+        let settingsButton = UIButton()
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
+        let settingsIconConfig = UIImage.SymbolConfiguration(pointSize: 40)
+        let settingsIcon = UIImage(systemName: "gear", withConfiguration: settingsIconConfig)
+        settingsButton.setImage(settingsIcon, for: .normal)
+        settingsButton.layer.borderWidth = 1
+        settingsButton.layer.cornerRadius = 5
+        settingsButton.layer.borderColor = Constants.mainColor.cgColor
+        settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
+        return settingsButton
+    }()
     
     // MARK: - INIT
     
@@ -52,34 +84,8 @@ class StartView: UIView {
     }
     
     private func addElementsOnView() {
-        titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = NSLocalizedString("HANGMAN", comment: "")
-        titleLabel.textColor = Constants.mainColor
-        titleLabel.font = UIFont.init(name: Constants.font, size: 55)
-        titleLabel.textAlignment = .center
         addSubview(titleLabel)
-        
-        playButton = UIButton()
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        let playIconConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .black)
-        let playIcon = UIImage(systemName: "play.fill", withConfiguration: playIconConfig)
-        playButton.setImage(playIcon, for: .normal)
-        playButton.layer.borderWidth = 1
-        playButton.layer.cornerRadius = 5
-        playButton.layer.borderColor = Constants.mainColor.cgColor
-        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
         addSubview(playButton)
-        
-        settingsButton = UIButton()
-        settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        let settingsIconConfig = UIImage.SymbolConfiguration(pointSize: 40)
-        let settingsIcon = UIImage(systemName: "gear", withConfiguration: settingsIconConfig)
-        settingsButton.setImage(settingsIcon, for: .normal)
-        settingsButton.layer.borderWidth = 1
-        settingsButton.layer.cornerRadius = 5
-        settingsButton.layer.borderColor = Constants.mainColor.cgColor
-        settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
         addSubview(settingsButton)
     }
     

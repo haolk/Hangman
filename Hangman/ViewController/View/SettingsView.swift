@@ -14,15 +14,34 @@ protocol SettingsViewDelegate: AnyObject {
 
 class SettingsView: UIView {
     
+    weak var delegate: SettingsViewDelegate?
+    
     // MARK: - PROPERTIES
     
-    private var backButton: UIButton!
-    private var titleLabel: UILabel!
-    private var userInfoHeader: UserInfoHeader!
+    private let backButton: UIButton = {
+        let backButton = UIButton()
+        let backIconConfig = UIImage.SymbolConfiguration(pointSize: 26)
+        let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
+        backButton.setImage(backIcon, for: .normal)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.tintColor = Constants.mainColor
+        backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
+        return backButton
+    }()
     
-    var settingsTableView: UITableView!
+    private let titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.font = UIFont.init(name: "Marker Felt", size: 26)
+        titleLabel.textColor = Constants.mainColor
+        titleLabel.textAlignment = .center
+        titleLabel.text = NSLocalizedString("SETTINGS", comment: "")
+        return titleLabel
+    }()
     
-    weak var delegate: SettingsViewDelegate?
+    private var userInfoHeader = UserInfoHeader()
+    
+    var settingsTableView = UITableView()
     
     // MARK: - INIT
     
@@ -53,30 +72,12 @@ class SettingsView: UIView {
     }
     
     private func addElementsOnView() {
-        backButton = UIButton()
-        let backIconConfig = UIImage.SymbolConfiguration(pointSize: 26)
-        let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
-        backButton.setImage(backIcon, for: .normal)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.tintColor = Constants.mainColor
-        backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
         addSubview(backButton)
-        
-        titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.init(name: "Marker Felt", size: 26)
-        titleLabel.textColor = Constants.mainColor
-        titleLabel.textAlignment = .center
-        //titleLabel.layer.borderColor = UIColor.black.cgColor
-        //titleLabel.layer.borderWidth = 2
-        titleLabel.text = NSLocalizedString("SETTINGS", comment: "")
         addSubview(titleLabel)
         
         settingsTableView = UITableView(frame: frame, style: .grouped)
         settingsTableView.translatesAutoresizingMaskIntoConstraints = false
         settingsTableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.reuseIdentifier)
-        //settingsTableView.allowsSelection = true
-        //settingsTableView.allowsMultipleSelection = false
         settingsTableView.rowHeight = 50
         settingsTableView.sectionFooterHeight = 0
 
