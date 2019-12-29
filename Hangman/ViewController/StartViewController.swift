@@ -16,7 +16,6 @@ class StartViewController: UIViewController {
     
     private lazy var startView: StartView = {
         let startView = StartView()
-        startView.delegate = self
         return startView
     }()
     
@@ -38,25 +37,29 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        setViewClosures()
     }
     
-}
-
-// MARK: - VIEW DELEGATE METHODS
-
-extension StartViewController: StartViewDelegate {
-
-    func playButtonTapped() {
-        let game = startViewModel.startGame()
-        let gameViewModel = GameViewModel(startViewModel.wordsRepository, game)
-        let gameViewController = GameViewController(viewModel: gameViewModel)
-        navigationController?.pushViewController(gameViewController, animated: true)
-    }
+    // MARK: - VIEW CLOSURES
     
-    func settingsButtonTapped() {
-        let settingsViewModel = SettingsViewModel(wordsRepository: startViewModel.wordsRepository)
-        let settingsViewController = SettingsViewController(viewModel: settingsViewModel)
-        navigationController?.pushViewController(settingsViewController, animated: true)
+    private func setViewClosures() {
+        startView.onPlayButtonTapped = { [weak self] in
+            guard let self = self else { return }
+
+            let game = self.startViewModel.startGame()
+            let gameViewModel = GameViewModel(self.startViewModel.wordsRepository, game)
+            let gameVC = GameViewController(viewModel: gameViewModel)
+            self.navigationController?.pushViewController(gameVC, animated: true)
+        }
+        
+        startView.onSettingsButtonTapped = { [weak self] in
+            guard let self = self else { return }
+    
+            let settingsViewModel = SettingsViewModel(wordsRepository: self.startViewModel.wordsRepository)
+            let settingsViewController = SettingsViewController(viewModel: settingsViewModel)
+            self.navigationController?.pushViewController(settingsViewController, animated: true)
+        }
     }
     
 }

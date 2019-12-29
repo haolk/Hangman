@@ -8,13 +8,11 @@
 
 import UIKit
 
-protocol SettingsViewDelegate: AnyObject {
-    func backToStartView()
-}
-
 class SettingsView: UIView {
     
-    weak var delegate: SettingsViewDelegate?
+    // MARK: - ACTION CLOSURES
+    
+    var onBackToStartView: () -> Void = {}
     
     // MARK: - PROPERTIES
     
@@ -105,7 +103,7 @@ class SettingsView: UIView {
     // MARK: - SELECTORS METHODS
     
     @objc private func backToStartView() {
-        delegate?.backToStartView()
+        onBackToStartView()
     }
     
     @objc private func enableDarkMode() {

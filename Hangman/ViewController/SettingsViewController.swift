@@ -16,7 +16,6 @@ class SettingsViewController: UIViewController {
     
     private lazy var settingsView: SettingsView = {
         let settingsView = SettingsView()
-        settingsView.delegate = self
         settingsView.settingsTableView.delegate = self
         settingsView.settingsTableView.dataSource = self
         return settingsView
@@ -39,10 +38,22 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setViewClosures()
     }
     
     override func viewWillAppear(_ animated: Bool) {
        settingsView.settingsTableView.reloadData()
+    }
+    
+    // MARK: - VIEW CLOSURES
+    
+    private func setViewClosures() {
+        settingsView.onBackToStartView = { [weak self] in
+            guard let self = self else { return }
+            
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     // MARK: - PRIVATE METHODS
@@ -121,16 +132,6 @@ extension SettingsViewController: UITableViewDelegate {
         default:
             break
         }
-    }
-    
-}
-
-// MARK: - VIEW DELEGATE METHODS
-
-extension SettingsViewController: SettingsViewDelegate {
-    
-    func backToStartView() {
-        navigationController?.popViewController(animated: true)
     }
     
 }

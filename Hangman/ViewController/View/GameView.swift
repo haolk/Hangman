@@ -8,14 +8,12 @@
 
 import UIKit
 
-protocol GameViewDelegate: AnyObject {
-    func backToStartView()
-    func checkIsTappedLetterInLookingWord(_ letterButton: UIButton)
-}
-
 class GameView: UIView {
     
-    weak var delegate: GameViewDelegate?
+    // MARK: - ACTION CLOSURES
+    
+    var onBackToStartView: () -> Void = {}
+    var onCheckIsTappedLetterInLookingWord: (UIButton) -> Void = {_ in }
 
     // MARK: - PROPERTIES
     
@@ -219,11 +217,11 @@ class GameView: UIView {
     // MARK: - SELECTORS METHODS
     
     @objc private func backToStartView() {
-        delegate?.backToStartView()
+        onBackToStartView()
     }
     
     @objc private func checkIsTappedLetterInLookingWord(_ letterButton: UIButton) {
-        delegate?.checkIsTappedLetterInLookingWord(letterButton)
+        onCheckIsTappedLetterInLookingWord(letterButton)
     }
     
     @objc private func enableDarkMode() {

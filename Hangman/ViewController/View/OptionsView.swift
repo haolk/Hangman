@@ -8,13 +8,11 @@
 
 import UIKit
 
-protocol OptionsViewDelegate: AnyObject {
-    func backToStartView()
-}
-
 class OptionsView: UIView {
     
-    weak var delegate: OptionsViewDelegate?
+    // MARK: - ACTION CLOSURES
+    
+    var onBackToStartView: () -> Void = {}
     
     // MARK: - PROPERTIES
     
@@ -99,7 +97,7 @@ class OptionsView: UIView {
     // MARK: - SELECTORS METHODS
     
     @objc private func backToStartView() {
-        delegate?.backToStartView()
+        onBackToStartView()
     }
     
     @objc private func enableDarkMode() {

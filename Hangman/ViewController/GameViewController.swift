@@ -18,7 +18,6 @@ class GameViewController: UIViewController {
     
     private lazy var gameView: GameView = {
         let gameView = GameView()
-        gameView.delegate = self
         return gameView
     }()
     
@@ -39,7 +38,27 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViewClosures()
         fillUI()
+    }
+    
+    // MARK: - VIEW CLOSURES
+    
+    private func setViewClosures() {
+        gameView.onBackToStartView = { [weak self] in
+            guard let self = self else { return }
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        gameView.onCheckIsTappedLetterInLookingWord = { [weak self] letterButton in
+            guard let self = self else { return }
+            
+            self.disableAndAppendButtonInTappedLetterButtons(letterButton)
+            self.checkLetterStatusAndChangeItsColor(letterButton)
+            self.gameViewModel.checkIsGameFinished()
+        }
+        
     }
     
     // MARK: - PRIVATE METHODS
@@ -110,22 +129,6 @@ class GameViewController: UIViewController {
         guard let tappedLetter = letterButton.titleLabel?.text else { return }
         let letterStatus = gameViewModel.isCorrectLetterTapped(tappedLetter)
         letterButton.backgroundColor = letterStatus ? UIColor.green : UIColor.red
-    }
-
-}
-
-// MARK: - VIEW DELEGATE METHODS
-
-extension GameViewController: GameViewDelegate {
-    
-    func backToStartView() {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    func checkIsTappedLetterInLookingWord(_ letterButton: UIButton) {
-        disableAndAppendButtonInTappedLetterButtons(letterButton)
-        checkLetterStatusAndChangeItsColor(letterButton)
-        gameViewModel.checkIsGameFinished()
     }
     
 }

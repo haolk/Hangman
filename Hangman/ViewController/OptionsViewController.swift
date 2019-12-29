@@ -16,7 +16,6 @@ class OptionsViewController: UIViewController {
     
     private lazy var optionsView: OptionsView = {
         let optionsView = OptionsView()
-        optionsView.delegate = self
         optionsView.optionsTableView.delegate = self
         optionsView.optionsTableView.dataSource = self
         return optionsView
@@ -39,6 +38,18 @@ class OptionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setViewClosures()
+    }
+    
+    // MARK: - VIEW CLOSURES
+    
+    private func setViewClosures() {
+        optionsView.onBackToStartView = { [weak self] in
+            guard let self = self else { return }
+            
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
 }
@@ -88,16 +99,6 @@ extension OptionsViewController: UITableViewDelegate {
             optionsView.optionsTableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
             optionsView.optionsTableView.reloadData()
         }
-    }
-    
-}
-
-// MARK: - VIEW DELEGATE METHODS
-
-extension OptionsViewController: OptionsViewDelegate {
-    
-    func backToStartView() {
-        navigationController?.popViewController(animated: true)
     }
     
 }

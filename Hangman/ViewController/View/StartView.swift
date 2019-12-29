@@ -8,14 +8,12 @@
 
 import UIKit
 
-protocol StartViewDelegate: AnyObject {
-    func playButtonTapped()
-    func settingsButtonTapped()
-}
-
 class StartView: UIView {
     
-    weak var delegate: StartViewDelegate?
+    // MARK: - ACTION CLOSURES
+    
+    var onPlayButtonTapped: () -> Void = {}
+    var onSettingsButtonTapped: () -> Void = {}
     
     // MARK: - PROPERTIES
 
@@ -107,11 +105,11 @@ class StartView: UIView {
     // MARK: - SELECTORS METHODS
     
     @objc private func playButtonTapped() {
-        delegate?.playButtonTapped()
+        onPlayButtonTapped()
     }
     
     @objc private func settingsButtonTapped() {
-        delegate?.settingsButtonTapped()
+        onSettingsButtonTapped()
     }
     
     @objc private func enableDarkMode() {
