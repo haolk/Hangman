@@ -47,8 +47,7 @@ class StartViewController: UIViewController {
         startView.onPlayButtonTapped = { [weak self] in
             guard let self = self else { return }
 
-            let game = self.startViewModel.startGame()
-            let gameViewModel = GameViewModel(self.startViewModel.wordsRepository, game)
+            let gameViewModel = self.startViewModel.createGameViewModel()
             let gameVC = GameViewController(viewModel: gameViewModel)
             self.navigationController?.pushViewController(gameVC, animated: true)
         }
@@ -56,7 +55,7 @@ class StartViewController: UIViewController {
         startView.onSettingsButtonTapped = { [weak self] in
             guard let self = self else { return }
     
-            let settingsViewModel = SettingsViewModel(wordsRepository: self.startViewModel.wordsRepository)
+            let settingsViewModel = self.startViewModel.createSettingsViewModel()
             let settingsViewController = SettingsViewController(viewModel: settingsViewModel)
             self.navigationController?.pushViewController(settingsViewController, animated: true)
         }

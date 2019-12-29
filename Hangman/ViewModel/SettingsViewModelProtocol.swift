@@ -9,10 +9,9 @@
 import Foundation
 
 protocol SettingsViewModelProtocol {
-    var wordsRepository: WordsRepository { get }
-    
     func getNumberOfOptionsInSection(_ section: Int) -> Int
     func getOptionForSection(at indexPath: IndexPath) -> SettingsOptions
     func getSectionTitle(_ section: Int) -> String
     func getSectionCount() -> Int
+    func createOptionsViewModel(_ type: SettingsOptions) -> OptionsViewModel
 }

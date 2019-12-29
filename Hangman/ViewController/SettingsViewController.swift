@@ -60,14 +60,14 @@ class SettingsViewController: UIViewController {
     
     private func openWordLanguageVC() {
         let type = SettingsOptions.wordLanguage
-        let optionsViewModel = OptionsViewModel(wordsRepository: settingsViewModel.wordsRepository, type: type)
+        let optionsViewModel = settingsViewModel.createOptionsViewModel(type)
         let optionsViewController = OptionsViewController(viewModel: optionsViewModel)
         navigationController?.pushViewController(optionsViewController, animated: true)
     }
     
     private func openListOfAllWordsVC() {
         let type = SettingsOptions.listOfAllWords
-        let optionsViewModel = OptionsViewModel(wordsRepository: settingsViewModel.wordsRepository, type: type)
+        let optionsViewModel = settingsViewModel.createOptionsViewModel(type)
         let optionsViewController = OptionsViewController(viewModel: optionsViewModel)
         navigationController?.pushViewController(optionsViewController, animated: true)
     }

@@ -9,6 +9,7 @@
 import Foundation
 
 struct SettingsViewModel: SettingsViewModelProtocol {
+    
     let wordsRepository: WordsRepository
     
     // MARK: - PROTOCOL METHODS
@@ -27,6 +28,10 @@ struct SettingsViewModel: SettingsViewModelProtocol {
     
     func getSectionCount() -> Int {
         return getSections().count
+    }
+    
+    func createOptionsViewModel(_ type: SettingsOptions) -> OptionsViewModel {
+        return OptionsViewModel(wordsRepository: wordsRepository, type: type)
     }
     
     // MARK: - PRIVATE METHODS

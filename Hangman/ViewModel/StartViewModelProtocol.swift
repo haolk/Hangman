@@ -9,7 +9,6 @@
 import Foundation
 
 protocol StartViewModelProtocol {
-    var wordsRepository: WordsRepository { get }
-    
-    func startGame() -> Game
+    func createGameViewModel() -> GameViewModel
+    func createSettingsViewModel() -> SettingsViewModel
 }
