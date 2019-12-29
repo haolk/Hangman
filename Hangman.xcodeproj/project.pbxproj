@@ -115,35 +115,33 @@
 			children = (
 				EE1F81FA236C40A500DD1A05 /* AppDelegate.swift */,
 				EE1F81FC236C40A500DD1A05 /* SceneDelegate.swift */,
-				EE96E203236DC14100B547A5 /* Constants.swift */,
-				EE5941D0239980750029AD83 /* GlobalSettings.swift */,
-				EE668D55239ED1C9001E287C /* ThemeManager.swift */,
-				EE42E3312371FBCB00911A91 /* ViewModel */,
-				EE42E3302371FBC600911A91 /* Model */,
-				EE42E32F2371FBB900911A91 /* ViewController */,
+				EE95D6BB23B9311B00814961 /* Configuration */,
 				EE8FCC2F2376CF520081F967 /* Services */,
+				EE42E3302371FBC600911A91 /* Model */,
+				EE42E3312371FBCB00911A91 /* ViewModel */,
+				EE42E32F2371FBB900911A91 /* ViewController */,
+				EE21096D23800030008A4FAE /* Views */,
 				EE6E66C5236EF2F200856AE3 /* Resources */,
 				EE1F8208236C40AC00DD1A05 /* Info.plist */,
 			);
 			path = Hangman;
 			sourceTree = "<group>";
 		};
-		EE21096D23800030008A4FAE /* View */ = {
+		EE21096D23800030008A4FAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EE561922238C386200B10EEF /* Cells */,
 				EE21096E2380004A008A4FAE /* StartView.swift */,
 				EE210970238003C7008A4FAE /* GameView.swift */,
 				EE561920238C37E100B10EEF /* SettingsView.swift */,
 				EE771A76239274A70052C489 /* OptionsView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EE42E32F2371FBB900911A91 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EE561922238C386200B10EEF /* Cells */,
-				EE21096D23800030008A4FAE /* View */,
 				EE699221236F0719007329DB /* StartViewController.swift */,
 				EE1F81FE236C40A500DD1A05 /* GameViewController.swift */,
 				EE56191E238C375D00B10EEF /* SettingsViewController.swift */,
@@ -204,6 +202,16 @@
 				EEE28651237C90AB00CE61B7 /* WordsRepository.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		EE95D6BB23B9311B00814961 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				EE96E203236DC14100B547A5 /* Constants.swift */,
+				EE5941D0239980750029AD83 /* GlobalSettings.swift */,
+				EE668D55239ED1C9001E287C /* ThemeManager.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
