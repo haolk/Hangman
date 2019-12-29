@@ -6,7 +6,7 @@
 //  Copyright © 2019 Hrvoje Vuković. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum GlobalSettings {
     @Persist(key: "useShowHint", defaultValue: false)
@@ -18,7 +18,7 @@ enum GlobalSettings {
     @Persist(key: "bestScore", defaultValue: 0)
     static var bestScore: Int
     
-    @Persist(key: "darkMode", defaultValue: false)
+    @Persist(key: "darkMode", defaultValue: UIScreen.main.traitCollection.userInterfaceStyle == .light ? false : true)
     static var darkMode: Bool
 }
 
