@@ -1,8 +1,8 @@
 <p align="center">
-<img src="screenshots/hangman/screen01.png" width="250"  title="Hangman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/hangman/screen02.png" width="250" title="Hangman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/hangman/screen03.png" width="250" title="Hangman">
+<img src="screenshots/screen01.png" width="250"  title="Hangman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen02.png" width="250" title="Hangman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen03.png" width="250" title="Hangman">
 </p>
 <p align="center">
-<img src="screenshots/hangman/screen04.png" width="250" title="Hangman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/hangman/screen05.png" width="250" title="Hangman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/hangman/screen06.png" width="250" title="Hangman">
+<img src="screenshots/screen04.png" width="250" title="Hangman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen05.png" width="250" title="Hangman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="screenshots/screen06.png" width="250" title="Hangman">
 </p>
 
 # Hangman
