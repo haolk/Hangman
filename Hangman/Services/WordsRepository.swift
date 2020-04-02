@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WordsRepository {
+final class WordsRepository {
     
     private var allWords = [Word]()
     private var randomWordDetails: WordDetails?

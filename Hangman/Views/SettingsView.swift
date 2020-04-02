@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsView: UIView {
+final class SettingsView: UIView {
     
     // MARK: - ACTION CLOSURES
     

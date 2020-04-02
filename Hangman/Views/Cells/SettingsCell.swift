@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsCell: UITableViewCell {
+final class SettingsCell: UITableViewCell {
     static let reuseIdentifier = "SettingsCell"
     
     // MARK: - PROPERTIES

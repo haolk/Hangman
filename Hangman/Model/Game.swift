@@ -16,7 +16,7 @@ enum ScoreAmount: Int {
     case wholeWord      = 10
 }
 
-class Game {
+final class Game {
     var score: Int
     var bestScore: Int
     var imageCount: Int = 0

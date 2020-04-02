@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameView: UIView {
+final class GameView: UIView {
     
     // MARK: - ACTION CLOSURES
     

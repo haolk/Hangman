@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OptionsView: UIView {
+final class OptionsView: UIView {
     
     // MARK: - ACTION CLOSURES
     

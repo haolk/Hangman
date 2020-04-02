@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OptionsViewController: UIViewController {
+final class OptionsViewController: UIViewController {
     
     // MARK: - PROPERTIES
     

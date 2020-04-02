@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GameViewModel: GameViewModelProtocol {
+final class GameViewModel: GameViewModelProtocol {
 
     // MARK: - PROPERTIES
     

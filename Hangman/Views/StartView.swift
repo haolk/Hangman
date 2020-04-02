@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StartView: UIView {
+final class StartView: UIView {
     
     // MARK: - ACTION CLOSURES
     
