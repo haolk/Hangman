@@ -20,11 +20,10 @@ class Game {
     var score: Int
     var bestScore: Int
     var imageCount: Int = 0
-    var answere: String
-    var hint: String
+    let answere: String
+    let hint: String
     
     var weHaveNewBestScore: Bool = false
-    var isUseShowHint: Bool = false
     var isFinished: Bool = false
     
     init(score: Int = 0, bestScore: Int, answere: String, hint: String) {

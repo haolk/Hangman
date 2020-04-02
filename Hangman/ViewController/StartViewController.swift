@@ -12,7 +12,7 @@ class StartViewController: UIViewController {
     
     // MARK: - PROPERTIES
     
-    private var startViewModel: StartViewModelProtocol
+    private let startViewModel: StartViewModelProtocol
     
     private lazy var startView: StartView = {
         let startView = StartView()
@@ -36,8 +36,8 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: true)
         
+        navigationController?.setNavigationBarHidden(true, animated: true)
         setViewClosures()
     }
     

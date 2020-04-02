@@ -9,13 +9,13 @@
 import Foundation
 
 struct Word: Codable {
-    var hr: WordDetails
-    var en: WordDetails
+    let hr: WordDetails
+    let en: WordDetails
 }
 
 struct WordDetails: Codable {
-    var word: String
-    var hint: String
+    let word: String
+    let hint: String
 }
 
 enum WordLanguages: Int, CaseIterable {

@@ -12,7 +12,7 @@ class GameViewController: UIViewController {
 
     // MARK: - PROPERTIES
 
-    private var gameViewModel: GameViewModelProtocol
+    private let gameViewModel: GameViewModelProtocol
     
     private var tappedLetterButtons = [UIButton]()
     
@@ -38,6 +38,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setViewClosures()
         fillUI()
     }

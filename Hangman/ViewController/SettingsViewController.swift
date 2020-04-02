@@ -12,7 +12,7 @@ class SettingsViewController: UIViewController {
 
     // MARK: - PROPERTIES
 
-    private var settingsViewModel: SettingsViewModelProtocol
+    private let settingsViewModel: SettingsViewModelProtocol
     
     private lazy var settingsView: SettingsView = {
         let settingsView = SettingsView()

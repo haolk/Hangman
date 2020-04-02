@@ -12,7 +12,7 @@ class OptionsViewController: UIViewController {
     
     // MARK: - PROPERTIES
     
-    private var optionsViewModel: OptionsViewModelProtocol
+    private let optionsViewModel: OptionsViewModelProtocol
     
     private lazy var optionsView: OptionsView = {
         let optionsView = OptionsView()
