@@ -16,7 +16,7 @@ final class SettingsCell: UITableViewCell {
     var settingsOption: SettingsOptions? {
         didSet {
             guard let settingsOption = settingsOption else { return }
-            textLabel?.text = settingsOption.description
+            labelText.text = settingsOption.description
             switchControl.isHidden = !settingsOption.containsSwitch
             accessoryType = settingsOption.isDisclosureIndicator ? .disclosureIndicator : .none
             selectionStyle = settingsOption.isDisclosureIndicator ? .default : .none
@@ -28,6 +28,14 @@ final class SettingsCell: UITableViewCell {
             }
         }
     }
+    
+    private let labelText: UILabel = {
+        let labelText = UILabel()
+        labelText.translatesAutoresizingMaskIntoConstraints = false
+        labelText.textAlignment = .left
+        labelText.baselineAdjustment = .alignCenters
+        return labelText
+    }()
     
     lazy var switchControl: UISwitch = {
         let switchControl = UISwitch()
@@ -56,11 +64,15 @@ final class SettingsCell: UITableViewCell {
     }
     
     private func addElementsOnView() {
+        addSubview(labelText)
         addSubview(switchControl)
     }
     
     private func setConstraintsForElements() {
         NSLayoutConstraint.activate([
+            labelText.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 5),
+            labelText.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, constant: -10),
+            labelText.centerYAnchor.constraint(equalTo: layoutMarginsGuide.centerYAnchor),
             switchControl.centerYAnchor.constraint(equalTo: centerYAnchor),
             switchControl.rightAnchor.constraint(equalTo: rightAnchor, constant: -12)
         ])
