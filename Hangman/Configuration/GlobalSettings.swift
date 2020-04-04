@@ -22,7 +22,6 @@ enum GlobalSettings {
     static var darkMode: Bool
 }
 
-
 @propertyWrapper
 struct Persist<T> {
     let key: String
@@ -37,4 +36,3 @@ struct Persist<T> {
         }
     }
 }
-
