@@ -108,6 +108,12 @@ final class GameView: UIView {
         return stackView4
     }()
     
+    private lazy var swipeRight: UISwipeGestureRecognizer = {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(backToStartView))
+        swipeRight.direction = .right
+        return swipeRight
+    }()
+    
     // MARK: - INIT
     
     required init?(coder aDecoder: NSCoder) {
@@ -147,6 +153,7 @@ final class GameView: UIView {
         addSubview(stackView2)
         addSubview(stackView3)
         addSubview(stackView4)
+        addGestureRecognizer(swipeRight)
         
         addLettersRow(startPosition: 0, numberOfLettersInRow: 6, stackView: stackView1)
         addLettersRow(startPosition: 6, numberOfLettersInRow: 7, stackView: stackView2)

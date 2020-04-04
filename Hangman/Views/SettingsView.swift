@@ -37,6 +37,12 @@ final class SettingsView: UIView {
         return titleLabel
     }()
     
+    private lazy var swipeRight: UISwipeGestureRecognizer = {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(backToStartView))
+        swipeRight.direction = .right
+        return swipeRight
+    }()
+    
     private var userInfoHeader = UserInfoHeader()
     
     var settingsTableView = UITableView()
@@ -72,11 +78,11 @@ final class SettingsView: UIView {
     private func addElementsOnView() {
         addSubview(backButton)
         addSubview(titleLabel)
+        addGestureRecognizer(swipeRight)
         
         settingsTableView = UITableView(frame: frame, style: .grouped)
         settingsTableView.translatesAutoresizingMaskIntoConstraints = false
         settingsTableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.reuseIdentifier)
-        settingsTableView.rowHeight = 50
         settingsTableView.sectionFooterHeight = 0
 
         let frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 100)

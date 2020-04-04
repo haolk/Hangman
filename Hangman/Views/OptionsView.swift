@@ -36,6 +36,12 @@ final class OptionsView: UIView {
         return titleLabel
     }()
     
+    private lazy var swipeRight: UISwipeGestureRecognizer = {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(backToStartView))
+        swipeRight.direction = .right
+        return swipeRight
+    }()
+    
     var optionsTableView = UITableView()
     
     // MARK: - INIT
@@ -69,11 +75,11 @@ final class OptionsView: UIView {
     private func addElementsOnView() {
         addSubview(backButton)
         addSubview(titleLabel)
+        addGestureRecognizer(swipeRight)
         
         optionsTableView = UITableView(frame: frame, style: .grouped)
         optionsTableView.translatesAutoresizingMaskIntoConstraints = false
         optionsTableView.register(OptionsCell.self, forCellReuseIdentifier: OptionsCell.reuseIdentifier)
-        //optionsTableView.rowHeight = 50
         optionsTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 10))
         optionsTableView.tableHeaderView?.backgroundColor = Constants.backgroundColor
         //optionsTableView.sectionFooterHeight = 0
