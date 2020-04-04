@@ -91,13 +91,13 @@ final class GameViewController: UIViewController {
             self.gameView.answerTextfield.text = answere
         }
         
-        gameViewModel.isFinished.bind { [weak self] (gameIsFinished: Bool) in
+        gameViewModel.isFinished.bind { [unowned self] (gameIsFinished: Bool) in
             if gameIsFinished {
-                self?.createAlertController(actionHandler: { [weak self] (UIAlertAction) -> Void in
+                self.createAlertController(actionHandler: { [unowned self] (UIAlertAction) -> Void in
                     //start new game
-                    self?.gameViewModel.newWord()
-                    self?.fillUI()
-                    self?.enableAndRestoreTappedLetterButtons()
+                    self.gameViewModel.newWord()
+                    self.fillUI()
+                    self.enableAndRestoreTappedLetterButtons()
                 })
             }
         }
