@@ -9,21 +9,21 @@
 import UIKit
 
 enum GlobalSettings {
-    @Persist(key: "useShowHint", defaultValue: false)
+    @UserDefault(key: "useShowHint", defaultValue: false)
     static var useShowHint: Bool
     
-    @Persist(key: "wordLanguage", defaultValue: WordLanguages.english.description)
+    @UserDefault(key: "wordLanguage", defaultValue: WordLanguages.english.description)
     static var wordLanguage: String
     
-    @Persist(key: "bestScore", defaultValue: 0)
+    @UserDefault(key: "bestScore", defaultValue: 0)
     static var bestScore: Int
     
-    @Persist(key: "darkMode", defaultValue: UIScreen.main.traitCollection.userInterfaceStyle == .light ? false : true)
+    @UserDefault(key: "darkMode", defaultValue: UIScreen.main.traitCollection.userInterfaceStyle == .light ? false : true)
     static var darkMode: Bool
 }
 
 @propertyWrapper
-struct Persist<T> {
+struct UserDefault<T> {
     let key: String
     let defaultValue: T
     
