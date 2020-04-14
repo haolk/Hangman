@@ -84,11 +84,11 @@ final class GameViewController: UIViewController {
         }
         
         gameViewModel.image.bindAndFire { [unowned self] (image: String) in
-            self.gameView.imageView.image = UIImage(named: image)
+            self.gameView.hangmanImageView.image = UIImage(named: image)
         }
         
         gameViewModel.answere.bindAndFire { [unowned self] (answere: String) in
-            self.gameView.answerTextfield.text = answere
+            self.gameView.answerTextField.text = answere
         }
         
         gameViewModel.isFinished.bind { [unowned self] (gameIsFinished: Bool) in

@@ -102,7 +102,7 @@ extension SettingsViewController: UITableViewDelegate {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.text = settingsViewModel.getSectionTitle(section)
-        title.font = UIFont.boldSystemFont(ofSize: 15)
+        title.font = .boldSystemFont(ofSize: 15)
         title.textColor = Constants.backgroundColor
         view.addSubview(title)
         
