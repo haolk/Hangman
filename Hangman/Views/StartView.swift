@@ -17,41 +17,14 @@ final class StartView: UIView {
     
     // MARK: - PROPERTIES
 
-    private let titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = NSLocalizedString("HANGMAN", comment: "")
-        titleLabel.textColor = Constants.mainColor
-        titleLabel.font = UIFont.init(name: Constants.font, size: 55)
-        titleLabel.textAlignment = .center
-        return titleLabel
-    }()
-
-    private let playButton: UIButton = {
-        let playButton = UIButton()
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        let playIconConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .black)
-        let playIcon = UIImage(systemName: "play.fill", withConfiguration: playIconConfig)
-        playButton.setImage(playIcon, for: .normal)
-        playButton.layer.borderWidth = 1
-        playButton.layer.cornerRadius = 5
-        playButton.layer.borderColor = Constants.mainColor.cgColor
-        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
-        return playButton
-    }()
+    @Label(ofSize: 55, textAlignment: .center, text: NSLocalizedString("HANGMAN", comment: ""))
+    var titleLabel: UILabel
     
-    private let settingsButton: UIButton = {
-        let settingsButton = UIButton()
-        settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        let settingsIconConfig = UIImage.SymbolConfiguration(pointSize: 40)
-        let settingsIcon = UIImage(systemName: "gear", withConfiguration: settingsIconConfig)
-        settingsButton.setImage(settingsIcon, for: .normal)
-        settingsButton.layer.borderWidth = 1
-        settingsButton.layer.cornerRadius = 5
-        settingsButton.layer.borderColor = Constants.mainColor.cgColor
-        settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
-        return settingsButton
-    }()
+    @Button(borderWidth: 1, cornerRadius: 5, iconSize: 50, iconSystemName: "play.fill", iconWeight: .black)
+    var playButton: UIButton
+    
+    @Button(borderWidth: 1, cornerRadius: 5, iconSize: 40, iconSystemName: "gear")
+    var settingsButton: UIButton
     
     // MARK: - INIT
     
@@ -77,8 +50,14 @@ final class StartView: UIView {
         backgroundColor = Constants.backgroundColor
         
         enableDarkMode()
+        addTargetOnElements()
         addElementsOnView()
         setConstraintsForElements()
+    }
+    
+    private func addTargetOnElements() {
+        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
     }
     
     private func addElementsOnView() {

@@ -13,21 +13,11 @@ final class OptionsCell: UITableViewCell {
     
     // MARK: - PROPERTIES
     
-    let labelLeft: UILabel = {
-        let labelLeft = UILabel()
-        labelLeft.translatesAutoresizingMaskIntoConstraints = false
-        labelLeft.textAlignment = .left
-        labelLeft.baselineAdjustment = .alignCenters
-        return labelLeft
-    }()
+    @Label(textAlignment: .left)
+    var labelLeft: UILabel
     
-    let labelRight: UILabel = {
-        let labelRight = UILabel()
-        labelRight.translatesAutoresizingMaskIntoConstraints = false
-        labelRight.textAlignment = .right
-        labelRight.baselineAdjustment = .alignCenters
-        return labelRight
-    }()
+    @Label(textAlignment: .right)
+    var labelRight: UILabel
     
     // MARK: - INIT
     

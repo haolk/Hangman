@@ -15,35 +15,15 @@ final class SettingsView: UIView {
     var onBackToStartView: () -> Void = {}
     
     // MARK: - PROPERTIES
+  
+    @Button(iconSize: 26, iconSystemName: "arrowshape.turn.up.left.fill")
+    var backButton: UIButton
     
-    private let backButton: UIButton = {
-        let backButton = UIButton()
-        let backIconConfig = UIImage.SymbolConfiguration(pointSize: 26)
-        let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
-        backButton.setImage(backIcon, for: .normal)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.tintColor = Constants.mainColor
-        backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
-        return backButton
-    }()
+    @Label(ofSize: 26, textAlignment: .center, text: NSLocalizedString("SETTINGS", comment: ""))
+    var titleLabel: UILabel
     
-    private let titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.init(name: "Marker Felt", size: 26)
-        titleLabel.textColor = Constants.mainColor
-        titleLabel.textAlignment = .center
-        titleLabel.text = NSLocalizedString("SETTINGS", comment: "")
-        return titleLabel
-    }()
-    
-    private lazy var swipeRight: UISwipeGestureRecognizer = {
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(backToStartView))
-        swipeRight.direction = .right
-        return swipeRight
-    }()
-    
-    private var userInfoHeader = UserInfoHeader()
+    @SwipeGesture(swipteDirection: .right)
+    var swipeBack: UISwipeGestureRecognizer
     
     var settingsTableView = UITableView()
     
@@ -71,14 +51,20 @@ final class SettingsView: UIView {
         backgroundColor = Constants.backgroundColor
 
         enableDarkMode()
+        addTargetOnElements()
         addElementsOnView()
         setConstraintsForElements()
+    }
+    
+    private func addTargetOnElements() {
+        backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
+        swipeBack.addTarget(self, action: #selector(backToStartView))
     }
     
     private func addElementsOnView() {
         addSubview(backButton)
         addSubview(titleLabel)
-        addGestureRecognizer(swipeRight)
+        addGestureRecognizer(swipeBack)
         
         settingsTableView = UITableView(frame: frame, style: .grouped)
         settingsTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -86,13 +72,12 @@ final class SettingsView: UIView {
         settingsTableView.sectionFooterHeight = 0
 
         let frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 100)
-        userInfoHeader = UserInfoHeader(frame: frame)
+        let userInfoHeader = UserInfoHeader(frame: frame)
         settingsTableView.tableHeaderView = userInfoHeader
         addSubview(settingsTableView)
     }
     
     private func setConstraintsForElements() {
-        
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5),
             backButton.leadingAnchor .constraint(equalTo: layoutMarginsGuide.leadingAnchor),

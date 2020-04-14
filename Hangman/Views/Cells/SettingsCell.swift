@@ -13,6 +13,12 @@ final class SettingsCell: UITableViewCell {
     
     // MARK: - PROPERTIES
     
+    @Label(textAlignment: .left)
+    var labelText: UILabel
+    
+    @Switch()
+    var switchControl: UISwitch
+    
     var settingsOption: SettingsOptions? {
         didSet {
             guard let settingsOption = settingsOption else { return }
@@ -29,22 +35,6 @@ final class SettingsCell: UITableViewCell {
         }
     }
     
-    private let labelText: UILabel = {
-        let labelText = UILabel()
-        labelText.translatesAutoresizingMaskIntoConstraints = false
-        labelText.textAlignment = .left
-        labelText.baselineAdjustment = .alignCenters
-        return labelText
-    }()
-    
-    lazy var switchControl: UISwitch = {
-        let switchControl = UISwitch()
-        switchControl.translatesAutoresizingMaskIntoConstraints = false
-        switchControl.onTintColor = Constants.mainColor
-        switchControl.addTarget(self, action: #selector(handleSwitchAction), for: .valueChanged)
-        return switchControl
-    }()
-    
     // MARK: - INIT
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -59,8 +49,13 @@ final class SettingsCell: UITableViewCell {
     // MARK: - PRIVATE METHODS
     
     private func setupView() {
+        addTargetOnElements()
         addElementsOnView()
         setConstraintsForElements()
+    }
+    
+    private func addTargetOnElements() {
+        switchControl.addTarget(self, action: #selector(handleSwitchAction), for: .valueChanged)
     }
     
     private func addElementsOnView() {

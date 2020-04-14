@@ -12,6 +12,7 @@
 		EE1F81FF236C40A500DD1A05 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1F81FE236C40A500DD1A05 /* GameViewController.swift */; };
 		EE1F8204236C40AC00DD1A05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE1F8203236C40AC00DD1A05 /* Assets.xcassets */; };
 		EE1F820F236C40ED00DD1A05 /* notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = EE1F820E236C40ED00DD1A05 /* notes.txt */; };
+		EE20F96B2444835D008D697F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE20F96A2444835D008D697F /* ImageView.swift */; };
 		EE21096F2380004A008A4FAE /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21096E2380004A008A4FAE /* StartView.swift */; };
 		EE210971238003C7008A4FAE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE210970238003C7008A4FAE /* GameView.swift */; };
 		EE3330C123A821E100BAF4F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE3330BF23A821E100BAF4F8 /* Localizable.strings */; };
@@ -34,11 +35,17 @@
 		EE771A73239261970052C489 /* OptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A72239261970052C489 /* OptionsViewModel.swift */; };
 		EE771A752392739B0052C489 /* OptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A742392739B0052C489 /* OptionsCell.swift */; };
 		EE771A77239274A70052C489 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE771A76239274A70052C489 /* OptionsView.swift */; };
+		EE8F4B272444B6E000B15E38 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F4B262444B6E000B15E38 /* Switch.swift */; };
+		EE8F4B292444B91500B15E38 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F4B282444B91500B15E38 /* Button.swift */; };
+		EE8F4B2B2445A5E000B15E38 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F4B2A2445A5E000B15E38 /* StackView.swift */; };
+		EE8F4B2D2445A70C00B15E38 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F4B2C2445A70C00B15E38 /* TextField.swift */; };
+		EE8F4B2F2445A8CB00B15E38 /* SwipeGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8F4B2E2445A8CB00B15E38 /* SwipeGesture.swift */; };
 		EE8FCC2C2376C6900081F967 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8FCC2B2376C6900081F967 /* Game.swift */; };
 		EE8FCC2E2376CAB70081F967 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8FCC2D2376CAB70081F967 /* GameViewModel.swift */; };
 		EE8FCC312376CF880081F967 /* StartViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8FCC302376CF880081F967 /* StartViewModelProtocol.swift */; };
 		EE8FCC332376CF910081F967 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8FCC322376CF910081F967 /* StartViewModel.swift */; };
 		EE96E204236DC14100B547A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96E203236DC14100B547A5 /* Constants.swift */; };
+		EEB7226E243CEA8300F06216 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB7226D243CEA8300F06216 /* Label.swift */; };
 		EEE28652237C90AB00CE61B7 /* WordsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE28651237C90AB00CE61B7 /* WordsRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +57,7 @@
 		EE1F8203236C40AC00DD1A05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE1F8208236C40AC00DD1A05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE1F820E236C40ED00DD1A05 /* notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = notes.txt; sourceTree = "<group>"; };
+		EE20F96A2444835D008D697F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		EE21096E2380004A008A4FAE /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		EE210970238003C7008A4FAE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		EE3330C023A821E100BAF4F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Hangman/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -74,11 +82,17 @@
 		EE771A72239261970052C489 /* OptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewModel.swift; sourceTree = "<group>"; };
 		EE771A742392739B0052C489 /* OptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsCell.swift; sourceTree = "<group>"; };
 		EE771A76239274A70052C489 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
+		EE8F4B262444B6E000B15E38 /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
+		EE8F4B282444B91500B15E38 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		EE8F4B2A2445A5E000B15E38 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		EE8F4B2C2445A70C00B15E38 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		EE8F4B2E2445A8CB00B15E38 /* SwipeGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeGesture.swift; sourceTree = "<group>"; };
 		EE8FCC2B2376C6900081F967 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		EE8FCC2D2376CAB70081F967 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		EE8FCC302376CF880081F967 /* StartViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModelProtocol.swift; sourceTree = "<group>"; };
 		EE8FCC322376CF910081F967 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		EE96E203236DC14100B547A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EEB7226D243CEA8300F06216 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		EEE28651237C90AB00CE61B7 /* WordsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +144,7 @@
 		EE21096D23800030008A4FAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EEB72271243CF18000F06216 /* Components */,
 				EE561922238C386200B10EEF /* Cells */,
 				EE21096E2380004A008A4FAE /* StartView.swift */,
 				EE210970238003C7008A4FAE /* GameView.swift */,
@@ -214,6 +229,20 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		EEB72271243CF18000F06216 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EEB7226D243CEA8300F06216 /* Label.swift */,
+				EE8F4B282444B91500B15E38 /* Button.swift */,
+				EE20F96A2444835D008D697F /* ImageView.swift */,
+				EE8F4B262444B6E000B15E38 /* Switch.swift */,
+				EE8F4B2A2445A5E000B15E38 /* StackView.swift */,
+				EE8F4B2C2445A70C00B15E38 /* TextField.swift */,
+				EE8F4B2E2445A8CB00B15E38 /* SwipeGesture.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,16 +319,22 @@
 				EE8FCC2E2376CAB70081F967 /* GameViewModel.swift in Sources */,
 				EE771A6D2392595E0052C489 /* SettingsViewModel.swift in Sources */,
 				EE8FCC312376CF880081F967 /* StartViewModelProtocol.swift in Sources */,
+				EE8F4B2D2445A70C00B15E38 /* TextField.swift in Sources */,
 				EE771A77239274A70052C489 /* OptionsView.swift in Sources */,
+				EEB7226E243CEA8300F06216 /* Label.swift in Sources */,
 				EE561924238C3A7400B10EEF /* SettingsCell.swift in Sources */,
 				EE699222236F0719007329DB /* StartViewController.swift in Sources */,
 				EEE28652237C90AB00CE61B7 /* WordsRepository.swift in Sources */,
 				EE1F81FF236C40A500DD1A05 /* GameViewController.swift in Sources */,
 				EE5941CF239979ED0029AD83 /* SettingsSection.swift in Sources */,
+				EE8F4B292444B91500B15E38 /* Button.swift in Sources */,
 				EE771A752392739B0052C489 /* OptionsCell.swift in Sources */,
 				EE561921238C37E100B10EEF /* SettingsView.swift in Sources */,
+				EE8F4B2B2445A5E000B15E38 /* StackView.swift in Sources */,
 				EE771A6F239261400052C489 /* OptionsViewController.swift in Sources */,
+				EE8F4B2F2445A8CB00B15E38 /* SwipeGesture.swift in Sources */,
 				EE21096F2380004A008A4FAE /* StartView.swift in Sources */,
+				EE20F96B2444835D008D697F /* ImageView.swift in Sources */,
 				EE771A6B239259490052C489 /* SettingsViewModelProtocol.swift in Sources */,
 				EE5106E12382FAFC00357B37 /* Dynamic.swift in Sources */,
 				EE56191F238C375D00B10EEF /* SettingsViewController.swift in Sources */,
@@ -310,6 +345,7 @@
 				EE771A712392617E0052C489 /* OptionsViewModelProtocol.swift in Sources */,
 				EE771A73239261970052C489 /* OptionsViewModel.swift in Sources */,
 				EE668D56239ED1C9001E287C /* ThemeManager.swift in Sources */,
+				EE8F4B272444B6E000B15E38 /* Switch.swift in Sources */,
 				EE8FCC332376CF910081F967 /* StartViewModel.swift in Sources */,
 				EE42E32E2371FAA200911A91 /* Word.swift in Sources */,
 				EE42E3332371FC3900911A91 /* GameViewModelProtocol.swift in Sources */,
@@ -458,6 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NB2QYWV27L;
 				INFOPLIST_FILE = Hangman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,6 +513,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NB2QYWV27L;
 				INFOPLIST_FILE = Hangman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

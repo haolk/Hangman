@@ -12,31 +12,14 @@ final class UserInfoHeader: UIView {
     
     // MARK: - PROPERTIES
     
-    private let profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "myPicture")
-        return imageView
-    }()
+    @ImageView(imageName: "myPicture", isClipsToBounds: true)
+    var profileImageView: UIImageView
     
-    private let usernameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Hrvoje"
-        label.font = UIFont.systemFont(ofSize: 16)
-        return label
-    }()
+    @Label(text: "Hrvoje Vuković", ofSize: 16)
+    var usernameLabel: UILabel
     
-    private let emailLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "hrvoje0099@gmail.com"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .lightGray
-        return label
-    }()
+    @Label(text: "vukovic.hrvoje@icloud.com", ofSize: 14, textColor: .gray)
+    var emailLabel: UILabel
     
     // MARK: - INIT
     

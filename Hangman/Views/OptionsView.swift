@@ -15,32 +15,15 @@ final class OptionsView: UIView {
     var onBackToStartView: () -> Void = {}
     
     // MARK: - PROPERTIES
+  
+    @Button(iconSize: 26, iconSystemName: "arrowshape.turn.up.left.fill")
+    var backButton: UIButton
     
-    private let backButton: UIButton = {
-        let backButton = UIButton()
-        let backIconConfig = UIImage.SymbolConfiguration(pointSize: 26)
-        let backIcon = UIImage(systemName: "arrowshape.turn.up.left.fill", withConfiguration: backIconConfig)
-        backButton.setImage(backIcon, for: .normal)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.tintColor = Constants.mainColor
-        backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
-        return backButton
-    }()
+    @Label(ofSize: 26, textAlignment: .center)
+    var titleLabel: UILabel
     
-    let titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.init(name: "Marker Felt", size: 26)
-        titleLabel.textColor = Constants.mainColor
-        titleLabel.textAlignment = .center
-        return titleLabel
-    }()
-    
-    private lazy var swipeRight: UISwipeGestureRecognizer = {
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(backToStartView))
-        swipeRight.direction = .right
-        return swipeRight
-    }()
+    @SwipeGesture(swipteDirection: .right)
+    var swipeBack: UISwipeGestureRecognizer
     
     var optionsTableView = UITableView()
     
@@ -68,21 +51,26 @@ final class OptionsView: UIView {
         backgroundColor = Constants.backgroundColor
         
         enableDarkMode()
+        addTargetOnElements()
         addElementsOnView()
         setConstraintsForElements()
+    }
+    
+    private func addTargetOnElements() {
+        backButton.addTarget(self, action: #selector(backToSettingsView), for: .touchUpInside)
+        swipeBack.addTarget(self, action: #selector(backToSettingsView))
     }
 
     private func addElementsOnView() {
         addSubview(backButton)
         addSubview(titleLabel)
-        addGestureRecognizer(swipeRight)
+        addGestureRecognizer(swipeBack)
         
         optionsTableView = UITableView(frame: frame, style: .grouped)
         optionsTableView.translatesAutoresizingMaskIntoConstraints = false
         optionsTableView.register(OptionsCell.self, forCellReuseIdentifier: OptionsCell.reuseIdentifier)
         optionsTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 10))
         optionsTableView.tableHeaderView?.backgroundColor = Constants.backgroundColor
-        //optionsTableView.sectionFooterHeight = 0
         addSubview(optionsTableView)
     }
         
@@ -102,7 +90,7 @@ final class OptionsView: UIView {
     
     // MARK: - SELECTORS METHODS
     
-    @objc private func backToStartView() {
+    @objc private func backToSettingsView() {
         onBackToStartView()
     }
     
