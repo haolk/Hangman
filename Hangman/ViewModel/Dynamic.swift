@@ -9,7 +9,7 @@
 import Foundation
 
 final class Dynamic<T> {
-    typealias Listener = (T) -> ()
+    typealias Listener = (T) -> Void
     private var listener: Listener?
     
     func bind(_ listener: Listener?) {
@@ -27,7 +27,7 @@ final class Dynamic<T> {
         }
     }
     
-    init(_ v: T) {
-        value = v
+    init(_ val: T) {
+        value = val
     }
 }
