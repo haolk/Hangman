@@ -16,7 +16,5 @@ enum Constants {
     static let backgroundColor = UIColor.systemBackground
     
     static let font = "Marker Felt"
-    
-    static let heightForHeaderInSection = CGFloat(40)
 }
 

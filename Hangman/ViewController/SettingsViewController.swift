@@ -115,7 +115,7 @@ extension SettingsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Constants.heightForHeaderInSection
+        return 30
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
