@@ -64,4 +64,3 @@ enum SettingsOptions: Int, CaseIterable, SettingsSectionProtocol {
     }
     
 }
-
