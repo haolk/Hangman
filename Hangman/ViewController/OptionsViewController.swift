@@ -90,10 +90,6 @@ extension OptionsViewController: UITableViewDataSource {
 
 extension OptionsViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Constants.heightForHeaderInSection
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if optionsViewModel.setNewWordLanguage(at: indexPath.row) {
             optionsView.optionsTableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
