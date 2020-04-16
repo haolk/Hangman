@@ -107,7 +107,7 @@ final class GameView: UIView {
         for letter in 0..<numberOfLettersInRow {
             let letterButton = UIButton(type: .custom)
             letterButton.frame = CGRect(x: 0, y: 0, width: 45, height: 40)
-            letterButton.layer.cornerRadius = 0.5 * letterButton.bounds.size.width
+            letterButton.layer.cornerRadius = 0.45 * letterButton.bounds.size.width
             letterButton.layer.borderColor = UIColor.lightGray.cgColor
             letterButton.layer.borderWidth = 1.0
             letterButton.clipsToBounds = true
@@ -128,10 +128,10 @@ final class GameView: UIView {
         bestScoreLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5).isActive = true
         bestScoreLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor).isActive = true
         
-        scoreLabel.topAnchor.constraint(equalTo: bestScoreLabel.bottomAnchor, constant: 10).isActive = true
+        scoreLabel.topAnchor.constraint(equalTo: bestScoreLabel.bottomAnchor).isActive = true
         scoreLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor).isActive = true
         
-        hangmanImageView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 15).isActive = true
+        hangmanImageView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 20).isActive = true
         hangmanImageView.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, multiplier: 0.8).isActive = true
         hangmanImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         hangmanImageView.setContentHuggingPriority(UILayoutPriority(rawValue: 1), for: .vertical)
@@ -144,7 +144,7 @@ final class GameView: UIView {
         hintLabel.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, multiplier: 0.9).isActive = true
         hintLabel.centerXAnchor.constraint(equalTo: layoutMarginsGuide.centerXAnchor).isActive = true
         
-        stackView1.topAnchor.constraint(equalTo: hintLabel.bottomAnchor, constant: 50).isActive = true
+        stackView1.topAnchor.constraint(equalTo: hintLabel.bottomAnchor, constant: 40).isActive = true
         stackView1.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, multiplier: 1.0).isActive = true
         stackView1.centerXAnchor.constraint(equalTo: layoutMarginsGuide.centerXAnchor).isActive = true
         
