@@ -17,7 +17,7 @@ class Button {
         let iconConfig = UIImage.SymbolConfiguration(pointSize: iconSize)
         let icon = UIImage(systemName: iconSystemName, withConfiguration: iconConfig)
         wrappedValue.setImage(icon, for: .normal)
-        wrappedValue.tintColor = Constants.mainColor
+        wrappedValue.tintColor = Constants.Colors.mainColor
         configureButton()
     }
     
@@ -28,7 +28,7 @@ class Button {
         wrappedValue.setImage(icon, for: .normal)
         wrappedValue.layer.borderWidth = borderWidth
         wrappedValue.layer.cornerRadius = cornerRadius
-        wrappedValue.layer.borderColor = Constants.mainColor.cgColor
+        wrappedValue.layer.borderColor = Constants.Colors.mainColor.cgColor
         configureButton()
     }
     

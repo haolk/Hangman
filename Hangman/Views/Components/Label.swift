@@ -26,7 +26,7 @@ class Label {
         configureLabel()
     }
     
-    init(ofSize: CGFloat, textAlignment: NSTextAlignment, text: String = "", textColor: UIColor = Constants.mainColor) {
+    init(ofSize: CGFloat, textAlignment: NSTextAlignment, text: String = "", textColor: UIColor = Constants.Colors.mainColor) {
         self.wrappedValue = UILabel()
         wrappedValue.text = text
         wrappedValue.font = UIFont.init(name: Constants.font, size: ofSize)

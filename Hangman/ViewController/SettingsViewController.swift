@@ -97,13 +97,13 @@ extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = Constants.mainColor
+        view.backgroundColor = Constants.Colors.mainColor
         
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.text = settingsViewModel.getSectionTitle(section)
-        title.font = .boldSystemFont(ofSize: 15)
-        title.textColor = Constants.backgroundColor
+        title.font = .boldSystemFont(ofSize: Constants.FontSizes.medium)
+        title.textColor = Constants.Colors.backgroundColor
         view.addSubview(title)
         
         NSLayoutConstraint.activate([

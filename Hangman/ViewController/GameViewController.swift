@@ -116,7 +116,7 @@ final class GameViewController: UIViewController {
     private func enableAndRestoreTappedLetterButtons() {
         for letterButton in tappedLetterButtons {
             letterButton.isUserInteractionEnabled = true
-            letterButton.backgroundColor = Constants.backgroundColor
+            letterButton.backgroundColor = Constants.Colors.backgroundColor
         }
         tappedLetterButtons.removeAll()
     }

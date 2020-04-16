@@ -16,10 +16,10 @@ final class SettingsView: UIView {
     
     // MARK: - PROPERTIES
   
-    @Button(iconSize: 26, iconSystemName: "arrowshape.turn.up.left.fill")
+    @Button(iconSize: Constants.ButtonSizes.small, iconSystemName: "arrowshape.turn.up.left.fill")
     var backButton: UIButton
     
-    @Label(ofSize: 26, textAlignment: .center, text: NSLocalizedString("SETTINGS", comment: ""))
+    @Label(ofSize: Constants.FontSizes.large, textAlignment: .center, text: NSLocalizedString("SETTINGS", comment: ""))
     var titleLabel: UILabel
     
     @SwipeGesture(swipteDirection: .right)
@@ -48,7 +48,7 @@ final class SettingsView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = Constants.backgroundColor
+        backgroundColor = Constants.Colors.backgroundColor
 
         enableDarkMode()
         addTargetOnElements()

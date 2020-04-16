@@ -17,22 +17,22 @@ final class GameView: UIView {
 
     // MARK: - PROPERTIES
     
-    @Button(iconSize: 26, iconSystemName: "arrowshape.turn.up.left.fill")
+    @Button(iconSize: Constants.ButtonSizes.small, iconSystemName: "arrowshape.turn.up.left.fill")
     var backButton: UIButton
   
-    @Label(ofSize: 26, textAlignment: .right)
+    @Label(ofSize: Constants.FontSizes.large, textAlignment: .right)
     var bestScoreLabel: UILabel
     
-    @Label(ofSize: 26, textAlignment: .right)
+    @Label(ofSize: Constants.FontSizes.large, textAlignment: .right)
     var scoreLabel: UILabel
     
     @ImageView()
     var hangmanImageView: UIImageView
     
-    @TextField(fontSize: 26)
+    @TextField(fontSize: Constants.FontSizes.large)
     var answerTextField: UITextField
     
-    @Label(ofSize: 16, textAlignment: .center, textColor: .label)
+    @Label(ofSize: Constants.FontSizes.medium, textAlignment: .center, textColor: .label)
     var hintLabel: UILabel
     
     @StackView(spacing: 8)
@@ -71,7 +71,7 @@ final class GameView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = Constants.backgroundColor
+        backgroundColor = Constants.Colors.backgroundColor
         
         enableDarkMode()
         addTargetOnElements()
@@ -111,9 +111,9 @@ final class GameView: UIView {
             letterButton.layer.borderColor = UIColor.lightGray.cgColor
             letterButton.layer.borderWidth = 1.0
             letterButton.clipsToBounds = true
-            letterButton.titleLabel?.font = UIFont.init(name: Constants.font, size: 30)
+            letterButton.titleLabel?.font = UIFont.init(name: Constants.font, size: Constants.ButtonSizes.small)
             letterButton.setTitle(Constants.letters[startPosition + letter], for: .normal)
-            letterButton.setTitleColor(Constants.mainColor, for: .normal)
+            letterButton.setTitleColor(Constants.Colors.mainColor, for: .normal)
             letterButton.contentHorizontalAlignment = .center
             letterButton.contentVerticalAlignment = .center
             letterButton.addTarget(self, action: #selector(checkIsTappedLetterInLookingWord(_:)), for: .touchUpInside)

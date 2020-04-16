@@ -17,13 +17,13 @@ final class StartView: UIView {
     
     // MARK: - PROPERTIES
 
-    @Label(ofSize: 55, textAlignment: .center, text: NSLocalizedString("HANGMAN", comment: ""))
+    @Label(ofSize: Constants.FontSizes.xlarge, textAlignment: .center, text: NSLocalizedString("HANGMAN", comment: ""))
     var titleLabel: UILabel
     
-    @Button(borderWidth: 1, cornerRadius: 5, iconSize: 50, iconSystemName: "play.fill", iconWeight: .black)
+    @Button(borderWidth: 1, cornerRadius: 5, iconSize: Constants.ButtonSizes.large, iconSystemName: "play.fill", iconWeight: .black)
     var playButton: UIButton
     
-    @Button(borderWidth: 1, cornerRadius: 5, iconSize: 40, iconSystemName: "gear")
+    @Button(borderWidth: 1, cornerRadius: 5, iconSize: Constants.ButtonSizes.medium, iconSystemName: "gear")
     var settingsButton: UIButton
     
     // MARK: - INIT
@@ -47,7 +47,7 @@ final class StartView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = Constants.backgroundColor
+        backgroundColor = Constants.Colors.backgroundColor
         
         enableDarkMode()
         addTargetOnElements()

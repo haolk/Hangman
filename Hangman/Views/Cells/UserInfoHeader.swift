@@ -15,10 +15,10 @@ final class UserInfoHeader: UIView {
     @ImageView(imageName: "myPicture", isClipsToBounds: true)
     var profileImageView: UIImageView
     
-    @Label(text: "Hrvoje Vuković", ofSize: 16)
+    @Label(text: "Hrvoje Vuković", ofSize: Constants.FontSizes.medium)
     var usernameLabel: UILabel
     
-    @Label(text: "vukovic.hrvoje@icloud.com", ofSize: 14, textColor: .gray)
+    @Label(text: "vukovic.hrvoje@icloud.com", ofSize: Constants.FontSizes.small, textColor: .gray)
     var emailLabel: UILabel
     
     // MARK: - INIT
@@ -38,7 +38,7 @@ final class UserInfoHeader: UIView {
         let profileImageDimension: CGFloat = 60
         profileImageView.layer.cornerRadius = profileImageDimension / 2
         
-        backgroundColor = Constants.backgroundColor
+        backgroundColor = Constants.Colors.backgroundColor
         
         addElementsOnView()
         setConstraintsForElements(profileImageDimension)

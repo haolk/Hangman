@@ -19,6 +19,6 @@ class Switch {
     
     private func configureSwitch() {
         wrappedValue.translatesAutoresizingMaskIntoConstraints = false
-        wrappedValue.onTintColor = Constants.mainColor
+        wrappedValue.onTintColor = Constants.Colors.mainColor
     }
 }

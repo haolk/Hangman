@@ -16,10 +16,10 @@ final class OptionsView: UIView {
     
     // MARK: - PROPERTIES
   
-    @Button(iconSize: 26, iconSystemName: "arrowshape.turn.up.left.fill")
+    @Button(iconSize: Constants.ButtonSizes.small, iconSystemName: "arrowshape.turn.up.left.fill")
     var backButton: UIButton
     
-    @Label(ofSize: 26, textAlignment: .center)
+    @Label(ofSize: Constants.FontSizes.large, textAlignment: .center)
     var titleLabel: UILabel
     
     @SwipeGesture(swipteDirection: .right)
@@ -48,7 +48,7 @@ final class OptionsView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = Constants.backgroundColor
+        backgroundColor = Constants.Colors.backgroundColor
         
         enableDarkMode()
         addTargetOnElements()
@@ -70,7 +70,7 @@ final class OptionsView: UIView {
         optionsTableView.translatesAutoresizingMaskIntoConstraints = false
         optionsTableView.register(OptionsCell.self, forCellReuseIdentifier: OptionsCell.reuseIdentifier)
         optionsTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 10))
-        optionsTableView.tableHeaderView?.backgroundColor = Constants.backgroundColor
+        optionsTableView.tableHeaderView?.backgroundColor = Constants.Colors.backgroundColor
         addSubview(optionsTableView)
     }
         
