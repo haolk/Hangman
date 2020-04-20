@@ -12,6 +12,9 @@ enum Constants {
     static let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     static let font = "Marker Felt"
     
+    static let jsonDataUrl = "https://api.jsonbin.io/b/5e9cc3d75fa47104cea3869a/latest" //private
+    static let apiSecretKey = "$2b$10$xXkdXsdpu2ZGyszl30H82eVmRmz5uGR/HqIdb/gi84TQJCKSXLiM."
+    
     enum Colors {
         static let mainColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
         static let backgroundColor = UIColor.systemBackground
