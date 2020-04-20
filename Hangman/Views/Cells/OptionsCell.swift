@@ -47,10 +47,10 @@ final class OptionsCell: UITableViewCell {
     private func setConstraintsForElements() {
         NSLayoutConstraint.activate([
             labelLeft.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 5),
-            labelLeft.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, multiplier: 0.4, constant: -10),
+            labelLeft.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, multiplier: 0.35),
             labelLeft.centerYAnchor.constraint(equalTo: layoutMarginsGuide.centerYAnchor),
             labelRight.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -5),
-            labelRight.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, multiplier: 0.6, constant: -10),
+            labelRight.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor, multiplier: 0.65),
             labelRight.centerYAnchor.constraint(equalTo: layoutMarginsGuide.centerYAnchor)
         ])
     }
