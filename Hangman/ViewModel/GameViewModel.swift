@@ -118,14 +118,14 @@ final class GameViewModel: GameViewModelProtocol {
     private func gameWin() {
         game.isFinished = true
         score.value = updateScore(as: .wholeWord)
-        alertTitle = NSLocalizedString("NICE_JOB", comment: "")
-        alertMessage = NSLocalizedString("YOU_FOUND_THE_CORRECT_WORD", comment: "")
+        alertTitle = Constants.LocalizedString.niceJob
+        alertMessage = Constants.LocalizedString.youFoundTheCorrectWord
     }
     
     private func gameLost() {
         score.value = updateScore(as: .gameOver)
-        alertTitle = "\(NSLocalizedString("GAME_OVER", comment: "")) \n\(NSLocalizedString("HIDDEN_WORD", comment: "")) \(game.answere)"
-        alertMessage = NSLocalizedString("BETTER_LUCK_NEXT_TIME", comment: "")
+        alertTitle = "\(Constants.LocalizedString.gameOver) \n\(Constants.LocalizedString.hiddenWord) \(game.answere)"
+        alertMessage = Constants.LocalizedString.betterLuckNextTime
     }
     
     private func updateScore(as amount: ScoreAmount) -> String {
@@ -145,11 +145,11 @@ final class GameViewModel: GameViewModelProtocol {
     // MARK: - STRING UTILS
     
     private static func scoreFormatted(_ amount: ScoreAmount = .startAmount, for game: Game) -> String {
-        return "\(NSLocalizedString("SCORE", comment: "")) \(game.updateScore(for: amount.rawValue))"
+        return "\(Constants.LocalizedString.score) \(game.updateScore(for: amount.rawValue))"
     }
     
     private static func bestScoreFormatted(for game: Game) -> String {
-        return "\(NSLocalizedString("BEST", comment: "")) \(game.bestScore)"
+        return "\(Constants.LocalizedString.best) \(game.bestScore)"
     }
     
     private static func imageFormatter(_ amount: Int = 0, for game: Game) -> String {

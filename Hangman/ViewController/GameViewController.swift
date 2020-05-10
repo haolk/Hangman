@@ -109,7 +109,7 @@ final class GameViewController: UIViewController {
         let alertMessage = gameViewModel.alertMessage
         let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         alertController.overrideUserInterfaceStyle = GlobalSettings.darkMode ? .light : .dark
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("NEW_GAME", comment: ""), style: .default, handler: actionHandler))
+        alertController.addAction(UIAlertAction(title: Constants.LocalizedString.newGame, style: .default, handler: actionHandler))
         present(alertController, animated: true)
     }
     

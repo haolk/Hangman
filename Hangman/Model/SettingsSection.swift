@@ -24,8 +24,8 @@ enum SettingsTitle: Int, CaseIterable {
     
     var description: String {
         switch self {
-        case .general: return NSLocalizedString("GENERAL", comment: "")
-        case .misc: return NSLocalizedString("MISC", comment: "")
+        case .general: return Constants.LocalizedString.general
+        case .misc: return Constants.LocalizedString.misc
         }
     }
 }
@@ -38,10 +38,10 @@ enum SettingsOptions: Int, CaseIterable, SettingsSectionProtocol {
     
      var description: String {
         switch self {
-        case .wordLanguage: return NSLocalizedString("WORD_LANGUAGE", comment: "")
-        case .showHint: return NSLocalizedString("SHOW_HINT", comment: "")
-        case .darkMode: return NSLocalizedString("DARK_MODE", comment: "")
-        case .listOfAllWords: return NSLocalizedString("LIST_OF_WORDS", comment: "")
+        case .wordLanguage: return Constants.LocalizedString.wordLanguage
+        case .showHint: return Constants.LocalizedString.showHint
+        case .darkMode: return Constants.LocalizedString.darkMode
+        case .listOfAllWords: return Constants.LocalizedString.listOfWords
         }
     }
     

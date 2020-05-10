@@ -17,7 +17,7 @@ final class StartView: UIView {
     
     // MARK: - PROPERTIES
 
-    @Label(ofSize: Constants.FontSizes.xlarge, textAlignment: .center, text: NSLocalizedString("HANGMAN", comment: ""))
+    @Label(ofSize: Constants.FontSizes.xlarge, textAlignment: .center, text: Constants.LocalizedString.hangman)
     var titleLabel: UILabel
     
     @Button(borderWidth: 1, cornerRadius: 5, iconSize: Constants.ButtonSizes.large, iconSystemName: Constants.SFSymbols.play, iconWeight: .black)

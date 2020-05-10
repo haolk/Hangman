@@ -71,14 +71,14 @@ extension OptionsViewController: UITableViewDataSource {
         case .wordLanguage:
             cell.labelLeft.text = NSLocalizedString(cellDataText.uppercased(), comment: "")
             cell.accessoryType = GlobalSettings.wordLanguage == cellDataText ? .checkmark : .none
-            optionsView.titleLabel.text = NSLocalizedString("SELECT_WORD_LANGUAGE", comment: "")
+            optionsView.titleLabel.text = Constants.LocalizedString.selectWordLanguage
         case .listOfAllWords:
             let cellDataSplited = cellDataText.split(separator: "-")
             cell.labelLeft.text = String(cellDataSplited[0]).lowercased()
             cell.labelRight.text = String(cellDataSplited[1]).lowercased()
-            optionsView.titleLabel.text = NSLocalizedString("LIST_OF_WORDS", comment: "")
+            optionsView.titleLabel.text = Constants.LocalizedString.listOfWords
         default:
-            cell.labelLeft.text = NSLocalizedString("ERROR", comment: "")
+            cell.labelLeft.text = Constants.LocalizedString.error
         }
         
         return cell
