@@ -6,10 +6,10 @@
   Copyright © 2019 Hrvoje Vuković. All rights reserved.
 */
 "GAME_OVER" = "Igra završena!";
-"NICE_JOB" = "Super!";
+"NICE_JOB" = "Bravo!";
 "YOU_FOUND_THE_CORRECT_WORD" = "Pronašli ste ispravnu riječ!";
 "HIDDEN_WORD" = "Skrivena riječ:";
-"BETTER_LUCK_NEXT_TIME" = "Više sreće sljedeći put...";
+"BETTER_LUCK_NEXT_TIME" = "Više sreće drugi put...";
 "SCORE" = "Rezultat:";
 "BEST" = "Najbolji:";
 "HANGMAN" = "HANGMAN";
