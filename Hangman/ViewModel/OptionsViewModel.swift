@@ -12,6 +12,7 @@ struct OptionsViewModel: OptionsViewModelProtocol {
     
     let wordsRepository: WordsRepository
     let type: SettingsOptions
+    let data: [String]
     
     // MARK: - PROTOCOL METHODS
      
@@ -20,16 +21,16 @@ struct OptionsViewModel: OptionsViewModelProtocol {
     }
     
     func getDataCount() -> Int {
-        return getData().count
+        return data.count
     }
     
     func getDataText(at row: Int) -> String {
-        return getData()[row]
+        return data[row]
     }
     
     func setNewWordLanguage(at row: Int) -> Bool {
         if type == .wordLanguage {
-            let selectedWordLanguage = getData()[row]
+            let selectedWordLanguage = data[row]
             let activeWordLanguage = GlobalSettings.wordLanguage
             
             if selectedWordLanguage != activeWordLanguage {
@@ -40,26 +41,4 @@ struct OptionsViewModel: OptionsViewModelProtocol {
         return false
     }
     
-    // MARK: - PRIVATE METHODS
-    
-    private func getData() -> [String] {
-        switch type {
-        case .wordLanguage:
-            return getWordLanguages()
-        case .listOfAllWords:
-            return getActiveWordsAndHints()
-        default:
-            return [""]
-        }
-    }
-    
-    private func getWordLanguages() -> [String] {
-        return WordLanguages.allCases.map { $0.description }
-    }
-    
-    private func getActiveWordsAndHints() -> [String] {
-        let activeWordsAndHints = wordsRepository.getActiveWordsAndHints() ?? [WordDetails]()
-        return activeWordsAndHints.map({ $0.word + "-(\($0.hint))" })
-    }
-
 }

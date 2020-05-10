@@ -31,7 +31,8 @@ struct SettingsViewModel: SettingsViewModelProtocol {
     }
     
     func createOptionsViewModel(_ type: SettingsOptions) -> OptionsViewModel {
-        return OptionsViewModel(wordsRepository: wordsRepository, type: type)
+        let data = getData(for: type)
+        return OptionsViewModel(wordsRepository: wordsRepository, type: type, data: data)
     }
     
     // MARK: - PRIVATE METHODS
@@ -42,6 +43,26 @@ struct SettingsViewModel: SettingsViewModelProtocol {
             SettingsSection(title: .misc, options: [SettingsOptions.listOfAllWords])
         ]
         return sections
+    }
+    
+    private func getData(for type: SettingsOptions) -> [String] {
+        switch type {
+        case .wordLanguage:
+            return getWordLanguages()
+        case .listOfAllWords:
+            return getActiveWordsAndHints()
+        default:
+            return [""]
+        }
+    }
+    
+    private func getWordLanguages() -> [String] {
+        return WordLanguages.allCases.map { $0.description }
+    }
+    
+    private func getActiveWordsAndHints() -> [String] {
+        let activeWordsAndHints = wordsRepository.getActiveWordsAndHints() ?? [WordDetails]()
+        return activeWordsAndHints.map({ $0.word + "-(\($0.hint))" })
     }
     
 }
