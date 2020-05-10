@@ -122,6 +122,8 @@ final class WordsRepository {
     }
     
     private func readJsonFromDocDirectory() {
+        if self.allWords.count > 0 { return }
+        
         do {
             let fileURL = try FileManager.default
                 .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
