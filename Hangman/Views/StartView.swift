@@ -20,10 +20,10 @@ final class StartView: UIView {
     @Label(ofSize: Constants.FontSizes.xlarge, textAlignment: .center, text: NSLocalizedString("HANGMAN", comment: ""))
     var titleLabel: UILabel
     
-    @Button(borderWidth: 1, cornerRadius: 5, iconSize: Constants.ButtonSizes.large, iconSystemName: "play.fill", iconWeight: .black)
+    @Button(borderWidth: 1, cornerRadius: 5, iconSize: Constants.ButtonSizes.large, iconSystemName: Constants.SFSymbols.play, iconWeight: .black)
     var playButton: UIButton
     
-    @Button(borderWidth: 1, cornerRadius: 5, iconSize: Constants.ButtonSizes.medium, iconSystemName: "gear")
+    @Button(borderWidth: 1, cornerRadius: 5, iconSize: Constants.ButtonSizes.medium, iconSystemName: Constants.SFSymbols.settings)
     var settingsButton: UIButton
     
     // MARK: - INIT

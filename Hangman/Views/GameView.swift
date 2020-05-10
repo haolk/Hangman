@@ -17,7 +17,7 @@ final class GameView: UIView {
 
     // MARK: - PROPERTIES
     
-    @Button(iconSize: Constants.ButtonSizes.small, iconSystemName: "arrowshape.turn.up.left.fill")
+    @Button(iconSize: Constants.ButtonSizes.small, iconSystemName: Constants.SFSymbols.back)
     var backButton: UIButton
   
     @Label(ofSize: Constants.FontSizes.large, textAlignment: .right)
