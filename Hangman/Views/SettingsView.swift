@@ -16,10 +16,10 @@ final class SettingsView: UIView {
     
     // MARK: - PROPERTIES
   
-    @Button(iconSize: Constants.ButtonSizes.small, iconSystemName: Constants.SFSymbols.back)
+    @Button(iconSize: .small, iconSystemName: .back)
     var backButton: UIButton
     
-    @Label(ofSize: Constants.FontSizes.large, textAlignment: .center, text: Constants.LocalizedString.settings)
+    @Label(ofSize: .large, textAlignment: .center, text: Constants.LocalizedString.settings)
     var titleLabel: UILabel
     
     @SwipeGesture(swipteDirection: .right)

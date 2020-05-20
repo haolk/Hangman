@@ -12,19 +12,24 @@ import UIKit
 class Button {
     var wrappedValue: UIButton
     
-    init(iconSize: CGFloat, iconSystemName: String) {
+    init(type: UIButton.ButtonType) {
+        self.wrappedValue = UIButton(type: type)
+        configureButton()
+    }
+    
+    init(iconSize: Constants.ButtonSizes, iconSystemName: Constants.SFSymbols) {
         self.wrappedValue = UIButton()
-        let iconConfig = UIImage.SymbolConfiguration(pointSize: iconSize)
-        let icon = UIImage(systemName: iconSystemName, withConfiguration: iconConfig)
+        let iconConfig = UIImage.SymbolConfiguration(pointSize: iconSize.rawValue)
+        let icon = UIImage(systemName: iconSystemName.rawValue, withConfiguration: iconConfig)
         wrappedValue.setImage(icon, for: .normal)
         wrappedValue.tintColor = Constants.Colors.mainColor
         configureButton()
     }
     
-    init(borderWidth: CGFloat, cornerRadius: CGFloat, iconSize: CGFloat, iconSystemName: String, iconWeight: UIImage.SymbolWeight = .regular) {
+    init(borderWidth: CGFloat, cornerRadius: CGFloat, iconSize: Constants.ButtonSizes, iconSystemName: Constants.SFSymbols, iconWeight: UIImage.SymbolWeight = .regular) {
         self.wrappedValue = UIButton()
-        let iconConfig = UIImage.SymbolConfiguration(pointSize: iconSize, weight: iconWeight)
-        let icon = UIImage(systemName: iconSystemName, withConfiguration: iconConfig)
+        let iconConfig = UIImage.SymbolConfiguration(pointSize: iconSize.rawValue, weight: iconWeight)
+        let icon = UIImage(systemName: iconSystemName.rawValue, withConfiguration: iconConfig)
         wrappedValue.setImage(icon, for: .normal)
         wrappedValue.layer.borderWidth = borderWidth
         wrappedValue.layer.cornerRadius = cornerRadius

@@ -17,13 +17,13 @@ final class StartView: UIView {
     
     // MARK: - PROPERTIES
 
-    @Label(ofSize: Constants.FontSizes.xlarge, textAlignment: .center, text: Constants.LocalizedString.hangman)
+    @Label(ofSize: .xlarge, textAlignment: .center, text: Constants.LocalizedString.hangman)
     var titleLabel: UILabel
     
-    @Button(borderWidth: 1, cornerRadius: 5, iconSize: Constants.ButtonSizes.large, iconSystemName: Constants.SFSymbols.play, iconWeight: .black)
+    @Button(borderWidth: 1, cornerRadius: 5, iconSize: .large, iconSystemName: .play, iconWeight: .black)
     var playButton: UIButton
     
-    @Button(borderWidth: 1, cornerRadius: 5, iconSize: Constants.ButtonSizes.medium, iconSystemName: Constants.SFSymbols.settings)
+    @Button(borderWidth: 1, cornerRadius: 5, iconSize: .medium, iconSystemName: .settings)
     var settingsButton: UIButton
     
     // MARK: - INIT

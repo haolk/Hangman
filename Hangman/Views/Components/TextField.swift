@@ -12,9 +12,9 @@ import UIKit
 class TextField {
     var wrappedValue: UITextField
     
-    init(fontSize: CGFloat) {
+    init(fontSize: Constants.FontSizes) {
         self.wrappedValue = UITextField()
-        wrappedValue.font = UIFont.init(name: Constants.font, size: fontSize)
+        wrappedValue.font = UIFont.init(name: Constants.font, size: fontSize.rawValue)
         configureTextField()
     }
     

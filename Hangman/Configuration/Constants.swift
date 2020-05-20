@@ -20,23 +20,24 @@ enum Constants {
         static let backgroundColor  = UIColor.systemBackground
     }
     
-    enum FontSizes {
-        static let small: CGFloat   = 14
-        static let medium: CGFloat  = 16
-        static let large: CGFloat   = 26
-        static let xlarge: CGFloat  = 55
+    enum FontSizes: CGFloat {
+        case small      = 14
+        case medium     = 16
+        case large      = 26
+        case xlarge     = 55
     }
     
-    enum ButtonSizes {
-        static let small: CGFloat   = 26
-        static let medium: CGFloat  = 40
-        static let large: CGFloat   = 50
+    enum ButtonSizes: CGFloat {
+        case small      = 26
+        case medium     = 40
+        case large      = 60
     }
     
-    enum SFSymbols {
-        static let play     = "play.fill"
-        static let settings = "gear"
-        static let back     = "arrowshape.turn.up.left.fill"
+    enum SFSymbols: String {
+        case play       = "play.fill"
+        case settings   = "gear"
+        case back       = "arrowshape.turn.up.left.fill"
+        case question   = "questionmark.circle"
     }
     
     enum LocalizedString {

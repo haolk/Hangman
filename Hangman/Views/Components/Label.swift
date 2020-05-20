@@ -18,18 +18,19 @@ class Label {
         configureLabel()
     }
     
-    init(text: String, ofSize: CGFloat, textColor: UIColor = .label) {
+    init(text: String, ofSize: Constants.FontSizes, textColor: UIColor = .label) {
         self.wrappedValue = UILabel()
         wrappedValue.text = text
-        wrappedValue.font = UIFont.systemFont(ofSize: ofSize)
+        wrappedValue.font = UIFont.systemFont(ofSize: ofSize.rawValue)
         wrappedValue.textColor = textColor
+        wrappedValue.numberOfLines = 4
         configureLabel()
     }
     
-    init(ofSize: CGFloat, textAlignment: NSTextAlignment, text: String = "", textColor: UIColor = Constants.Colors.mainColor) {
+    init(ofSize: Constants.FontSizes, textAlignment: NSTextAlignment, text: String = "", textColor: UIColor = Constants.Colors.mainColor) {
         self.wrappedValue = UILabel()
         wrappedValue.text = text
-        wrappedValue.font = UIFont.init(name: Constants.font, size: ofSize)
+        wrappedValue.font = UIFont.init(name: Constants.font, size: ofSize.rawValue)
         wrappedValue.textAlignment = textAlignment
         wrappedValue.textColor = textColor
         configureLabel()
