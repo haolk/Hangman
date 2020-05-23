@@ -13,12 +13,16 @@ final class GameView: UIView {
     // MARK: - ACTION CLOSURES
     
     var onBackToStartView: () -> Void = {}
+    var onScoringSystems: () -> Void = {}
     var onCheckIsTappedLetterInLookingWord: (UIButton) -> Void = {_ in }
 
     // MARK: - PROPERTIES
     
     @Button(iconSize: .small, iconSystemName: .back)
     var backButton: UIButton
+    
+    @Button(iconSize: .small, iconSystemName: .question)
+    var questionLabel: UIButton
   
     @Label(fontSize: .large, textAlignment: .right)
     var bestScoreLabel: UILabel
@@ -81,11 +85,13 @@ final class GameView: UIView {
     
     private func addTargetOnElements() {
         backButton.addTarget(self, action: #selector(backToStartView), for: .touchUpInside)
+        questionLabel.addTarget(self, action: #selector(scoringSystems), for: .touchUpInside)
         swipeBack.addTarget(self, action: #selector(backToStartView))
     }
     
     private func addElementsOnView() {
         addSubview(backButton)
+        addSubview(questionLabel)
         addSubview(bestScoreLabel)
         addSubview(scoreLabel)
         addSubview(hangmanImageView)
@@ -124,6 +130,9 @@ final class GameView: UIView {
     private func setConstraintsForElements() {
         backButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5).isActive = true
         backButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).isActive = true
+        
+        questionLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5).isActive = true
+        questionLabel.trailingAnchor.constraint(equalTo: bestScoreLabel.leadingAnchor, constant: -5).isActive = true
         
         bestScoreLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5).isActive = true
         bestScoreLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor).isActive = true
@@ -166,6 +175,10 @@ final class GameView: UIView {
     
     @objc private func backToStartView() {
         onBackToStartView()
+    }
+    
+    @objc private func scoringSystems() {
+        onScoringSystems()
     }
     
     @objc private func checkIsTappedLetterInLookingWord(_ letterButton: UIButton) {

@@ -15,6 +15,8 @@
 		EE20F96B2444835D008D697F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE20F96A2444835D008D697F /* ImageView.swift */; };
 		EE21096F2380004A008A4FAE /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21096E2380004A008A4FAE /* StartView.swift */; };
 		EE210971238003C7008A4FAE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE210970238003C7008A4FAE /* GameView.swift */; };
+		EE30EC08246BF12B003A569B /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE30EC07246BF12B003A569B /* PopupView.swift */; };
+		EE30EC0A246BF43B003A569B /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE30EC09246BF43B003A569B /* PopupViewController.swift */; };
 		EE3330C123A821E100BAF4F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE3330BF23A821E100BAF4F8 /* Localizable.strings */; };
 		EE42E32E2371FAA200911A91 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE42E32D2371FAA200911A91 /* Word.swift */; };
 		EE42E3332371FC3900911A91 /* GameViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE42E3322371FC3900911A91 /* GameViewModelProtocol.swift */; };
@@ -60,6 +62,8 @@
 		EE20F96A2444835D008D697F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		EE21096E2380004A008A4FAE /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		EE210970238003C7008A4FAE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		EE30EC07246BF12B003A569B /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		EE30EC09246BF43B003A569B /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		EE3330C023A821E100BAF4F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Hangman/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE3330C223A821E400BAF4F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Hangman/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE3330C323A821E500BAF4F8 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = Hangman/hr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				EE210970238003C7008A4FAE /* GameView.swift */,
 				EE561920238C37E100B10EEF /* SettingsView.swift */,
 				EE771A76239274A70052C489 /* OptionsView.swift */,
+				EE30EC07246BF12B003A569B /* PopupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				EE1F81FE236C40A500DD1A05 /* GameViewController.swift */,
 				EE56191E238C375D00B10EEF /* SettingsViewController.swift */,
 				EE771A6E239261400052C489 /* OptionsViewController.swift */,
+				EE30EC09246BF43B003A569B /* PopupViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE8FCC2E2376CAB70081F967 /* GameViewModel.swift in Sources */,
+				EE30EC0A246BF43B003A569B /* PopupViewController.swift in Sources */,
 				EE771A6D2392595E0052C489 /* SettingsViewModel.swift in Sources */,
 				EE8FCC312376CF880081F967 /* StartViewModelProtocol.swift in Sources */,
 				EE8F4B2D2445A70C00B15E38 /* TextField.swift in Sources */,
@@ -347,6 +354,7 @@
 				EE668D56239ED1C9001E287C /* ThemeManager.swift in Sources */,
 				EE8F4B272444B6E000B15E38 /* Switch.swift in Sources */,
 				EE8FCC332376CF910081F967 /* StartViewModel.swift in Sources */,
+				EE30EC08246BF12B003A569B /* PopupView.swift in Sources */,
 				EE42E32E2371FAA200911A91 /* Word.swift in Sources */,
 				EE42E3332371FC3900911A91 /* GameViewModelProtocol.swift in Sources */,
 				EE5941D1239980750029AD83 /* GlobalSettings.swift in Sources */,

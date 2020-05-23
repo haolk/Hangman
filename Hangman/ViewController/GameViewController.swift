@@ -52,6 +52,16 @@ final class GameViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
         
+        gameView.onScoringSystems = { [weak self] in
+            guard let self = self else { return }
+            
+            let popupVC = PopupViewController()
+            self.addChild(popupVC)
+            popupVC.view.frame = self.view.frame
+            self.view.addSubview(popupVC.view)
+            popupVC.didMove(toParent: self)
+        }
+        
         gameView.onCheckIsTappedLetterInLookingWord = { [weak self] letterButton in
             guard let self = self else { return }
             
