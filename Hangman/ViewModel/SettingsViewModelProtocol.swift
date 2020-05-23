@@ -9,9 +9,9 @@
 import Foundation
 
 protocol SettingsViewModelProtocol {
-    func getNumberOfOptionsInSection(_ section: Int) -> Int
+    func getNumberOfOptions(inSection section: Int) -> Int
     func getOptionForSection(at indexPath: IndexPath) -> SettingsOptions
-    func getSectionTitle(_ section: Int) -> String
+    func getSectionTitle(in section: Int) -> String
     func getSectionCount() -> Int
-    func createOptionsViewModel(_ type: SettingsOptions) -> OptionsViewModel
+    func createOptionsViewModel(ofType type: SettingsOptions) -> OptionsViewModel
 }

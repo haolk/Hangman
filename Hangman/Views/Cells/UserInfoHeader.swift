@@ -15,10 +15,10 @@ final class UserInfoHeader: UIView {
     @ImageView(imageName: "myPicture", isClipsToBounds: true)
     var profileImageView: UIImageView
     
-    @Label(text: "Hrvoje Vuković", ofSize: .medium)
+    @Label(text: "Hrvoje Vuković", font: .systemFont, fontSize: .medium, numberOfLines: 1)
     var usernameLabel: UILabel
     
-    @Label(text: "vukovic.hrvoje@icloud.com", ofSize: .small, textColor: .gray)
+    @Label(text: "vukovic.hrvoje@icloud.com", font: .systemFont, fontSize: .small, numberOfLines: 1, textColor: .gray)
     var emailLabel: UILabel
     
     // MARK: - INIT

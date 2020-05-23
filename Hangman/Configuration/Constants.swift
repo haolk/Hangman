@@ -20,6 +20,11 @@ enum Constants {
         static let backgroundColor  = UIColor.systemBackground
     }
     
+    enum Font: String {
+        case appFont    = "Marker Felt"
+        case systemFont = "SanFrancisco-Regular"
+    }
+    
     enum FontSizes: CGFloat {
         case small      = 14
         case medium     = 16

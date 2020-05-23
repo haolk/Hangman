@@ -20,10 +20,10 @@ final class GameView: UIView {
     @Button(iconSize: .small, iconSystemName: .back)
     var backButton: UIButton
   
-    @Label(ofSize: .large, textAlignment: .right)
+    @Label(fontSize: .large, textAlignment: .right)
     var bestScoreLabel: UILabel
     
-    @Label(ofSize: .large, textAlignment: .right)
+    @Label(fontSize: .large, textAlignment: .right)
     var scoreLabel: UILabel
     
     @ImageView()
@@ -32,7 +32,7 @@ final class GameView: UIView {
     @TextField(fontSize: .large)
     var answerTextField: UITextField
     
-    @Label(ofSize: .medium, textAlignment: .center, textColor: .label)
+    @Label(fontSize: .medium, textAlignment: .center, textColor: .label)
     var hintLabel: UILabel
     
     @StackView(spacing: 8)
@@ -111,7 +111,7 @@ final class GameView: UIView {
             letterButton.layer.borderColor = UIColor.lightGray.cgColor
             letterButton.layer.borderWidth = 1.0
             letterButton.clipsToBounds = true
-            letterButton.titleLabel?.font = UIFont.init(name: Constants.font, size: Constants.ButtonSizes.small.rawValue)
+            letterButton.titleLabel?.font = UIFont.init(name: Constants.Font.appFont.rawValue, size: Constants.ButtonSizes.small.rawValue)
             letterButton.setTitle(Constants.letters[startPosition + letter], for: .normal)
             letterButton.setTitleColor(Constants.Colors.mainColor, for: .normal)
             letterButton.contentHorizontalAlignment = .center

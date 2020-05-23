@@ -19,7 +19,7 @@ final class OptionsView: UIView {
     @Button(iconSize: .small, iconSystemName: .back)
     var backButton: UIButton
     
-    @Label(ofSize: .large, textAlignment: .center)
+    @Label(fontSize: .large, textAlignment: .center)
     var titleLabel: UILabel
     
     @SwipeGesture(swipteDirection: .right)

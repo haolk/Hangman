@@ -14,7 +14,7 @@ struct SettingsViewModel: SettingsViewModelProtocol {
     
     // MARK: - PROTOCOL METHODS
     
-    func getNumberOfOptionsInSection(_ section: Int) -> Int {
+    func getNumberOfOptions(inSection section: Int) -> Int {
         return getSections()[section].options.count
     }
     
@@ -22,7 +22,7 @@ struct SettingsViewModel: SettingsViewModelProtocol {
         return getSections()[indexPath.section].options[indexPath.row]
     }
     
-    func getSectionTitle(_ section: Int) -> String {
+    func getSectionTitle(in section: Int) -> String {
         return getSections()[section].title.description
     }
     
@@ -30,7 +30,7 @@ struct SettingsViewModel: SettingsViewModelProtocol {
         return getSections().count
     }
     
-    func createOptionsViewModel(_ type: SettingsOptions) -> OptionsViewModel {
+    func createOptionsViewModel(ofType type: SettingsOptions) -> OptionsViewModel {
         let data = getData(for: type)
         return OptionsViewModel(wordsRepository: wordsRepository, type: type, data: data)
     }

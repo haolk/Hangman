@@ -59,15 +59,13 @@ final class SettingsViewController: UIViewController {
     // MARK: - PRIVATE METHODS
     
     private func openWordLanguageVC() {
-        let type = SettingsOptions.wordLanguage
-        let optionsViewModel = settingsViewModel.createOptionsViewModel(type)
+        let optionsViewModel = settingsViewModel.createOptionsViewModel(ofType: .wordLanguage)
         let optionsViewController = OptionsViewController(viewModel: optionsViewModel)
         navigationController?.pushViewController(optionsViewController, animated: true)
     }
     
     private func openListOfAllWordsVC() {
-        let type = SettingsOptions.listOfAllWords
-        let optionsViewModel = settingsViewModel.createOptionsViewModel(type)
+        let optionsViewModel = settingsViewModel.createOptionsViewModel(ofType: .listOfAllWords)
         let optionsViewController = OptionsViewController(viewModel: optionsViewModel)
         navigationController?.pushViewController(optionsViewController, animated: true)
     }
@@ -79,7 +77,7 @@ final class SettingsViewController: UIViewController {
 extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsViewModel.getNumberOfOptionsInSection(section)
+        return settingsViewModel.getNumberOfOptions(inSection: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,7 +99,7 @@ extension SettingsViewController: UITableViewDelegate {
         
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.text = settingsViewModel.getSectionTitle(section)
+        title.text = settingsViewModel.getSectionTitle(in: section)
         title.font = .boldSystemFont(ofSize: Constants.FontSizes.medium.rawValue)
         title.textColor = Constants.Colors.backgroundColor
         view.addSubview(title)

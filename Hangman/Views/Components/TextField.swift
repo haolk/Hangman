@@ -14,7 +14,7 @@ class TextField {
     
     init(fontSize: Constants.FontSizes) {
         self.wrappedValue = UITextField()
-        wrappedValue.font = UIFont.init(name: Constants.font, size: fontSize.rawValue)
+        wrappedValue.font = UIFont.init(name: Constants.Font.appFont.rawValue, size: fontSize.rawValue)
         configureTextField()
     }
     

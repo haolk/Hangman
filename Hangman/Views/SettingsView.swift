@@ -19,7 +19,7 @@ final class SettingsView: UIView {
     @Button(iconSize: .small, iconSystemName: .back)
     var backButton: UIButton
     
-    @Label(ofSize: .large, textAlignment: .center, text: Constants.LocalizedString.settings)
+    @Label(text: Constants.LocalizedString.settings, fontSize: .large, textAlignment: .center)
     var titleLabel: UILabel
     
     @SwipeGesture(swipteDirection: .right)
