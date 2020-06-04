@@ -39,8 +39,8 @@ final class Game {
         return score
     }
     
-    func updateImage(for amount: Int) -> Int {
-        imageCount += amount
+    func updateImage() -> Int {
+        imageCount += 1
         
         if imageCount > 6 {     //game over - player lost all lives
             isFinished = true

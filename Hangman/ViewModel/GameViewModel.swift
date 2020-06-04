@@ -133,7 +133,7 @@ final class GameViewModel: GameViewModelProtocol {
     }
     
     private func updateImage() -> String {
-        return GameViewModel.imageFormatter(1, for: game)
+        return GameViewModel.imageFormatter(for: game)
     }
     
     // MARK: - PRIVATE STATIC METHODS
@@ -152,8 +152,8 @@ final class GameViewModel: GameViewModelProtocol {
         return "\(Constants.LocalizedString.best) \(game.bestScore)"
     }
     
-    private static func imageFormatter(_ amount: Int = 0, for game: Game) -> String {
-        return "Hangman-\(game.updateImage(for: amount))"
+    private static func imageFormatter(for game: Game) -> String {
+        return "Hangman-\(game.updateImage())"
     }
     
     private static func answereFormatted(for game: Game) -> String {
