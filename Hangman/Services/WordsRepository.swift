@@ -25,7 +25,7 @@ final class WordsRepository {
             var urlRequest = URLRequest(url: jsonDataUrl)
             urlRequest.setValue(Constants.apiSecretKey, forHTTPHeaderField: "secret-key")
             
-            loadWordsFromWebAPI(with: urlRequest) { (result: Result<[Word], RequestError>) in
+            loadWordsFromWebAPI(with: urlRequest) { result in
                 switch result {
                 case .success(let jsonResult):
                     self.writeJsonInDocDirectory(jsonResult: jsonResult)
@@ -85,7 +85,7 @@ final class WordsRepository {
     }
     
 
-    private func loadWordsFromWebAPI<T: Decodable>(with url: URLRequest, completion: @escaping (Result<T, RequestError>) -> Void) {
+    private func loadWordsFromWebAPI(with url: URLRequest, completion: @escaping (Result<[Word], RequestError>) -> Void) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
                 completion(.failure(.apiError))
@@ -101,7 +101,7 @@ final class WordsRepository {
                 return
             }
             do {
-                let decodedValues = try JSONDecoder().decode(T.self, from: data)
+                let decodedValues = try JSONDecoder().decode([Word].self, from: data)
                 completion(.success(decodedValues))
             } catch  {
                 completion(.failure(.decodeError))
