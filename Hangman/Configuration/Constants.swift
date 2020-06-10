@@ -11,13 +11,6 @@ import UIKit
 enum Constants {
     static let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     
-    static let scoringSystemText = """
-        RIGHT LETTER\t\t\t+  1
-        WRONG LETTER\t\t-  1
-        GAME WIN\t\t\t+ 10
-        GAME LOST\t\t\t-  5
-    """
-    
     static let jsonDataUrl  = "https://api.jsonbin.io/b/5e9cc3d75fa47104cea3869a/latest"        //private
     static let apiSecretKey = "$2b$10$xXkdXsdpu2ZGyszl30H82eVmRmz5uGR/HqIdb/gi84TQJCKSXLiM."
     

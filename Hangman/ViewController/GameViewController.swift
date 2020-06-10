@@ -55,7 +55,7 @@ final class GameViewController: UIViewController {
         gameView.onScoringSystems = { [weak self] in
             guard let self = self else { return }
             
-            let popupVC = PopupViewController()
+            let popupVC = ScoringViewController()
             self.addChild(popupVC)
             popupVC.view.frame = self.view.frame
             self.view.addSubview(popupVC.view)

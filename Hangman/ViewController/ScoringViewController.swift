@@ -8,13 +8,13 @@
 
 import UIKit
 
-class PopupViewController: UIViewController {
+class ScoringViewController: UIViewController {
 
     // MARK: - PROPERTIES
     
-    private lazy var popupView: PopupView = {
-        let optionsView = PopupView()
-        return optionsView
+    private lazy var scoringPopupView: ScoringPopupView = {
+        let scoringPopupView = ScoringPopupView()
+        return scoringPopupView
     }()
     
     // MARK: - INIT
@@ -28,7 +28,7 @@ class PopupViewController: UIViewController {
     }
     
     override func loadView() {
-        view = popupView
+        view = scoringPopupView
     }
     
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ class PopupViewController: UIViewController {
     // MARK: - VIEW CLOSURES
     
     private func setViewClosures() {
-        popupView.onClosePopup = { [weak self] in
+        scoringPopupView.onClosePopup = { [weak self] in
             self?.removeAnimate()
         }
     }
@@ -59,12 +59,12 @@ class PopupViewController: UIViewController {
     
     private func removeAnimate() {
         UIView.animate(withDuration: 0.25, animations: {
-            self.popupView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.popupView.alpha = 0.0;
+            self.scoringPopupView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.scoringPopupView.alpha = 0.0;
         }, completion:{(finished : Bool)  in
             if (finished) {
                 self.willMove(toParent: nil)
-                self.popupView.removeFromSuperview()
+                self.scoringPopupView.removeFromSuperview()
                 self.removeFromParent()
             }
         });
