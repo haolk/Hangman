@@ -32,15 +32,15 @@ struct SettingsViewModel: SettingsViewModelProtocol {
     
     func createOptionsViewModel(ofType type: SettingsOptions) -> OptionsViewModel {
         let data = getData(for: type)
-        return OptionsViewModel(wordsRepository: wordsRepository, type: type, data: data)
+        return OptionsViewModel(type: type, data: data)
     }
     
     // MARK: - PRIVATE METHODS
     
     private func getSections() -> [SettingsSection] {
         let sections: [SettingsSection] = [
-            SettingsSection(title: .general, options: [SettingsOptions.wordLanguage, SettingsOptions.showHint, SettingsOptions.darkMode]),
-            SettingsSection(title: .misc, options: [SettingsOptions.listOfAllWords])
+            SettingsSection(title: .general, options: [.wordLanguage, .showHint, .darkMode]),
+            SettingsSection(title: .misc, options: [.listOfAllWords])
         ]
         return sections
     }

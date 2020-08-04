@@ -10,7 +10,6 @@ import Foundation
 
 struct OptionsViewModel: OptionsViewModelProtocol {
     
-    let wordsRepository: WordsRepository
     let type: SettingsOptions
     let data: [String]
     

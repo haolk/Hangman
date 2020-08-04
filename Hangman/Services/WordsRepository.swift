@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RequestError: Error {
+private enum RequestError: Error {
     case apiError
     case invalidResponse
     case decodeError
@@ -30,16 +30,16 @@ final class WordsRepository {
                 case .success(let jsonResult):
                     self.writeJsonInDocDirectory(jsonResult: jsonResult)
                 case .failure(let error):
-                    print("Error: \(error)")
+                    print("Load words from API fail! Error: \(error)")
+                    self.readJsonFromDocDirectory()
                 }
             }
         }
     }
     
     func getRandomWord() -> WordDetails {
-        readJsonFromDocDirectory()
         if allWords.isEmpty {
-            loadWordsFromAppBundle()
+            readJsonFromDocDirectory()
         }
         
         guard let activeWordsAndHints = getActiveWordsAndHints() else {
@@ -55,9 +55,8 @@ final class WordsRepository {
     func getActiveWordsAndHints() -> [WordDetails]? {
         let activeWordLangugage = GlobalSettings.wordLanguage
         
-        readJsonFromDocDirectory()
         if allWords.isEmpty {
-            loadWordsFromAppBundle()
+            readJsonFromDocDirectory()
         }
         
         if activeWordLangugage == WordLanguages.croatian.description {
@@ -116,14 +115,13 @@ final class WordsRepository {
                 .appendingPathComponent("words.json")
             
             try JSONEncoder().encode(jsonResult).write(to: fileURL)
+            self.allWords = jsonResult
         } catch {
             print("Error in writeJsonInDocDirectory: \(error)")
         }
     }
     
     private func readJsonFromDocDirectory() {
-        if self.allWords.count > 0 { return }
-        
         do {
             let fileURL = try FileManager.default
                 .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
@@ -134,6 +132,7 @@ final class WordsRepository {
             self.allWords = jsonResult
         } catch {
             print("Error in readJsonFromDocDirectory: \(error)")
+            loadWordsFromAppBundle()
         }
     }
     
